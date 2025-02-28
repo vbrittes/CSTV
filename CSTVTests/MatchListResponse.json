@@ -1,0 +1,107 @@
+    [
+      {
+        "id": 1001,
+        "name": "Team A vs Team B",
+        "status": "not_started",
+        "begin_at": "2025-03-01T15:00:00Z",
+        "league": {
+          "name": "Champions League"
+        },
+        "opponents": [
+          {
+            "opponent": {
+              "name": "Team A"
+            }
+          },
+          {
+            "opponent": {
+              "name": "Team B"
+            }
+          }
+        ]
+      },
+      {
+        "id": 1002,
+        "name": "Team C vs Team D",
+        "status": "running",
+        "begin_at": "2025-02-28T18:30:00Z",
+        "league": {
+          "name": "Premier League"
+        },
+        "opponents": [
+          {
+            "opponent": {
+              "name": "Team C"
+            }
+          },
+          {
+            "opponent": {
+              "name": "Team D"
+            }
+          }
+        ]
+      },
+      {
+        "id": 1003,
+        "name": "Team E vs Team F",
+        "status": "finished",
+        "begin_at": "2025-02-27T21:00:00Z",
+        "league": {
+          "name": "La Liga"
+        },
+        "opponents": [
+          {
+            "opponent": {
+              "name": "Team E"
+            }
+          },
+          {
+            "opponent": {
+              "name": "Team F"
+            }
+          }
+        ]
+      },
+      {
+        "id": 1004,
+        "name": "Team G vs Team H",
+        "status": "postponed",
+        "begin_at": "2025-03-05T17:00:00Z",
+        "league": {
+          "name": "Bundesliga"
+        },
+        "opponents": [
+          {
+            "opponent": {
+              "name": "Team G"
+            }
+          },
+          {
+            "opponent": {
+              "name": "Team H"
+            }
+          }
+        ]
+      },
+      {
+        "id": 1005,
+        "name": "Team I vs Team J",
+        "status": "canceled",
+        "begin_at": "2025-03-02T19:30:00Z",
+        "league": {
+          "name": "Serie A"
+        },
+        "opponents": [
+          {
+            "opponent": {
+              "name": "Team I"
+            }
+          },
+          {
+            "opponent": {
+              "name": "Team J"
+            }
+          }
+        ]
+      }
+    ]
