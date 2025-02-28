@@ -15,4 +15,8 @@ class MatchListViewModel {
     init(matchService: MatchService = MatchHTTPService()) {
         self.matchService = matchService
     }
+    
+    func loadContent() {
+        
+    }
 }

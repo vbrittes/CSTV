@@ -16,10 +16,13 @@ class MainCoordinator: Coordinator {
 
     func start() {
         //display main list
-        let vc = UIViewController()
-        vc.view.backgroundColor = .cyan
+        let vc = MatchListTableViewController(viewModel: MatchListViewModel())
         
         navigationController.pushViewController(vc, animated: true)
+    }
+    
+    func navigateToDetail(for match: MatchObject) {
+        
     }
     
 
