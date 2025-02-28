@@ -9,4 +9,10 @@ class MatchListViewModel {
     
     weak var coordinator: Coordinator?
     
+    fileprivate var matches: [MatchObject] = []
+    fileprivate var matchService: MatchService
+    
+    init(matchService: MatchService = MatchHTTPService()) {
+        self.matchService = matchService
+    }
 }
