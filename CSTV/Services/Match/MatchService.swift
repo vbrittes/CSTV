@@ -6,5 +6,5 @@
 //
 
 protocol MatchService {
-    
+    func fetchMatches(completion: (_ result: [MatchObject]?, _ error: Error?) -> Void)
 }

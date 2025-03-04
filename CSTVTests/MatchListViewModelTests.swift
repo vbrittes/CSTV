@@ -13,11 +13,17 @@ final class MatchListViewModelTests: XCTestCase {
     var sut: MatchListViewModel!
     
     override func setUp() {
-        sut = MatchListViewModel()
+        sut = MatchListViewModel(matchService: MatchMockService())
     }
     
     override class func tearDown() {
         
+    }
+    
+    func testFetchMatches() {
+        sut.loadContent()
+        
+        sleep(5)
     }
     
     

@@ -6,5 +6,9 @@
 //
 
 class MatchHTTPService: MatchService, HTTPPerformer {
+    func fetchMatches(completion: ([MatchObject]?, Error?) -> Void) {
+        
+    }
+    
     
 }

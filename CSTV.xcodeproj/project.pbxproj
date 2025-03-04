@@ -34,6 +34,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		299B994A2D77C81B00A38407 /* Exceptions for "CSTVTests" folder in "CSTV" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				MatchListResponse.json,
+			);
+			target = 29B546892D71EA0C001D59FC /* CSTV */;
+		};
 		29B546B22D71EA18001D59FC /* Exceptions for "CSTV" folder in "CSTV" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
@@ -54,6 +61,9 @@
 		};
 		29B546A32D71EA18001D59FC /* CSTVTests */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				299B994A2D77C81B00A38407 /* Exceptions for "CSTVTests" folder in "CSTV" target */,
+			);
 			path = CSTVTests;
 			sourceTree = "<group>";
 		};
