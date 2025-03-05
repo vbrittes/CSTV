@@ -29,15 +29,26 @@ extension JSONFileLoadPerformer {
             let result = try decoder.decode(type, from: data)
             
             completion(result, nil)
+        } catch let DecodingError.dataCorrupted(context) {
+            print("Erro: Data corrompida - \(context.codingPath) - \(context.debugDescription)")
+        } catch let DecodingError.keyNotFound(key, context) {
+            print("Erro: Chave '\(key.stringValue)' não encontrada - \(context.codingPath) - \(context.debugDescription)")
+        } catch let DecodingError.typeMismatch(type, context) {
+            print("Erro: Tipo incompatível \(type) - \(context.codingPath) - \(context.debugDescription)")
+        } catch let DecodingError.valueNotFound(type, context) {
+            print("Erro: Valor não encontrado \(type) - \(context.codingPath) - \(context.debugDescription)")
         } catch {
-            completion(nil, NSError(domain: "Failed to parse file \(fileName)", code: 1))
+            print("Erro desconhecido: \(error)")
         }
+        
+        
     }
 }
 
 class MatchMockService: MatchService, JSONFileLoadPerformer {
     func fetchMatches(completion: (_ result: [MatchObject]?, _ error: Error?) -> Void) {
         load(fileName: "MatchListResponse", type: [MatchObject].self) { result, error in
+            print("parse error: \(error?.localizedDescription)")
             completion(result, error)
         }
     }

@@ -1,107 +1,173 @@
-    [
+[
+  {
+    "begin_at": "2025-01-13T21:00:00Z",
+    "detailed_stats": true,
+    "draw": false,
+    "end_at": null,
+    "forfeit": false,
+    "game_advantage": null,
+    "games": [
       {
-        "id": 1001,
-        "name": "Team A vs Team B",
+        "begin_at": null,
+        "complete": false,
+        "detailed_stats": true,
+        "end_at": null,
+        "finished": false,
+        "forfeit": false,
+        "id": 719974,
+        "length": null,
+        "match_id": 1104866,
+        "position": 1,
         "status": "not_started",
-        "begin_at": "2025-03-01T15:00:00Z",
-        "league": {
-          "name": "Champions League"
+        "winner": {
+          "id": null,
+          "type": "Team"
         },
-        "opponents": [
-          {
-            "opponent": {
-              "name": "Team A"
-            }
-          },
-          {
-            "opponent": {
-              "name": "Team B"
-            }
-          }
-        ]
+        "winner_type": "Team"
       },
       {
-        "id": 1002,
-        "name": "Team C vs Team D",
-        "status": "running",
-        "begin_at": "2025-02-28T18:30:00Z",
-        "league": {
-          "name": "Premier League"
+        "begin_at": null,
+        "complete": false,
+        "detailed_stats": true,
+        "end_at": null,
+        "finished": false,
+        "forfeit": false,
+        "id": 719975,
+        "length": null,
+        "match_id": 1104866,
+        "position": 2,
+        "status": "not_started",
+        "winner": {
+          "id": null,
+          "type": "Team"
         },
-        "opponents": [
-          {
-            "opponent": {
-              "name": "Team C"
-            }
-          },
-          {
-            "opponent": {
-              "name": "Team D"
-            }
-          }
-        ]
+        "winner_type": "Team"
       },
       {
-        "id": 1003,
-        "name": "Team E vs Team F",
-        "status": "finished",
-        "begin_at": "2025-02-27T21:00:00Z",
-        "league": {
-          "name": "La Liga"
+        "begin_at": null,
+        "complete": false,
+        "detailed_stats": true,
+        "end_at": null,
+        "finished": false,
+        "forfeit": false,
+        "id": 719976,
+        "length": null,
+        "match_id": 1104866,
+        "position": 3,
+        "status": "not_started",
+        "winner": {
+          "id": null,
+          "type": "Team"
         },
-        "opponents": [
-          {
-            "opponent": {
-              "name": "Team E"
-            }
-          },
-          {
-            "opponent": {
-              "name": "Team F"
-            }
-          }
-        ]
-      },
-      {
-        "id": 1004,
-        "name": "Team G vs Team H",
-        "status": "postponed",
-        "begin_at": "2025-03-05T17:00:00Z",
-        "league": {
-          "name": "Bundesliga"
-        },
-        "opponents": [
-          {
-            "opponent": {
-              "name": "Team G"
-            }
-          },
-          {
-            "opponent": {
-              "name": "Team H"
-            }
-          }
-        ]
-      },
-      {
-        "id": 1005,
-        "name": "Team I vs Team J",
-        "status": "canceled",
-        "begin_at": "2025-03-02T19:30:00Z",
-        "league": {
-          "name": "Serie A"
-        },
-        "opponents": [
-          {
-            "opponent": {
-              "name": "Team I"
-            }
-          },
-          {
-            "opponent": {
-              "name": "Team J"
-            }
-          }
-        ]
+        "winner_type": "Team"
       }
-    ]
+    ],
+    "id": 1104866,
+    "league": {
+      "id": 4114,
+      "image_url": null,
+      "modified_at": "2021-11-25T15:16:38Z",
+      "name": "ESL One",
+      "slug": "esl-one",
+      "url": null
+    },
+    "league_id": 4114,
+    "live": {
+      "opens_at": null,
+      "supported": false,
+      "url": null
+    },
+    "match_type": "best_of",
+    "modified_at": "2025-01-13T01:44:41Z",
+    "name": "INF vs BB",
+    "number_of_games": 3,
+    "opponents": [
+      {
+        "opponent": {
+          "acronym": "INF",
+          "id": 133009,
+          "image_url": "https://cdn.pandascore.co/images/team/image/133009/151px_infamous_2020_allmode.png",
+          "location": "PE",
+          "modified_at": "2025-01-12T19:13:39Z",
+          "name": "Infamous",
+          "slug": "infamous"
+        },
+        "type": "Team"
+      },
+      {
+        "opponent": {
+          "acronym": "BB",
+          "id": 135561,
+          "image_url": null,
+          "location": "PE",
+          "modified_at": "2025-01-12T16:45:56Z",
+          "name": "Blade breakers",
+          "slug": "blade-breakers"
+        },
+        "type": "Team"
+      }
+    ],
+    "original_scheduled_at": "2025-01-13T21:00:00Z",
+    "rescheduled": false,
+    "results": [
+      {
+        "score": 0,
+        "team_id": 133009
+      },
+      {
+        "score": 0,
+        "team_id": 135561
+      }
+    ],
+    "scheduled_at": "2025-01-13T21:00:00Z",
+    "serie": {
+      "begin_at": "2025-01-12T21:00:00Z",
+      "end_at": null,
+      "full_name": "Raleigh: South America Open Qualifier 1 2025",
+      "id": 8910,
+      "league_id": 4114,
+      "modified_at": "2025-01-12T22:37:55Z",
+      "name": "Raleigh: South America Open Qualifier 1",
+      "season": null,
+      "slug": "esl-one-raleigh-south-america-open-qualifier-1-2025",
+      "winner_id": null,
+      "winner_type": "Team",
+      "year": 2025
+    },
+    "serie_id": 8910,
+    "slug": "infamous-vs-blade-breakers-2025-01-13",
+    "status": "not_started",
+    "streams_list": [],
+    "tournament": {
+      "begin_at": "2025-01-12T21:00:00Z",
+      "country": null,
+      "detailed_stats": true,
+      "end_at": null,
+      "has_bracket": false,
+      "id": 15767,
+      "league_id": 4114,
+      "live_supported": false,
+      "modified_at": "2025-01-13T00:04:39Z",
+      "name": "Playoffs",
+      "prizepool": null,
+      "region": "SA",
+      "serie_id": 8910,
+      "slug": "esl-one-raleigh-south-america-open-qualifier-1-2025-playoffs",
+      "tier": "d",
+      "type": "online",
+      "winner_id": null,
+      "winner_type": "Team"
+    },
+    "tournament_id": 15767,
+    "videogame": {
+      "id": 4,
+      "name": "Dota 2",
+      "slug": "dota-2"
+    },
+    "videogame_title": null,
+    "videogame_version": null,
+    "winner": null,
+    "winner_id": null,
+    "winner_type": "Team"
+  }
+]

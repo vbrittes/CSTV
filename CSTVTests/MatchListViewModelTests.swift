@@ -39,7 +39,7 @@ final class MatchListViewModelTests: XCTestCase {
         
         wait(for: [expectation])
         
-        XCTAssertEqual(sut.matchRepresentations.count, 5)
+        XCTAssertEqual(sut.matchRepresentations.count, 1)
     }
     
     
