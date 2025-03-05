@@ -46,7 +46,7 @@ extension JSONFileLoadPerformer {
 }
 
 class MatchMockService: MatchService, JSONFileLoadPerformer {
-    func fetchMatches(completion: (_ result: [MatchObject]?, _ error: Error?) -> Void) {
+    func fetchMatches(completion: @escaping (_ result: [MatchObject]?, _ error: Error?) -> Void) {
         load(fileName: "MatchListResponse", type: [MatchObject].self) { result, error in
             print("parse error: \(error?.localizedDescription)")
             completion(result, error)

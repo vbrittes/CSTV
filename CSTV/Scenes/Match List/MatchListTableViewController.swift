@@ -41,7 +41,7 @@ class MatchListTableViewController: UITableViewController {
 
 extension MatchListTableViewController {
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1//viewModel.matchRepresentations.count
+        return viewModel.matchRepresentations.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

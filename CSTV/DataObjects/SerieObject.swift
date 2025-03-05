@@ -9,7 +9,7 @@ import Foundation
 
 struct SerieObject: Codable {
     let id: Int
-    let name: String
+    let name: String?
     let fullName: String
     let leagueId: Int
     let beginAt: String?

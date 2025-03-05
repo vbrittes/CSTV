@@ -18,9 +18,9 @@ struct TournamentObject: Codable {
     let modifiedAt: String?
     let hasBracket: Bool
     let prizepool: String?
-    let region: String
-    let tier: String
-    let type: String
+    let region: String?
+    let tier: String?
+    let type: String?
     let winnerId: Int?
     let winnerType: String?
 

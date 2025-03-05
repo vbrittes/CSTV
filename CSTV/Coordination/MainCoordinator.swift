@@ -16,7 +16,7 @@ class MainCoordinator: Coordinator {
 
     func start() {
         //display main list
-        let vc = MatchListTableViewController(viewModel: MatchListViewModel(matchService: MatchMockService()))
+        let vc = MatchListTableViewController(viewModel: MatchListViewModel())
         
         navigationController.pushViewController(vc, animated: true)
     }
