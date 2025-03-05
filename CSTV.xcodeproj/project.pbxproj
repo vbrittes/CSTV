@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		299B994D2D7891B700A38407 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 299B994C2D7891B700A38407 /* Alamofire */; };
 		29B546C52D71F036001D59FC /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 29B546C42D71F036001D59FC /* Alamofire */; };
 /* End PBXBuildFile section */
 
@@ -88,6 +89,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				299B994D2D7891B700A38407 /* Alamofire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -165,6 +167,7 @@
 			);
 			name = CSTVTests;
 			packageProductDependencies = (
+				299B994C2D7891B700A38407 /* Alamofire */,
 			);
 			productName = CSTVTests;
 			productReference = 29B546A02D71EA18001D59FC /* CSTVTests.xctest */;
@@ -596,6 +599,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		299B994C2D7891B700A38407 /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 29B546C32D71F036001D59FC /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
 		29B546C42D71F036001D59FC /* Alamofire */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 29B546C32D71F036001D59FC /* XCRemoteSwiftPackageReference "Alamofire" */;
