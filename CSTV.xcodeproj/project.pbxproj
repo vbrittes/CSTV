@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		299B994D2D7891B700A38407 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 299B994C2D7891B700A38407 /* Alamofire */; };
+		299B99942D78BE5100A38407 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 299B99932D78BE5100A38407 /* Kingfisher */; };
 		29B546C52D71F036001D59FC /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 29B546C42D71F036001D59FC /* Alamofire */; };
 /* End PBXBuildFile section */
 
@@ -81,6 +82,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				299B99942D78BE5100A38407 /* Kingfisher in Frameworks */,
 				29B546C52D71F036001D59FC /* Alamofire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -103,12 +105,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		299B99922D78BE5100A38407 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		29B546812D71EA0C001D59FC = {
 			isa = PBXGroup;
 			children = (
 				29B5468C2D71EA0C001D59FC /* CSTV */,
 				29B546A32D71EA18001D59FC /* CSTVTests */,
 				29B546AD2D71EA18001D59FC /* CSTVUITests */,
+				299B99922D78BE5100A38407 /* Frameworks */,
 				29B5468B2D71EA0C001D59FC /* Products */,
 			);
 			sourceTree = "<group>";
@@ -144,6 +154,7 @@
 			name = CSTV;
 			packageProductDependencies = (
 				29B546C42D71F036001D59FC /* Alamofire */,
+				299B99932D78BE5100A38407 /* Kingfisher */,
 			);
 			productName = CSTV;
 			productReference = 29B5468A2D71EA0C001D59FC /* CSTV.app */;
@@ -230,6 +241,7 @@
 			minimizedProjectReferenceProxies = 1;
 			packageReferences = (
 				29B546C32D71F036001D59FC /* XCRemoteSwiftPackageReference "Alamofire" */,
+				299B99912D78A5B100A38407 /* XCRemoteSwiftPackageReference "Kingfisher" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 29B5468B2D71EA0C001D59FC /* Products */;
@@ -588,6 +600,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		299B99912D78A5B100A38407 /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 8.3.0;
+			};
+		};
 		29B546C32D71F036001D59FC /* XCRemoteSwiftPackageReference "Alamofire" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Alamofire/Alamofire";
@@ -603,6 +623,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 29B546C32D71F036001D59FC /* XCRemoteSwiftPackageReference "Alamofire" */;
 			productName = Alamofire;
+		};
+		299B99932D78BE5100A38407 /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 299B99912D78A5B100A38407 /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
 		};
 		29B546C42D71F036001D59FC /* Alamofire */ = {
 			isa = XCSwiftPackageProductDependency;

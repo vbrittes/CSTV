@@ -14,6 +14,8 @@ class MatchListTableViewController: UITableViewController {
     
     private var cancellables = Set<AnyCancellable>()
     
+    fileprivate let cellReuseIdentifier = "matchCellIdentifier"
+    
     init(viewModel: MatchListViewModel) {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
@@ -26,6 +28,7 @@ class MatchListTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        setupInterface()
         setupBinding()
         viewModel.loadContent()
     }
@@ -38,18 +41,38 @@ class MatchListTableViewController: UITableViewController {
 
 extension MatchListTableViewController {
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return viewModel.matchRepresentations.count
+        return 1//viewModel.matchRepresentations.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = UITableViewCell()
-        cell.textLabel?.text = "\(indexPath.row)" //viewModel.matchRepresentations[indexPath.row].leagueName
+        let cell = tableView.dequeueReusableCell(withIdentifier: cellReuseIdentifier, for: indexPath) as! MatchTableViewCell
+        
+        cell.populate(match: viewModel.matchRepresentations[indexPath.row])
         
         return cell
+    }
+    
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 176 + 8 + 8
+    }
+    
+    override func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 176 + 8 + 8
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        tableView.layoutIfNeeded()
     }
 }
 
 fileprivate extension MatchListTableViewController {
+    
+    func setupInterface() {
+        tableView.register(MatchTableViewCell.self, forCellReuseIdentifier: cellReuseIdentifier)
+//        tableView.contentInsetAdjustmentBehavior = .never
+    }
+    
     func setupBinding() {
         viewModel.$matchRepresentations
             .receive(on: DispatchQueue.main)
@@ -58,4 +81,5 @@ fileprivate extension MatchListTableViewController {
             }
             .store(in: &cancellables)
     }
+    
 }

@@ -58,7 +58,7 @@ class MatchListViewModel {
 //                    teamOneImageURL: m.opponents.first?.opponent.
                     teamOneName: m.opponents.first?.opponent.name ?? "",
 //                    teamTwoImageURL: m.opponents.first?.opponent.
-                    teamTwoName: m.opponents.first?.opponent.name ?? "",
+                    teamTwoName: m.opponents.last?.opponent.name ?? "",
                     leagueName: m.league.name) }
                 }
             .assign(to: &$matchRepresentations)
