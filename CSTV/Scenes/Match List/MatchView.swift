@@ -25,16 +25,30 @@ class MatchView: UIView {
     @IBOutlet var leagueNameLabel: UILabel!
     
     func populate(match describer: MatchDescriber) {
-        firstTeamImageView.kf.setImage(with: describer.teamOneImageURL)
+        loadImage(url: describer.teamOneImageURL, imageView: firstTeamImageView)
         firstTeamNameLabel.text = describer.teamOneName
         
-        secondTeamImageView.kf.setImage(with: describer.teamTwoImageURL)
+        loadImage(url: describer.teamTwoImageURL, imageView: secondTeamImageView)
         secondTeamNameLabel.text = describer.teamTwoName
         
         dateLabel.text = describer.formattedStartDate
         
 //        leagueImageView
         leagueNameLabel.text = describer.leagueName
+        
+        dateLabel.backgroundColor = UIColor(named: "cell-highlighted-on-label-color")
+    }
+    
+    fileprivate func loadImage(url: URL?, imageView: UIImageView) {
+        imageView.kf.setImage(with: url, options: [.transition(.fade(0.3))]) { result in
+            switch result {
+            case .success(let value):
+                imageView.backgroundColor = .clear
+            case .failure(_):
+                imageView.backgroundColor = UIColor(named: "placeholder-bg-color")
+            }
+            
+        }
     }
     
     override func awakeFromNib() {
@@ -53,7 +67,7 @@ class MatchView: UIView {
         
         vsLabel.text = "vs"
         
-        backgroundColor = UIColor(named: "")
+        backgroundColor = UIColor(named: "cell-bg-color")
     }
 
 }

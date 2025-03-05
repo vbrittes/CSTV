@@ -13,12 +13,19 @@ class MatchTableViewCell: UITableViewCell {
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
+        setupInterface()
         setupConstraints()
-        selectionStyle = .none
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    fileprivate func setupInterface() {
+        contentView.backgroundColor = .clear
+        
+        selectionStyle = .none
+        backgroundColor = .clear
     }
     
     fileprivate func setupConstraints() {
@@ -27,8 +34,8 @@ class MatchTableViewCell: UITableViewCell {
         contentView.addSubview(matchView)
         
         NSLayoutConstraint.activate([
-            matchView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: -8),
-            matchView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: 8),
+            matchView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 8),
+            matchView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -8),
             matchView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 8),
             matchView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -8)
             ])

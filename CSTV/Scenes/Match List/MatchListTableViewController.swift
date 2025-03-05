@@ -35,6 +35,8 @@ class MatchListTableViewController: UITableViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
+        navigationItem.title = "Partidas"
     }
     
 }
@@ -69,6 +71,7 @@ extension MatchListTableViewController {
 fileprivate extension MatchListTableViewController {
     
     func setupInterface() {
+        tableView.backgroundColor = UIColor(named: "main-bg-color")
         tableView.register(MatchTableViewCell.self, forCellReuseIdentifier: cellReuseIdentifier)
 //        tableView.contentInsetAdjustmentBehavior = .never
     }
