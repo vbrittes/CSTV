@@ -38,6 +38,7 @@
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
 				MatchListResponse.json,
+				MatchMockService.swift,
 			);
 			target = 29B546892D71EA0C001D59FC /* CSTV */;
 		};

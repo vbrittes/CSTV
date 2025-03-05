@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import Combine
 
 struct MatchDescriber {
     var formattedStartDate: String
@@ -20,14 +21,17 @@ class MatchListViewModel {
     
     weak var coordinator: Coordinator?
     
-    fileprivate var matches: [MatchObject] = []
+    @Published fileprivate var matches: [MatchObject] = []
     fileprivate var matchService: MatchService
     
     fileprivate(set) var errorMessage: String?
-    var matchRepresentations: [MatchDescriber] = []
+    fileprivate var cancellables = Set<AnyCancellable>()
+    
+    @Published var matchRepresentations: [MatchDescriber] = []
     
     init(matchService: MatchService = MatchHTTPService()) {
         self.matchService = matchService
+        bind()
     }
     
     func loadContent() {
@@ -47,4 +51,15 @@ class MatchListViewModel {
             print("got \(matches.count) matches")
         }
     }
+    
+    private func bind() {
+            $matches.map { match in
+                match.map { m in MatchDescriber(
+                    formattedStartDate: "",
+                    teamOneName: "",
+                    teamTwoName: "",
+                    leagueName: "") }
+                }
+            .assign(to: &$matchRepresentations)
+        }
 }
