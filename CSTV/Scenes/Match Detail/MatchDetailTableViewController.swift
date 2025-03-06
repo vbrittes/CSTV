@@ -16,6 +16,8 @@ class MatchDetailTableViewController: UITableViewController {
     
     fileprivate let cellReuseIdentifier = "playerCellIdentifier"
     
+    private lazy var headerView: MatchDetailHeaderView = MatchDetailHeaderView.ibInstance()
+    
     init(viewModel: MatchDetailViewModel) {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
@@ -49,18 +51,17 @@ class MatchDetailTableViewController: UITableViewController {
 
 extension MatchDetailTableViewController {
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1//viewModel.matchRepresentations.count
+        return 5//viewModel.matchRepresentations.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: cellReuseIdentifier, for: indexPath) as! MatchPlayerTableViewCell
         
-        
         return cell
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 176 + 12 + 12
+        return 58 + 6 + 6
     }
 }
 
@@ -69,6 +70,9 @@ fileprivate extension MatchDetailTableViewController {
     func setupInterface() {
         tableView.backgroundColor = UIColor(named: "main-bg-color")
         tableView.register(MatchPlayerTableViewCell.self, forCellReuseIdentifier: cellReuseIdentifier)
+        
+        headerView.frame = CGRect(x: 0, y: 0, width: view.frame.width, height: 136)
+        tableView.tableHeaderView = headerView
     }
     
     func setupBinding() {

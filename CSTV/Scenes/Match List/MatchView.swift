@@ -91,6 +91,9 @@ extension MatchView {
     }
     
     static func ibInstance() -> MatchView {
-        return Bundle.main.loadNibNamed(nibName, owner: self, options: nil)?.first as! MatchView
+        let instance = Bundle.main.loadNibNamed(nibName, owner: self, options: nil)?.first as! MatchView
+        instance.translatesAutoresizingMaskIntoConstraints = false
+        
+        return instance
     }
 }
