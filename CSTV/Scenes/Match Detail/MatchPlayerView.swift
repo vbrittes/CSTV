@@ -48,6 +48,16 @@ class MatchPlayerView: UIView {
         
         playerTwoNicknameLabel.textColor = .white
     }
+    
+    func populate(pair describer: MatchPlayerPairDescriber) {
+        playerOneNicknameLabel.text = describer.playerOneNickname
+        playerOneFullNameLabel.text = describer.playerOneFullname
+        playerOneImageView.kf.setImage(with: describer.playerOneImageURL)
+        
+        playerTwoNicknameLabel.text = describer.playerTwoNickname
+        playerTwoFullNameLabel.text = describer.playerTwoFullname
+        playerTwoImageView.kf.setImage(with: describer.playerTwoImageURL)
+    }
 }
 
 extension MatchPlayerView {

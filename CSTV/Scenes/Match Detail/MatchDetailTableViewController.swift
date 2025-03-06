@@ -16,7 +16,7 @@ class MatchDetailTableViewController: UITableViewController {
     
     fileprivate let cellReuseIdentifier = "playerCellIdentifier"
     
-    private lazy var headerView: MatchDetailHeaderView = MatchDetailHeaderView.ibInstance()
+    private var headerView: MatchDetailHeaderView?
     
     init(viewModel: MatchDetailViewModel) {
         self.viewModel = viewModel
@@ -45,24 +45,38 @@ class MatchDetailTableViewController: UITableViewController {
         super.viewDidLayoutSubviews()
         tableView.layoutIfNeeded()
     }
-
-
 }
 
 extension MatchDetailTableViewController {
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5//viewModel.matchRepresentations.count
+        return viewModel.matchRepresentation?.playerPairs.count ?? 0
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: cellReuseIdentifier, for: indexPath) as! MatchPlayerTableViewCell
         
+        if let pair = viewModel.matchRepresentation?.playerPairs[indexPath.row] {
+            cell.populate(pair: pair)
+        }
+                
         return cell
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 58 + 6 + 6
     }
+    
+    override func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 58 + 6 + 6
+    }
+    
+//    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+//        return headerView
+//    }
+//    
+//    override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+//        return 136
+//    }
 }
 
 fileprivate extension MatchDetailTableViewController {
@@ -71,7 +85,9 @@ fileprivate extension MatchDetailTableViewController {
         tableView.backgroundColor = UIColor(named: "main-bg-color")
         tableView.register(MatchPlayerTableViewCell.self, forCellReuseIdentifier: cellReuseIdentifier)
         
-        headerView.frame = CGRect(x: 0, y: 0, width: view.frame.width, height: 136)
+        headerView = MatchDetailHeaderView.ibInstance()
+        
+        headerView?.frame = CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 136)
         tableView.tableHeaderView = headerView
     }
     

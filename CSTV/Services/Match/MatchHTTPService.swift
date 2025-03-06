@@ -23,7 +23,10 @@ class MatchHTTPService: MatchService, HTTPPerformer {
                         "per_page": "10"
         ]
         
-        http.request(API.matches.url, method: .get, parameters: parameters, headers: headers)
+        http.request(API.matches.url(),
+                     method: .get,
+                     parameters: parameters,
+                     headers: headers)
             .validate()
             .responseDecodable(of: [MatchObject].self) { [weak self] response in
                 switch response.result {
@@ -36,5 +39,25 @@ class MatchHTTPService: MatchService, HTTPPerformer {
                 }
             }
     }
+    
+//    func fetchMatch(id: Int, completion: @escaping (_ result: MatchObject?, _ error: Error?) -> Void) {
+//        let headers: HTTPHeaders = [
+//            "accept": "application/json",
+//            "authorization": "Bearer 37RdDYBEr8u_7om870eY2hyoBLs3tx_tkXaDpBKLksy_uEarHAo"
+//        ]
+//        
+//        http.request(API.matches.url(params: [String(id)]), method: .get, headers: headers)
+//            .validate()
+//            .responseDecodable(of: MatchObject.self) { [weak self] response in
+//                switch response.result {
+//                case .success(let match):
+//                    completion(match, nil)
+//                case .failure(let error):
+//                    //debug purpose
+////                    print("\(self?.prettyPrintedJSON(from: response.data)  ?? "")")
+//                    completion(nil, error)
+//                }
+//            }
+//    }
     
 }

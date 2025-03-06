@@ -100,8 +100,10 @@
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
+                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="ggj-3h-cLU" secondAttribute="trailing" id="0TR-4S-W3R"/>
                 <constraint firstItem="jES-r7-h1D" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="8ln-In-0ds"/>
                 <constraint firstItem="ggj-3h-cLU" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="UNt-Ra-4F0"/>
+                <constraint firstItem="ggj-3h-cLU" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="iN0-l3-epB" secondAttribute="leading" id="g4I-2q-wmO"/>
                 <constraint firstAttribute="bottom" secondItem="ggj-3h-cLU" secondAttribute="bottom" constant="20" id="gRO-XQ-m60"/>
                 <constraint firstItem="jES-r7-h1D" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="ggc-CW-ChZ"/>
                 <constraint firstItem="ggj-3h-cLU" firstAttribute="top" secondItem="jES-r7-h1D" secondAttribute="bottom" constant="20" id="vVO-u6-Bs5"/>

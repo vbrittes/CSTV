@@ -33,10 +33,14 @@ class MatchPlayerTableViewCell: UITableViewCell {
         contentView.addSubview(matchPlayerView)
         
         NSLayoutConstraint.activate([
-            matchPlayerView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 12),
-            matchPlayerView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -12),
-            matchPlayerView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 24),
-            matchPlayerView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -24)
+            matchPlayerView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 0),
+            matchPlayerView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: 0),
+            matchPlayerView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 0),
+            matchPlayerView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: 0)
             ])
+    }
+    
+    func populate(pair describer: MatchPlayerPairDescriber) {
+        matchPlayerView.populate(pair: describer)
     }
 }
