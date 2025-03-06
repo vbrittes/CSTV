@@ -31,12 +31,12 @@ class MatchView: UIView {
         loadImage(url: describer.teamTwoImageURL, imageView: secondTeamImageView)
         secondTeamNameLabel.text = describer.teamTwoName
         
-        dateLabel.text = describer.formattedStartDate
+        dateLabel.text = "test"//describer.formattedStartDate
         
-//        leagueImageView
+        loadImage(url: describer.leagueImageURL, imageView: leagueImageView)
         leagueNameLabel.text = describer.leagueName
         
-        dateLabel.backgroundColor = UIColor(named: "cell-highlighted-on-label-color")
+        dateLabel.backgroundColor = UIColor(named: "cell-highlight-on-label-color")
     }
     
     fileprivate func loadImage(url: URL?, imageView: UIImageView) {
@@ -66,6 +66,19 @@ class MatchView: UIView {
         dateLabel.clipsToBounds = true
         
         vsLabel.text = "vs"
+        vsLabel.textColor = .white
+        vsLabel.alpha = 0.5
+        
+        separatorView.backgroundColor = .white
+        separatorView.alpha = 0.2
+        
+        let labelsToFormat: [UILabel] = [firstTeamNameLabel, secondTeamNameLabel, leagueNameLabel, dateLabel]
+        labelsToFormat.forEach { label in
+            label.textColor = .white
+            label.textAlignment = .center
+            label.numberOfLines = 2
+            label.lineBreakMode = .byTruncatingTail
+        }
         
         backgroundColor = UIColor(named: "cell-bg-color")
     }

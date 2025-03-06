@@ -34,10 +34,10 @@ class MatchTableViewCell: UITableViewCell {
         contentView.addSubview(matchView)
         
         NSLayoutConstraint.activate([
-            matchView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 8),
-            matchView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -8),
-            matchView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 8),
-            matchView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -8)
+            matchView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 12),
+            matchView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -12),
+            matchView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 24),
+            matchView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -24)
             ])
     }
     

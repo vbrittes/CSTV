@@ -16,6 +16,7 @@ struct MatchDescriber {
     var teamTwoImageURL: URL?
     var teamTwoName: String
     var leagueName: String
+    var leagueImageURL: URL?
 }
 
 class MatchListViewModel {
@@ -53,13 +54,14 @@ class MatchListViewModel {
     private func bind() {
             $matches.map { match in
                 match.map { m in MatchDescriber(
-                    formattedStartDate: self.formattedStartDate(date: m.beginAtDate),
+                    formattedStartDate: "",//self.formattedStartDate(date: m.beginAt),
                     startDateHighlight: m.status == .running,
-//                    teamOneImageURL: m.opponents.first?.opponent.
+                    teamOneImageURL: URL(string: m.opponents.first?.opponent.imageUrl ?? ""),
                     teamOneName: m.opponents.first?.opponent.name ?? "",
-//                    teamTwoImageURL: m.opponents.first?.opponent.
+                    teamTwoImageURL: URL(string: m.opponents.last?.opponent.imageUrl ?? ""),
                     teamTwoName: m.opponents.last?.opponent.name ?? "",
-                    leagueName: m.league.name) }
+                    leagueName: m.league.name,
+                    leagueImageURL: URL(string: m.league.imageUrl ?? "")) }
                 }
             .assign(to: &$matchRepresentations)
         }
@@ -75,7 +77,7 @@ fileprivate extension MatchListViewModel {
         case .canceled:
             return "Cancelado"
         case .notStarted, .running:
-            return formattedStartDate(date: match.beginAtDate)
+            return formattedStartDate(date: Date())//match.beginAt)
         }
     }
     

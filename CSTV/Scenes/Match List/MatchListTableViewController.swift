@@ -36,7 +36,7 @@ class MatchListTableViewController: UITableViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        navigationItem.title = "Partidas"
+        setupNavigationBar()
     }
     
 }
@@ -55,11 +55,7 @@ extension MatchListTableViewController {
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 176 + 8 + 8
-    }
-    
-    override func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 176 + 8 + 8
+        return 176 + 12 + 12
     }
     
     override func viewDidLayoutSubviews() {
@@ -73,7 +69,6 @@ fileprivate extension MatchListTableViewController {
     func setupInterface() {
         tableView.backgroundColor = UIColor(named: "main-bg-color")
         tableView.register(MatchTableViewCell.self, forCellReuseIdentifier: cellReuseIdentifier)
-//        tableView.contentInsetAdjustmentBehavior = .never
     }
     
     func setupBinding() {
@@ -83,6 +78,12 @@ fileprivate extension MatchListTableViewController {
                 self?.tableView.reloadData()
             }
             .store(in: &cancellables)
+    }
+    
+    func setupNavigationBar() {
+        navigationItem.title = "Partidas"
+        navigationController?.navigationBar.prefersLargeTitles = true
+        navigationController?.navigationBar.largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
     }
     
 }
