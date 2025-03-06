@@ -96,6 +96,7 @@ fileprivate extension MatchDetailTableViewController {
             .receive(on: DispatchQueue.main)
             .sink { [weak self] _ in
                 self?.tableView.reloadData()
+                self?.reloadHeaderView()
             }
             .store(in: &cancellables)
         
@@ -105,6 +106,11 @@ fileprivate extension MatchDetailTableViewController {
                 self?.tableView.reloadData()
             }
             .store(in: &cancellables)
+    }
+    
+    func reloadHeaderView() {
+        guard let representation = viewModel.matchRepresentation else { return }
+        headerView?.populate(match: representation)
     }
     
     func setupNavigationBar() {

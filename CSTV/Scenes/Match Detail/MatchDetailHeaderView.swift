@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 class MatchDetailHeaderView: UIView {
 
@@ -29,12 +30,27 @@ class MatchDetailHeaderView: UIView {
         let labels: [UILabel] = [firstTeamNameLabel, secondTeamNameLabel, dateLabel]
         labels.forEach { l in
             l.textColor = .white
+            l.numberOfLines = 2
+            l.lineBreakMode = .byTruncatingTail
+            l.textAlignment = .center
         }
         
         let imageViews: [UIImageView] = [firstTeamImageView, secondTeamImageView]
         imageViews.forEach { iv in
             iv.backgroundColor = UIColor(named: "placeholder-bg-color")
         }
+    }
+    
+    func populate(match describer: MatchDetailDescriber) {
+        firstTeamImageView.kf.setImage(with: describer.teamOneImageURL, options: [.transition(.fade(0.3))])
+        firstTeamNameLabel.text = describer.teamOneName
+        
+        secondTeamImageView.kf.setImage(with: describer.teamTwoImageURL, options: [.transition(.fade(0.3))])
+        secondTeamNameLabel.text = describer.teamTwoName
+        
+        vsLabel.text = "vs"
+        
+        dateLabel.text = describer.formattedStartDate
     }
 
 }

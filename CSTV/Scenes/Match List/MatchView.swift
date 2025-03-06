@@ -31,7 +31,7 @@ class MatchView: UIView {
         loadImage(url: describer.teamTwoImageURL, imageView: secondTeamImageView)
         secondTeamNameLabel.text = describer.teamTwoName
         
-        dateLabel.text = "test"//describer.formattedStartDate
+        dateLabel.text = describer.formattedStartDate
         
         loadImage(url: describer.leagueImageURL, imageView: leagueImageView)
         leagueNameLabel.text = describer.leagueName
