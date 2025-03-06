@@ -60,11 +60,6 @@ struct MatchObject: Codable {
     let tournament: TournamentObject
     let videogame: VideoGameObject
     let opponents: [OpponentWrapperObject]
-//        let results: [Result]
-//        let games: [Game]
-//        let live: Live
-//        let streamsList: [Stream]
-//        let winner: Winner?
 
     enum CodingKeys: String, CodingKey {
         case id, name, status, league, serie, tournament, videogame, opponents
@@ -81,69 +76,3 @@ struct MatchObject: Codable {
         case rescheduled, slug
     }
 }
-
-// MARK: - VideoGame
-
-
-
-
-
-
-//// MARK: - Result
-//struct Result: Codable {
-//    let score: Int
-//    let teamId: Int
-//
-//    enum CodingKeys: String, CodingKey {
-//        case score
-//        case teamId = "team_id"
-//    }
-//}
-
-//// MARK: - Game
-//struct Game: Codable {
-//    let id: Int
-//    let matchId: Int
-//    let position: Int
-//    let status: String
-//    let complete: Bool
-//    let detailedStats: Bool
-//    let finished: Bool
-//    let forfeit: Bool
-//    let length: Int?
-//    let winner: Winner?
-//    let winnerType: String?
-//
-//    enum CodingKeys: String, CodingKey {
-//        case id, position, status, complete, finished, forfeit, length, winner
-//        case matchId = "match_id"
-//        case detailedStats = "detailed_stats"
-//        case winnerType = "winner_type"
-//    }
-//}
-
-//// MARK: - Winner
-//struct Winner: Codable {
-//    let id: Int?
-//    let type: String
-//}
-//
-//// MARK: - Live
-//struct Live: Codable {
-//    let opensAt: Date?
-//    let supported: Bool
-//    let url: String?
-//
-//    enum CodingKeys: String, CodingKey {
-//        case opensAt = "opens_at"
-//        case supported, url
-//    }
-//}
-
-//// MARK: - Stream
-//struct Stream: Codable {
-//    let name: String?
-//    let url: String?
-//    let language: String?
-//}
-

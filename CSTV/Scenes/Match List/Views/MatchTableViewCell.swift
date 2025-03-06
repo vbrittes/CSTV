@@ -7,7 +7,7 @@
 
 import UIKit
 
-class MatchTableViewCell: UITableViewCell {
+final class MatchTableViewCell: UITableViewCell {
 
     fileprivate(set) lazy var matchView = MatchView.ibInstance()
     
@@ -21,13 +21,6 @@ class MatchTableViewCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    fileprivate func setupInterface() {
-        contentView.backgroundColor = .clear
-        
-        selectionStyle = .default
-        backgroundColor = .clear
-    }
-    
     override func setSelected(_ selected: Bool, animated: Bool) { }
     
     override func setHighlighted(_ highlighted: Bool, animated: Bool) {
@@ -36,7 +29,15 @@ class MatchTableViewCell: UITableViewCell {
         matchView.layer.borderWidth = highlighted ? 1 : 0
     }
     
-    fileprivate func setupConstraints() {
+    func populate(match describer: MatchListItemDescriber) {
+        matchView.populate(match: describer)
+    }
+
+}
+
+fileprivate extension MatchTableViewCell {
+    
+    func setupConstraints() {
         matchView.translatesAutoresizingMaskIntoConstraints = false
         
         contentView.addSubview(matchView)
@@ -49,8 +50,11 @@ class MatchTableViewCell: UITableViewCell {
             ])
     }
     
-    func populate(match describer: MatchListItemDescriber) {
-        matchView.populate(match: describer)
+    func setupInterface() {
+        contentView.backgroundColor = .clear
+        
+        selectionStyle = .default
+        backgroundColor = .clear
     }
-
+    
 }

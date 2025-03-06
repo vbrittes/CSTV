@@ -19,9 +19,11 @@ struct MatchListItemDescriber {
     var leagueImageURL: URL?
 }
 
-class MatchListViewModel {
+final class MatchListViewModel {
     
     weak var coordinator: MainCoordinator?
+    
+    private let counterStrikeID = 3
     
     fileprivate var matchService: MatchService
     @Published fileprivate var matches: [MatchObject] = []
@@ -37,7 +39,7 @@ class MatchListViewModel {
     }
     
     func loadContent() {
-        matchService.fetchMatches { [weak self] result, error in
+        matchService.fetchMatches(videogame: counterStrikeID) { [weak self] result, error in
             guard let self = self else {
                 return
             }
@@ -51,10 +53,18 @@ class MatchListViewModel {
         }
     }
     
-    private func bind() {
+    func navigateToMatch(index: Int) {
+        let match = matches[index]
+        
+        coordinator?.navigateToDetail(for: match)
+    }
+}
+
+fileprivate extension MatchListViewModel {
+    func bind() {
         $matches.map { match in
             match.map { m in MatchListItemDescriber(
-                formattedStartDate: "",//self.formattedStartDate(date: m.beginAt),
+                formattedStartDate: m.beginAt ?? "",
                 startDateHighlight: m.status == .running,
                 teamOneImageURL: URL(string: m.opponents.first?.opponent.imageUrl ?? ""),
                 teamOneName: m.opponents.first?.opponent.name ?? "",
@@ -64,12 +74,6 @@ class MatchListViewModel {
                 leagueImageURL: URL(string: m.league.imageUrl ?? "")) }
         }
         .assign(to: &$matchRepresentations)
-    }
-    
-    func navigateToMatch(index: Int) {
-        let match = matches[index]
-        
-        coordinator?.navigateToDetail(for: match)
     }
 }
 
@@ -83,7 +87,7 @@ fileprivate extension MatchListViewModel {
         case .canceled:
             return "Cancelado"
         case .notStarted, .running:
-            return formattedStartDate(date: Date())//match.beginAt)
+            return match.beginAt ?? ""
         }
     }
     

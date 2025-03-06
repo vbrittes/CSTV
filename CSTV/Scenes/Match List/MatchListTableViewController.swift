@@ -8,12 +8,11 @@
 import UIKit
 import Combine
 
-class MatchListTableViewController: UITableViewController {
+final class MatchListTableViewController: UITableViewController {
     
-    var viewModel: MatchListViewModel
+    fileprivate(set) var viewModel: MatchListViewModel
     
     fileprivate var cancellables = Set<AnyCancellable>()
-    
     fileprivate let cellReuseIdentifier = "matchCellIdentifier"
     
     init(viewModel: MatchListViewModel) {

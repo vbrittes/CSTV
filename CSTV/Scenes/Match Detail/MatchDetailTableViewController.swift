@@ -8,7 +8,7 @@
 import UIKit
 import Combine
 
-class MatchDetailTableViewController: UITableViewController {
+final class MatchDetailTableViewController: UITableViewController {
 
     var viewModel: MatchDetailViewModel
     
@@ -47,9 +47,11 @@ class MatchDetailTableViewController: UITableViewController {
         super.viewDidLayoutSubviews()
         tableView.layoutIfNeeded()
     }
+    
 }
 
 extension MatchDetailTableViewController {
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return viewModel.playerPairsRepresentation?.count ?? 0
     }
@@ -71,6 +73,7 @@ extension MatchDetailTableViewController {
     override func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
         return 58 + 6 + 6
     }
+    
 }
 
 fileprivate extension MatchDetailTableViewController {

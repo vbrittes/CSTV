@@ -8,7 +8,7 @@
 import UIKit
 import Kingfisher
 
-class MatchDetailHeaderView: UIView {
+final class MatchDetailHeaderView: UIView {
 
     @IBOutlet var firstTeamImageView: UIImageView!
     @IBOutlet var firstTeamNameLabel: UILabel!
@@ -37,11 +37,25 @@ class MatchDetailHeaderView: UIView {
         }
     }
     
+    func populate(match describer: MatchDetailDescriber) {
+        firstTeamImageView.kf.setImage(with: describer.teamOneImageURL, options: [.transition(.fade(0.3))])
+        firstTeamNameLabel.text = describer.teamOneName
+        
+        secondTeamImageView.kf.setImage(with: describer.teamTwoImageURL, options: [.transition(.fade(0.3))])
+        secondTeamNameLabel.text = describer.teamTwoName
+        
+        vsLabel.text = "vs"
+        
+        dateLabel.text = describer.formattedStartDate
+    }
+    
     override func awakeFromNib() {
         setupInterface()
     }
-    
-    private func setupInterface() {
+}
+
+fileprivate extension MatchDetailHeaderView {
+    func setupInterface() {
         backgroundColor = .clear
         
         let labels: [UILabel] = [firstTeamNameLabel, secondTeamNameLabel, dateLabel]
@@ -59,19 +73,6 @@ class MatchDetailHeaderView: UIView {
         
         addConstraint(dynamicWidthConstraint)
     }
-    
-    func populate(match describer: MatchDetailDescriber) {
-        firstTeamImageView.kf.setImage(with: describer.teamOneImageURL, options: [.transition(.fade(0.3))])
-        firstTeamNameLabel.text = describer.teamOneName
-        
-        secondTeamImageView.kf.setImage(with: describer.teamTwoImageURL, options: [.transition(.fade(0.3))])
-        secondTeamNameLabel.text = describer.teamTwoName
-        
-        vsLabel.text = "vs"
-        
-        dateLabel.text = describer.formattedStartDate
-    }
-
 }
 
 extension MatchDetailHeaderView {

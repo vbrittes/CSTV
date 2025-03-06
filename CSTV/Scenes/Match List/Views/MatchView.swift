@@ -8,7 +8,7 @@
 import UIKit
 import Kingfisher
 
-class MatchView: UIView {
+final class MatchView: UIView {
 
     @IBOutlet var firstTeamImageView: UIImageView!
     @IBOutlet var firstTeamNameLabel: UILabel!
@@ -39,7 +39,17 @@ class MatchView: UIView {
         dateLabel.backgroundColor = UIColor(named: "cell-highlight-on-label-color")
     }
     
-    fileprivate func loadImage(url: URL?, imageView: UIImageView) {
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        
+        setupInterface()
+    }
+
+}
+
+fileprivate extension MatchView {
+    
+    func loadImage(url: URL?, imageView: UIImageView) {
         imageView.kf.setImage(with: url, options: [.transition(.fade(0.3))]) { result in
             switch result {
             case .success(let value):
@@ -51,13 +61,7 @@ class MatchView: UIView {
         }
     }
     
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        
-        setupInterface()
-    }
-    
-    fileprivate func setupInterface() {
+    func setupInterface() {
         layer.cornerRadius = 16
         clipsToBounds = true
         
@@ -82,7 +86,7 @@ class MatchView: UIView {
         
         backgroundColor = UIColor(named: "cell-bg-color")
     }
-
+    
 }
 
 extension MatchView {

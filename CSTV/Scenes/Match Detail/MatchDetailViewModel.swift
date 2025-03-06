@@ -26,7 +26,7 @@ struct MatchPlayerPairDescriber {
     var playerTwoImageURL: URL?
 }
 
-class MatchDetailViewModel {
+final class MatchDetailViewModel {
     
     weak var coordinator: Coordinator?
     
@@ -38,6 +38,7 @@ class MatchDetailViewModel {
     fileprivate var cancellables = Set<AnyCancellable>()
     
     fileprivate(set) var errorMessage: String?
+    
     @Published var matchRepresentation: MatchDetailDescriber?
     @Published var playerPairsRepresentation: [MatchPlayerPairDescriber]?
     
@@ -69,7 +70,11 @@ class MatchDetailViewModel {
         loadContent()
     }
     
-    fileprivate func bind() {
+}
+
+fileprivate extension MatchDetailViewModel {
+    
+    func bind() {
         $match.map { match in
             match.map { m in
                 let firstOpponent = m.opponents.first?.opponent
@@ -85,7 +90,7 @@ class MatchDetailViewModel {
         .assign(to: &$matchRepresentation)
     }
     
-    fileprivate func synchronizePlayerDescribers() {
+    func synchronizePlayerDescribers() {
         guard let teamOnePlayers = teamOnePlayers,
               let teamTwoPlayers = teamTwoPlayers,
               teamOnePlayers.count == teamTwoPlayers.count else {
@@ -105,4 +110,5 @@ class MatchDetailViewModel {
                 playerTwoImageURL: URL(string: teamTwoMember.imageURL ?? ""))
         }
     }
+    
 }
