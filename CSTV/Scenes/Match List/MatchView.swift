@@ -24,7 +24,7 @@ class MatchView: UIView {
     @IBOutlet var leagueImageView: UIImageView!
     @IBOutlet var leagueNameLabel: UILabel!
     
-    func populate(match describer: MatchDescriber) {
+    func populate(match describer: MatchListItemDescriber) {
         loadImage(url: describer.teamOneImageURL, imageView: firstTeamImageView)
         firstTeamNameLabel.text = describer.teamOneName
         

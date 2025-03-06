@@ -8,7 +8,7 @@
 import Foundation
 import Combine
 
-struct MatchDescriber {
+struct MatchListItemDescriber {
     var formattedStartDate: String
     var startDateHighlight: Bool
     var teamOneImageURL: URL?
@@ -21,7 +21,7 @@ struct MatchDescriber {
 
 class MatchListViewModel {
     
-    weak var coordinator: Coordinator?
+    weak var coordinator: MainCoordinator?
     
     fileprivate var matchService: MatchService
     @Published fileprivate var matches: [MatchObject] = []
@@ -29,7 +29,7 @@ class MatchListViewModel {
     fileprivate var cancellables = Set<AnyCancellable>()
     
     fileprivate(set) var errorMessage: String?
-    @Published var matchRepresentations: [MatchDescriber] = []
+    @Published var matchRepresentations: [MatchListItemDescriber] = []
     
     init(matchService: MatchService = MatchHTTPService()) {
         self.matchService = matchService
@@ -52,19 +52,25 @@ class MatchListViewModel {
     }
     
     private func bind() {
-            $matches.map { match in
-                match.map { m in MatchDescriber(
-                    formattedStartDate: "",//self.formattedStartDate(date: m.beginAt),
-                    startDateHighlight: m.status == .running,
-                    teamOneImageURL: URL(string: m.opponents.first?.opponent.imageUrl ?? ""),
-                    teamOneName: m.opponents.first?.opponent.name ?? "",
-                    teamTwoImageURL: URL(string: m.opponents.last?.opponent.imageUrl ?? ""),
-                    teamTwoName: m.opponents.last?.opponent.name ?? "",
-                    leagueName: m.league.name,
-                    leagueImageURL: URL(string: m.league.imageUrl ?? "")) }
-                }
-            .assign(to: &$matchRepresentations)
+        $matches.map { match in
+            match.map { m in MatchListItemDescriber(
+                formattedStartDate: "",//self.formattedStartDate(date: m.beginAt),
+                startDateHighlight: m.status == .running,
+                teamOneImageURL: URL(string: m.opponents.first?.opponent.imageUrl ?? ""),
+                teamOneName: m.opponents.first?.opponent.name ?? "",
+                teamTwoImageURL: URL(string: m.opponents.last?.opponent.imageUrl ?? ""),
+                teamTwoName: m.opponents.last?.opponent.name ?? "",
+                leagueName: m.league.name,
+                leagueImageURL: URL(string: m.league.imageUrl ?? "")) }
         }
+        .assign(to: &$matchRepresentations)
+    }
+    
+    func navigateToMatch(index: Int) {
+        let match = matches[index]
+        
+        coordinator?.navigateToDetail(for: match)
+    }
 }
 
 fileprivate extension MatchListViewModel {

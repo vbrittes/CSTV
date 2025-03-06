@@ -1,22 +1,22 @@
 //
-//  MatchListTableViewController.swift
+//  MatchDetailTableViewController.swift
 //  CSTV
 //
-//  Created by Victor Milen Brittes on 28/02/25.
+//  Created by Victor Milen Brittes on 05/03/25.
 //
 
 import UIKit
 import Combine
 
-class MatchListTableViewController: UITableViewController {
-    
-    var viewModel: MatchListViewModel
+class MatchDetailTableViewController: UITableViewController {
+
+    var viewModel: MatchDetailViewModel
     
     fileprivate var cancellables = Set<AnyCancellable>()
     
-    fileprivate let cellReuseIdentifier = "matchCellIdentifier"
+    fileprivate let cellReuseIdentifier = "playerCellIdentifier"
     
-    init(viewModel: MatchListViewModel) {
+    init(viewModel: MatchDetailViewModel) {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
     }
@@ -43,17 +43,18 @@ class MatchListTableViewController: UITableViewController {
         super.viewDidLayoutSubviews()
         tableView.layoutIfNeeded()
     }
+
+
 }
 
-extension MatchListTableViewController {
+extension MatchDetailTableViewController {
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return viewModel.matchRepresentations.count
+        return 1//viewModel.matchRepresentations.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: cellReuseIdentifier, for: indexPath) as! MatchTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: cellReuseIdentifier, for: indexPath) as! MatchPlayerTableViewCell
         
-        cell.populate(match: viewModel.matchRepresentations[indexPath.row])
         
         return cell
     }
@@ -61,21 +62,17 @@ extension MatchListTableViewController {
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 176 + 12 + 12
     }
-    
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        viewModel.navigateToMatch(index: indexPath.row)
-    }
 }
 
-fileprivate extension MatchListTableViewController {
+fileprivate extension MatchDetailTableViewController {
     
     func setupInterface() {
         tableView.backgroundColor = UIColor(named: "main-bg-color")
-        tableView.register(MatchTableViewCell.self, forCellReuseIdentifier: cellReuseIdentifier)
+        tableView.register(MatchPlayerTableViewCell.self, forCellReuseIdentifier: cellReuseIdentifier)
     }
     
     func setupBinding() {
-        viewModel.$matchRepresentations
+        viewModel.$matchRepresentation
             .receive(on: DispatchQueue.main)
             .sink { [weak self] _ in
                 self?.tableView.reloadData()
@@ -84,10 +81,9 @@ fileprivate extension MatchListTableViewController {
     }
     
     func setupNavigationBar() {
-        navigationItem.title = "Partidas"
-        navigationController?.navigationBar.prefersLargeTitles = true
-        navigationController?.navigationBar.largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
-        navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.black]
+        navigationController?.navigationBar.prefersLargeTitles = false
+        navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
     }
     
 }
+
