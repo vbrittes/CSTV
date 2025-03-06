@@ -24,8 +24,16 @@ class MatchTableViewCell: UITableViewCell {
     fileprivate func setupInterface() {
         contentView.backgroundColor = .clear
         
-        selectionStyle = .none
+        selectionStyle = .default
         backgroundColor = .clear
+    }
+    
+    override func setSelected(_ selected: Bool, animated: Bool) { }
+    
+    override func setHighlighted(_ highlighted: Bool, animated: Bool) {
+        matchView.alpha = highlighted ? 0.5 : 1
+        matchView.layer.borderColor = highlighted ? UIColor(white: 1, alpha: 0.2).cgColor : UIColor.clear.cgColor
+        matchView.layer.borderWidth = highlighted ? 1 : 0
     }
     
     fileprivate func setupConstraints() {
@@ -41,7 +49,7 @@ class MatchTableViewCell: UITableViewCell {
             ])
     }
     
-    func populate(match describer: MatchDescriber) {
+    func populate(match describer: MatchListItemDescriber) {
         matchView.populate(match: describer)
     }
 

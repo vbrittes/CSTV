@@ -12,7 +12,7 @@ class MatchListTableViewController: UITableViewController {
     
     var viewModel: MatchListViewModel
     
-    private var cancellables = Set<AnyCancellable>()
+    fileprivate var cancellables = Set<AnyCancellable>()
     
     fileprivate let cellReuseIdentifier = "matchCellIdentifier"
     
@@ -39,6 +39,10 @@ class MatchListTableViewController: UITableViewController {
         setupNavigationBar()
     }
     
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        tableView.layoutIfNeeded()
+    }
 }
 
 extension MatchListTableViewController {
@@ -58,9 +62,8 @@ extension MatchListTableViewController {
         return 176 + 12 + 12
     }
     
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
-        tableView.layoutIfNeeded()
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        viewModel.navigateToMatch(index: indexPath.row)
     }
 }
 
@@ -84,6 +87,7 @@ fileprivate extension MatchListTableViewController {
         navigationItem.title = "Partidas"
         navigationController?.navigationBar.prefersLargeTitles = true
         navigationController?.navigationBar.largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
+        navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.black]
     }
     
 }

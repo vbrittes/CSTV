@@ -16,13 +16,21 @@ class MainCoordinator: Coordinator {
 
     func start() {
         //display main list
-        let vc = MatchListTableViewController(viewModel: MatchListViewModel())
+        let viewModel = MatchListViewModel()
+        viewModel.coordinator = self
+        
+        let vc = MatchListTableViewController(viewModel: viewModel)
         
         navigationController.pushViewController(vc, animated: true)
     }
     
     func navigateToDetail(for match: MatchObject) {
+        let viewModel = MatchDetailViewModel()
+        viewModel.prepareForNavigation(match: match)
         
+        let vc = MatchDetailTableViewController(viewModel: viewModel)
+        
+        navigationController.pushViewController(vc, animated: true)
     }
     
 

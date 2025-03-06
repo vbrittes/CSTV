@@ -24,14 +24,14 @@ class MatchView: UIView {
     @IBOutlet var leagueImageView: UIImageView!
     @IBOutlet var leagueNameLabel: UILabel!
     
-    func populate(match describer: MatchDescriber) {
+    func populate(match describer: MatchListItemDescriber) {
         loadImage(url: describer.teamOneImageURL, imageView: firstTeamImageView)
         firstTeamNameLabel.text = describer.teamOneName
         
         loadImage(url: describer.teamTwoImageURL, imageView: secondTeamImageView)
         secondTeamNameLabel.text = describer.teamTwoName
         
-        dateLabel.text = "test"//describer.formattedStartDate
+        dateLabel.text = describer.formattedStartDate
         
         loadImage(url: describer.leagueImageURL, imageView: leagueImageView)
         leagueNameLabel.text = describer.leagueName
@@ -91,6 +91,9 @@ extension MatchView {
     }
     
     static func ibInstance() -> MatchView {
-        return Bundle.main.loadNibNamed(nibName, owner: self, options: nil)?.first as! MatchView
+        let instance = Bundle.main.loadNibNamed(nibName, owner: self, options: nil)?.first as! MatchView
+        instance.translatesAutoresizingMaskIntoConstraints = false
+        
+        return instance
     }
 }

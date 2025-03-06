@@ -8,8 +8,13 @@
 import Foundation
 
 struct OpponentWrapperObject: Codable {
+    enum OpponentType: String, Codable {
+        case Team
+        case Player
+    }
+    
     let opponent: OpponentObject
-    let type: String
+    let type: OpponentType
 }
 
 struct OpponentObject: Codable {
@@ -19,7 +24,7 @@ struct OpponentObject: Codable {
     let location: String?
     let slug: String
     let imageUrl: String?
-    let modifiedAt: String//Date?
+    let modifiedAt: String?//Date?
     
     enum CodingKeys: String, CodingKey {
         case id, name, acronym, location, slug
