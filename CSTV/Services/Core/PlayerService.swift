@@ -6,5 +6,5 @@
 //
 
 protocol PlayerService {
-    
+    func fetchPlayers(team id: Int, completion: @escaping (_ result: [PlayerObject]?, _ error: Error?) -> Void)
 }

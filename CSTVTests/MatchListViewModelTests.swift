@@ -19,12 +19,8 @@ final class MatchListViewModelTests: XCTestCase {
         sut = MatchListViewModel(matchService: MatchMockService())
     }
     
-    override class func tearDown() {
-    }
-    
     func bind(expectation: XCTestExpectation) {
         sut.$matchRepresentations
-            .receive(on: DispatchQueue.main)
             .sink { _ in
                 expectation.fulfill()
             }
@@ -33,13 +29,14 @@ final class MatchListViewModelTests: XCTestCase {
     
     func testFetchMatches() {
         let expectation = XCTestExpectation()
+        expectation.expectedFulfillmentCount = 2
         
         bind(expectation: expectation)
         sut.loadContent()
         
         wait(for: [expectation])
         
-        XCTAssertEqual(sut.matchRepresentations.count, 10)
+        XCTAssertEqual(sut.matchRepresentations.count, 50)
     }
     
     

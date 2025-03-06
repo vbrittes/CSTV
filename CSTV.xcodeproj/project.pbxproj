@@ -39,8 +39,11 @@
 		299B994A2D77C81B00A38407 /* Exceptions for "CSTVTests" folder in "CSTV" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
-				MatchListResponse.json,
-				MatchMockService.swift,
+				Mock/JSONFileLoadPerformer.swift,
+				Mock/MatchListResponse.json,
+				Mock/MatchMockService.swift,
+				Mock/PlayerListResponse.json,
+				Mock/PlayerMockService.swift,
 			);
 			target = 29B546892D71EA0C001D59FC /* CSTV */;
 		};

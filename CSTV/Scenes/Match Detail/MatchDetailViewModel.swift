@@ -14,8 +14,6 @@ struct MatchDetailDescriber {
     var teamOneName: String
     var teamTwoImageURL: URL?
     var teamTwoName: String
-    
-    var playerPairs: [MatchPlayerPairDescriber]
 }
 
 struct MatchPlayerPairDescriber {
@@ -32,20 +30,38 @@ class MatchDetailViewModel {
     
     weak var coordinator: Coordinator?
     
-    fileprivate var matchService: MatchService
+    fileprivate var playerService: PlayerService
     @Published fileprivate var match: MatchObject?
+    fileprivate var teamOnePlayers: [PlayerObject]?
+    fileprivate var teamTwoPlayers: [PlayerObject]?
     
     fileprivate var cancellables = Set<AnyCancellable>()
     
     fileprivate(set) var errorMessage: String?
     @Published var matchRepresentation: MatchDetailDescriber?
+    @Published var playerPairsRepresentation: [MatchPlayerPairDescriber]?
     
-    init(matchService: MatchService = MatchHTTPService()) {
-        self.matchService = matchService
+    init(playerService: PlayerService = PlayerHTTPService()) {
+        self.playerService = playerService
         bind()
     }
     
     func loadContent() {
+        guard let teamOneID = match?.opponents.first?.opponent.id,
+              let teamTwoID = match?.opponents.last?.opponent.id,
+              match?.opponents.count == 2 else {
+            return
+        }
+        
+        playerService.fetchPlayers(team: teamOneID) { players, error in
+            self.teamOnePlayers = players
+            self.synchronizePlayerDescribers()
+        }
+        
+        playerService.fetchPlayers(team: teamTwoID) { players, error in
+            self.teamTwoPlayers = players
+            self.synchronizePlayerDescribers()
+        }
     }
     
     func prepareForNavigation(match: MatchObject) {
@@ -53,14 +69,45 @@ class MatchDetailViewModel {
         loadContent()
     }
     
-    private func bind() {
+    fileprivate func bind() {
         $match.map { match in
             match.map { m in
-//                m.opponents.map { $0.opponent }
-                let players = [MatchPlayerPairDescriber(playerOneNickname: "one", playerOneFullname: "one one", playerOneImageURL: nil, playerTwoNickname: "two", playerTwoFullname: "two two", playerTwoImageURL: nil)]
-                return MatchDetailDescriber(formattedStartDate: "start", teamOneName: "team one", teamTwoName: "team two", playerPairs: players)
+                let firstOpponent = m.opponents.first?.opponent
+                let secondOpponent = m.opponents.last?.opponent
+                return MatchDetailDescriber(
+                    formattedStartDate: m.beginAt ?? "",
+                    teamOneImageURL: URL(string: firstOpponent?.imageUrl ?? ""),
+                    teamOneName: firstOpponent?.name ?? "",
+                    teamTwoImageURL: URL(string: secondOpponent?.imageUrl ?? ""),
+                    teamTwoName: firstOpponent?.name ?? "")
             }
         }
         .assign(to: &$matchRepresentation)
+    }
+    
+    fileprivate func synchronizePlayerDescribers() {
+        guard let teamOnePlayers = teamOnePlayers,
+              let teamTwoPlayers = teamTwoPlayers,
+              teamOnePlayers.count == teamTwoPlayers.count else {
+            print("diff count")
+            return
+        }
+        
+        print("eq count")
+        
+        playerPairsRepresentation = (0..<teamOnePlayers.count).map { index in
+            let teamOneMember = teamOnePlayers[index]
+            let teamTwoMember = teamTwoPlayers[index]
+            
+            print("analyzing player \(index)")
+            
+            return MatchPlayerPairDescriber(
+                playerOneNickname: teamOneMember.name,
+                playerOneFullname: "\(teamOneMember.firstName ?? "") \(teamOneMember.lastName ?? "")",
+                playerOneImageURL: URL(string: teamOneMember.imageURL ?? ""),
+                playerTwoNickname: teamTwoMember.name,
+                playerTwoFullname: "\(teamTwoMember.firstName ?? "") \(teamTwoMember.lastName ?? "")",
+                playerTwoImageURL: URL(string: teamTwoMember.imageURL ?? ""))
+        }
     }
 }
