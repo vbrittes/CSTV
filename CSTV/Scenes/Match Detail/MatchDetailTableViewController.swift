@@ -49,13 +49,13 @@ class MatchDetailTableViewController: UITableViewController {
 
 extension MatchDetailTableViewController {
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return viewModel.matchRepresentation?.playerPairs.count ?? 0
+        return viewModel.playerPairsRepresentation?.count ?? 0
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: cellReuseIdentifier, for: indexPath) as! MatchPlayerTableViewCell
         
-        if let pair = viewModel.matchRepresentation?.playerPairs[indexPath.row] {
+        if let pair = viewModel.playerPairsRepresentation?[indexPath.row] {
             cell.populate(pair: pair)
         }
                 
@@ -93,6 +93,13 @@ fileprivate extension MatchDetailTableViewController {
     
     func setupBinding() {
         viewModel.$matchRepresentation
+            .receive(on: DispatchQueue.main)
+            .sink { [weak self] _ in
+                self?.tableView.reloadData()
+            }
+            .store(in: &cancellables)
+        
+        viewModel.$playerPairsRepresentation
             .receive(on: DispatchQueue.main)
             .sink { [weak self] _ in
                 self?.tableView.reloadData()
