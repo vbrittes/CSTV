@@ -1,0 +1,1678 @@
+[
+  {
+    "game_advantage" : null,
+    "end_at" : "2014-06-01T15:35:19Z",
+    "streams_list" : [
+
+    ],
+    "draw" : false,
+    "id" : 21655,
+    "winner_id" : 1575,
+    "slug" : "team-lolpro-vs-area-of-effect-esports-2014-06-01",
+    "tournament_id" : 696,
+    "videogame" : {
+      "id" : 1,
+      "name" : "LoL",
+      "slug" : "league-of-legends"
+    },
+    "videogame_version" : {
+      "name" : "4.7.16",
+      "current" : false
+    },
+    "number_of_games" : 3,
+    "videogame_title" : null,
+    "scheduled_at" : "2014-06-01T14:00:00Z",
+    "live" : {
+      "url" : null,
+      "supported" : false,
+      "opens_at" : null
+    },
+    "league" : {
+      "id" : 291,
+      "slug" : "league-of-legends-na-challenger-series",
+      "image_url" : "https:\/\/cdn.pandascore.co\/images\/league\/image\/291\/CS_NA_logo_re-up.png",
+      "name" : "NA Challenger Series",
+      "url" : "http:\/\/www.lolesports.com\/en_US\/na-cs",
+      "modified_at" : "2019-03-05T19:00:14Z"
+    },
+    "rescheduled" : false,
+    "name" : "Qf 2",
+    "winner_type" : "Team",
+    "tournament" : {
+      "id" : 696,
+      "end_at" : "2014-06-22T06:00:00Z",
+      "modified_at" : "2023-02-14T14:47:36Z",
+      "detailed_stats" : true,
+      "prizepool" : "20000 United States Dollar",
+      "region" : null,
+      "live_supported" : false,
+      "tier" : "d",
+      "type" : null,
+      "winner_id" : 85,
+      "slug" : "league-of-legends-na-challenger-series-summer-2014-regular-season",
+      "winner_type" : "Team",
+      "serie_id" : 1352,
+      "league_id" : 291,
+      "has_bracket" : false,
+      "country" : null,
+      "name" : "Regular Season: Bracket 1",
+      "begin_at" : "2014-05-31T14:00:00Z"
+    },
+    "modified_at" : "2020-02-24T11:24:06Z",
+    "status" : "finished",
+    "begin_at" : "2014-06-01T14:00:00Z",
+    "games" : [
+      {
+        "id" : 169697,
+        "end_at" : "2014-06-01T14:55:07Z",
+        "match_id" : 21655,
+        "position" : 1,
+        "detailed_stats" : true,
+        "forfeit" : false,
+        "length" : 3307,
+        "winner" : {
+          "id" : 1575,
+          "type" : "Team"
+        },
+        "winner_type" : "Team",
+        "complete" : false,
+        "finished" : true,
+        "status" : "finished",
+        "begin_at" : "2014-06-01T14:00:00Z"
+      },
+      {
+        "id" : 169698,
+        "end_at" : "2014-06-01T15:35:19Z",
+        "match_id" : 21655,
+        "position" : 2,
+        "detailed_stats" : true,
+        "forfeit" : false,
+        "length" : 2119,
+        "winner" : {
+          "id" : 1575,
+          "type" : "Team"
+        },
+        "winner_type" : "Team",
+        "complete" : false,
+        "finished" : true,
+        "status" : "finished",
+        "begin_at" : "2014-06-01T15:00:00Z"
+      }
+    ],
+    "original_scheduled_at" : "2014-06-01T14:00:00Z",
+    "winner" : {
+      "location" : null,
+      "slug" : "team-lolpro",
+      "id" : 1575,
+      "image_url" : "https:\/\/cdn.pandascore.co\/images\/team\/image\/1575\/300px-Team_LoLPro.png",
+      "acronym" : "LoLPro",
+      "modified_at" : "2021-07-27T15:31:02Z",
+      "name" : "Team LoLPro"
+    },
+    "detailed_stats" : true,
+    "opponents" : [
+      {
+        "type" : "Team",
+        "opponent" : {
+          "location" : null,
+          "slug" : "team-lolpro",
+          "id" : 1575,
+          "image_url" : "https:\/\/cdn.pandascore.co\/images\/team\/image\/1575\/300px-Team_LoLPro.png",
+          "acronym" : "LoLPro",
+          "modified_at" : "2021-07-27T15:31:02Z",
+          "name" : "Team LoLPro"
+        }
+      },
+      {
+        "type" : "Team",
+        "opponent" : {
+          "location" : "US",
+          "slug" : "area-of-effect-esports",
+          "id" : 1573,
+          "image_url" : "https:\/\/cdn.pandascore.co\/images\/team\/image\/1573\/ezgif_5_9f5a9456a7.png",
+          "acronym" : "AOE",
+          "modified_at" : "2024-08-19T11:35:50Z",
+          "name" : "Area of Effect eSports"
+        }
+      }
+    ],
+    "serie" : {
+      "id" : 1352,
+      "end_at" : "2014-08-24T00:00:00Z",
+      "full_name" : "Summer 2014",
+      "season" : "Summer",
+      "winner_id" : 6,
+      "slug" : "league-of-legends-na-challenger-series-summer-2014",
+      "year" : 2014,
+      "winner_type" : "Team",
+      "league_id" : 291,
+      "begin_at" : "2014-05-17T00:00:00Z",
+      "name" : null,
+      "modified_at" : "2022-08-08T15:44:00Z"
+    },
+    "match_type" : "best_of",
+    "results" : [
+      {
+        "team_id" : 1575,
+        "score" : 2
+      },
+      {
+        "team_id" : 1573,
+        "score" : 0
+      }
+    ],
+    "serie_id" : 1352,
+    "forfeit" : false,
+    "league_id" : 291
+  },
+  {
+    "game_advantage" : null,
+    "end_at" : "2014-06-07T15:40:14Z",
+    "streams_list" : [
+
+    ],
+    "draw" : false,
+    "id" : 21656,
+    "winner_id" : 85,
+    "slug" : "team-green-forest-vs-team-coast-2014-06-07",
+    "tournament_id" : 696,
+    "videogame" : {
+      "id" : 1,
+      "name" : "LoL",
+      "slug" : "league-of-legends"
+    },
+    "videogame_version" : {
+      "name" : "4.7.16",
+      "current" : false
+    },
+    "number_of_games" : 3,
+    "videogame_title" : null,
+    "scheduled_at" : "2014-06-07T14:00:00Z",
+    "live" : {
+      "url" : null,
+      "supported" : false,
+      "opens_at" : null
+    },
+    "league" : {
+      "id" : 291,
+      "slug" : "league-of-legends-na-challenger-series",
+      "image_url" : "https:\/\/cdn.pandascore.co\/images\/league\/image\/291\/CS_NA_logo_re-up.png",
+      "name" : "NA Challenger Series",
+      "url" : "http:\/\/www.lolesports.com\/en_US\/na-cs",
+      "modified_at" : "2019-03-05T19:00:14Z"
+    },
+    "rescheduled" : false,
+    "name" : "Qf 3",
+    "winner_type" : "Team",
+    "tournament" : {
+      "id" : 696,
+      "end_at" : "2014-06-22T06:00:00Z",
+      "modified_at" : "2023-02-14T14:47:36Z",
+      "detailed_stats" : true,
+      "prizepool" : "20000 United States Dollar",
+      "region" : null,
+      "live_supported" : false,
+      "tier" : "d",
+      "type" : null,
+      "winner_id" : 85,
+      "slug" : "league-of-legends-na-challenger-series-summer-2014-regular-season",
+      "winner_type" : "Team",
+      "serie_id" : 1352,
+      "league_id" : 291,
+      "has_bracket" : false,
+      "country" : null,
+      "name" : "Regular Season: Bracket 1",
+      "begin_at" : "2014-05-31T14:00:00Z"
+    },
+    "modified_at" : "2020-02-24T11:24:41Z",
+    "status" : "finished",
+    "begin_at" : "2014-06-07T14:00:00Z",
+    "games" : [
+      {
+        "id" : 169700,
+        "end_at" : "2014-06-07T14:31:39Z",
+        "match_id" : 21656,
+        "position" : 1,
+        "detailed_stats" : true,
+        "forfeit" : false,
+        "length" : 1899,
+        "winner" : {
+          "id" : 85,
+          "type" : "Team"
+        },
+        "winner_type" : "Team",
+        "complete" : false,
+        "finished" : true,
+        "status" : "finished",
+        "begin_at" : "2014-06-07T14:00:00Z"
+      },
+      {
+        "id" : 169701,
+        "end_at" : "2014-06-07T15:40:14Z",
+        "match_id" : 21656,
+        "position" : 2,
+        "detailed_stats" : true,
+        "forfeit" : false,
+        "length" : 2414,
+        "winner" : {
+          "id" : 85,
+          "type" : "Team"
+        },
+        "winner_type" : "Team",
+        "complete" : false,
+        "finished" : true,
+        "status" : "finished",
+        "begin_at" : "2014-06-07T15:00:00Z"
+      }
+    ],
+    "original_scheduled_at" : "2014-06-07T14:00:00Z",
+    "winner" : {
+      "location" : null,
+      "slug" : "team-coast",
+      "id" : 85,
+      "image_url" : "https:\/\/cdn.pandascore.co\/images\/team\/image\/85\/Team_Coast.png",
+      "acronym" : "CST",
+      "modified_at" : "2020-02-24T11:26:32Z",
+      "name" : "Team Coast"
+    },
+    "detailed_stats" : true,
+    "opponents" : [
+      {
+        "type" : "Team",
+        "opponent" : {
+          "location" : null,
+          "slug" : "team-green-forest",
+          "id" : 1574,
+          "image_url" : "https:\/\/cdn.pandascore.co\/images\/team\/image\/1574\/Team_Green_Forest.png",
+          "acronym" : "TGF",
+          "modified_at" : "2018-01-09T13:41:52Z",
+          "name" : "Team Green Forest"
+        }
+      },
+      {
+        "type" : "Team",
+        "opponent" : {
+          "location" : null,
+          "slug" : "team-coast",
+          "id" : 85,
+          "image_url" : "https:\/\/cdn.pandascore.co\/images\/team\/image\/85\/Team_Coast.png",
+          "acronym" : "CST",
+          "modified_at" : "2020-02-24T11:26:32Z",
+          "name" : "Team Coast"
+        }
+      }
+    ],
+    "serie" : {
+      "id" : 1352,
+      "end_at" : "2014-08-24T00:00:00Z",
+      "full_name" : "Summer 2014",
+      "season" : "Summer",
+      "winner_id" : 6,
+      "slug" : "league-of-legends-na-challenger-series-summer-2014",
+      "year" : 2014,
+      "winner_type" : "Team",
+      "league_id" : 291,
+      "begin_at" : "2014-05-17T00:00:00Z",
+      "name" : null,
+      "modified_at" : "2022-08-08T15:44:00Z"
+    },
+    "match_type" : "best_of",
+    "results" : [
+      {
+        "team_id" : 1574,
+        "score" : 0
+      },
+      {
+        "team_id" : 85,
+        "score" : 2
+      }
+    ],
+    "serie_id" : 1352,
+    "forfeit" : false,
+    "league_id" : 291
+  },
+  {
+    "game_advantage" : null,
+    "end_at" : "2014-06-14T15:30:36Z",
+    "streams_list" : [
+
+    ],
+    "draw" : false,
+    "id" : 21657,
+    "winner_id" : 1575,
+    "slug" : "team-lolpro-vs-frank-fang-gaming-2014-06-14",
+    "tournament_id" : 696,
+    "videogame" : {
+      "id" : 1,
+      "name" : "LoL",
+      "slug" : "league-of-legends"
+    },
+    "videogame_version" : {
+      "name" : "4.8.3",
+      "current" : false
+    },
+    "number_of_games" : 3,
+    "videogame_title" : null,
+    "scheduled_at" : "2014-06-14T14:00:00Z",
+    "live" : {
+      "url" : null,
+      "supported" : false,
+      "opens_at" : null
+    },
+    "league" : {
+      "id" : 291,
+      "slug" : "league-of-legends-na-challenger-series",
+      "image_url" : "https:\/\/cdn.pandascore.co\/images\/league\/image\/291\/CS_NA_logo_re-up.png",
+      "name" : "NA Challenger Series",
+      "url" : "http:\/\/www.lolesports.com\/en_US\/na-cs",
+      "modified_at" : "2019-03-05T19:00:14Z"
+    },
+    "rescheduled" : false,
+    "name" : "Sf1",
+    "winner_type" : "Team",
+    "tournament" : {
+      "id" : 696,
+      "end_at" : "2014-06-22T06:00:00Z",
+      "modified_at" : "2023-02-14T14:47:36Z",
+      "detailed_stats" : true,
+      "prizepool" : "20000 United States Dollar",
+      "region" : null,
+      "live_supported" : false,
+      "tier" : "d",
+      "type" : null,
+      "winner_id" : 85,
+      "slug" : "league-of-legends-na-challenger-series-summer-2014-regular-season",
+      "winner_type" : "Team",
+      "serie_id" : 1352,
+      "league_id" : 291,
+      "has_bracket" : false,
+      "country" : null,
+      "name" : "Regular Season: Bracket 1",
+      "begin_at" : "2014-05-31T14:00:00Z"
+    },
+    "modified_at" : "2020-02-24T11:25:18Z",
+    "status" : "finished",
+    "begin_at" : "2014-06-14T14:00:00Z",
+    "games" : [
+      {
+        "id" : 169703,
+        "end_at" : "2014-06-14T15:02:38Z",
+        "match_id" : 21657,
+        "position" : 1,
+        "detailed_stats" : true,
+        "forfeit" : false,
+        "length" : 3758,
+        "winner" : {
+          "id" : 1575,
+          "type" : "Team"
+        },
+        "winner_type" : "Team",
+        "complete" : false,
+        "finished" : true,
+        "status" : "finished",
+        "begin_at" : "2014-06-14T14:00:00Z"
+      },
+      {
+        "id" : 169704,
+        "end_at" : "2014-06-14T15:30:36Z",
+        "match_id" : 21657,
+        "position" : 2,
+        "detailed_stats" : true,
+        "forfeit" : false,
+        "length" : 1836,
+        "winner" : {
+          "id" : 1575,
+          "type" : "Team"
+        },
+        "winner_type" : "Team",
+        "complete" : false,
+        "finished" : true,
+        "status" : "finished",
+        "begin_at" : "2014-06-14T15:00:00Z"
+      }
+    ],
+    "original_scheduled_at" : "2014-06-14T14:00:00Z",
+    "winner" : {
+      "location" : null,
+      "slug" : "team-lolpro",
+      "id" : 1575,
+      "image_url" : "https:\/\/cdn.pandascore.co\/images\/team\/image\/1575\/300px-Team_LoLPro.png",
+      "acronym" : "LoLPro",
+      "modified_at" : "2021-07-27T15:31:02Z",
+      "name" : "Team LoLPro"
+    },
+    "detailed_stats" : true,
+    "opponents" : [
+      {
+        "type" : "Team",
+        "opponent" : {
+          "location" : null,
+          "slug" : "team-lolpro",
+          "id" : 1575,
+          "image_url" : "https:\/\/cdn.pandascore.co\/images\/team\/image\/1575\/300px-Team_LoLPro.png",
+          "acronym" : "LoLPro",
+          "modified_at" : "2021-07-27T15:31:02Z",
+          "name" : "Team LoLPro"
+        }
+      },
+      {
+        "type" : "Team",
+        "opponent" : {
+          "location" : null,
+          "slug" : "frank-fang-gaming",
+          "id" : 44,
+          "image_url" : "https:\/\/cdn.pandascore.co\/images\/team\/image\/44\/300px-FFG_logo.png",
+          "acronym" : "FFG",
+          "modified_at" : "2020-02-24T11:26:32Z",
+          "name" : "Frank Fang Gaming"
+        }
+      }
+    ],
+    "serie" : {
+      "id" : 1352,
+      "end_at" : "2014-08-24T00:00:00Z",
+      "full_name" : "Summer 2014",
+      "season" : "Summer",
+      "winner_id" : 6,
+      "slug" : "league-of-legends-na-challenger-series-summer-2014",
+      "year" : 2014,
+      "winner_type" : "Team",
+      "league_id" : 291,
+      "begin_at" : "2014-05-17T00:00:00Z",
+      "name" : null,
+      "modified_at" : "2022-08-08T15:44:00Z"
+    },
+    "match_type" : "best_of",
+    "results" : [
+      {
+        "team_id" : 1575,
+        "score" : 2
+      },
+      {
+        "team_id" : 44,
+        "score" : 0
+      }
+    ],
+    "serie_id" : 1352,
+    "forfeit" : false,
+    "league_id" : 291
+  },
+  {
+    "game_advantage" : null,
+    "end_at" : "2014-06-15T16:35:43Z",
+    "streams_list" : [
+
+    ],
+    "draw" : false,
+    "id" : 21658,
+    "winner_id" : 85,
+    "slug" : "team-lolpro-vs-frank-fang-gaming-2014-06-14-f9c9436c-5562-4f78-b71f-075925a72f4d",
+    "tournament_id" : 696,
+    "videogame" : {
+      "id" : 1,
+      "name" : "LoL",
+      "slug" : "league-of-legends"
+    },
+    "videogame_version" : {
+      "name" : "4.8.3",
+      "current" : false
+    },
+    "number_of_games" : 3,
+    "videogame_title" : null,
+    "scheduled_at" : "2014-06-15T14:00:00Z",
+    "live" : {
+      "url" : null,
+      "supported" : false,
+      "opens_at" : null
+    },
+    "league" : {
+      "id" : 291,
+      "slug" : "league-of-legends-na-challenger-series",
+      "image_url" : "https:\/\/cdn.pandascore.co\/images\/league\/image\/291\/CS_NA_logo_re-up.png",
+      "name" : "NA Challenger Series",
+      "url" : "http:\/\/www.lolesports.com\/en_US\/na-cs",
+      "modified_at" : "2019-03-05T19:00:14Z"
+    },
+    "rescheduled" : false,
+    "name" : "Sf2",
+    "winner_type" : "Team",
+    "tournament" : {
+      "id" : 696,
+      "end_at" : "2014-06-22T06:00:00Z",
+      "modified_at" : "2023-02-14T14:47:36Z",
+      "detailed_stats" : true,
+      "prizepool" : "20000 United States Dollar",
+      "region" : null,
+      "live_supported" : false,
+      "tier" : "d",
+      "type" : null,
+      "winner_id" : 85,
+      "slug" : "league-of-legends-na-challenger-series-summer-2014-regular-season",
+      "winner_type" : "Team",
+      "serie_id" : 1352,
+      "league_id" : 291,
+      "has_bracket" : false,
+      "country" : null,
+      "name" : "Regular Season: Bracket 1",
+      "begin_at" : "2014-05-31T14:00:00Z"
+    },
+    "modified_at" : "2019-07-26T11:08:51Z",
+    "status" : "finished",
+    "begin_at" : "2014-06-15T14:00:00Z",
+    "games" : [
+      {
+        "id" : 169706,
+        "end_at" : "2014-06-15T14:29:01Z",
+        "match_id" : 21658,
+        "position" : 1,
+        "detailed_stats" : true,
+        "forfeit" : false,
+        "length" : 1741,
+        "winner" : {
+          "id" : 85,
+          "type" : "Team"
+        },
+        "winner_type" : "Team",
+        "complete" : false,
+        "finished" : true,
+        "status" : "finished",
+        "begin_at" : "2014-06-15T14:00:00Z"
+      },
+      {
+        "id" : 169707,
+        "end_at" : "2014-06-15T15:40:31Z",
+        "match_id" : 21658,
+        "position" : 2,
+        "detailed_stats" : true,
+        "forfeit" : false,
+        "length" : 2431,
+        "winner" : {
+          "id" : 249,
+          "type" : "Team"
+        },
+        "winner_type" : "Team",
+        "complete" : false,
+        "finished" : true,
+        "status" : "finished",
+        "begin_at" : "2014-06-15T15:00:00Z"
+      },
+      {
+        "id" : 169708,
+        "end_at" : "2014-06-15T16:35:43Z",
+        "match_id" : 21658,
+        "position" : 3,
+        "detailed_stats" : true,
+        "forfeit" : false,
+        "length" : 2145,
+        "winner" : {
+          "id" : 85,
+          "type" : "Team"
+        },
+        "winner_type" : "Team",
+        "complete" : false,
+        "finished" : true,
+        "status" : "finished",
+        "begin_at" : "2014-06-15T16:00:00Z"
+      }
+    ],
+    "original_scheduled_at" : "2014-06-15T14:00:00Z",
+    "winner" : {
+      "location" : null,
+      "slug" : "team-coast",
+      "id" : 85,
+      "image_url" : "https:\/\/cdn.pandascore.co\/images\/team\/image\/85\/Team_Coast.png",
+      "acronym" : "CST",
+      "modified_at" : "2020-02-24T11:26:32Z",
+      "name" : "Team Coast"
+    },
+    "detailed_stats" : true,
+    "opponents" : [
+      {
+        "type" : "Team",
+        "opponent" : {
+          "location" : null,
+          "slug" : "team-coast",
+          "id" : 85,
+          "image_url" : "https:\/\/cdn.pandascore.co\/images\/team\/image\/85\/Team_Coast.png",
+          "acronym" : "CST",
+          "modified_at" : "2020-02-24T11:26:32Z",
+          "name" : "Team Coast"
+        }
+      },
+      {
+        "type" : "Team",
+        "opponent" : {
+          "location" : null,
+          "slug" : "curse-academy",
+          "id" : 249,
+          "image_url" : "https:\/\/cdn.pandascore.co\/images\/team\/image\/249\/Curse_Academy.png",
+          "acronym" : "CA",
+          "modified_at" : "2018-07-17T06:40:18Z",
+          "name" : "Curse Academy"
+        }
+      }
+    ],
+    "serie" : {
+      "id" : 1352,
+      "end_at" : "2014-08-24T00:00:00Z",
+      "full_name" : "Summer 2014",
+      "season" : "Summer",
+      "winner_id" : 6,
+      "slug" : "league-of-legends-na-challenger-series-summer-2014",
+      "year" : 2014,
+      "winner_type" : "Team",
+      "league_id" : 291,
+      "begin_at" : "2014-05-17T00:00:00Z",
+      "name" : null,
+      "modified_at" : "2022-08-08T15:44:00Z"
+    },
+    "match_type" : "best_of",
+    "results" : [
+      {
+        "team_id" : 85,
+        "score" : 2
+      },
+      {
+        "team_id" : 249,
+        "score" : 1
+      }
+    ],
+    "serie_id" : 1352,
+    "forfeit" : false,
+    "league_id" : 291
+  },
+  {
+    "game_advantage" : null,
+    "end_at" : "2014-06-16T15:43:55Z",
+    "streams_list" : [
+
+    ],
+    "draw" : false,
+    "id" : 21660,
+    "winner_id" : 249,
+    "slug" : "curse-academy-vs-frank-fang-gaming-2014-06-16",
+    "tournament_id" : 696,
+    "videogame" : {
+      "id" : 1,
+      "name" : "LoL",
+      "slug" : "league-of-legends"
+    },
+    "videogame_version" : {
+      "name" : "4.8.3",
+      "current" : false
+    },
+    "number_of_games" : 3,
+    "videogame_title" : null,
+    "scheduled_at" : "2014-06-16T14:00:00Z",
+    "live" : {
+      "url" : null,
+      "supported" : false,
+      "opens_at" : null
+    },
+    "league" : {
+      "id" : 291,
+      "slug" : "league-of-legends-na-challenger-series",
+      "image_url" : "https:\/\/cdn.pandascore.co\/images\/league\/image\/291\/CS_NA_logo_re-up.png",
+      "name" : "NA Challenger Series",
+      "url" : "http:\/\/www.lolesports.com\/en_US\/na-cs",
+      "modified_at" : "2019-03-05T19:00:14Z"
+    },
+    "rescheduled" : false,
+    "name" : "3rd\/4th",
+    "winner_type" : "Team",
+    "tournament" : {
+      "id" : 696,
+      "end_at" : "2014-06-22T06:00:00Z",
+      "modified_at" : "2023-02-14T14:47:36Z",
+      "detailed_stats" : true,
+      "prizepool" : "20000 United States Dollar",
+      "region" : null,
+      "live_supported" : false,
+      "tier" : "d",
+      "type" : null,
+      "winner_id" : 85,
+      "slug" : "league-of-legends-na-challenger-series-summer-2014-regular-season",
+      "winner_type" : "Team",
+      "serie_id" : 1352,
+      "league_id" : 291,
+      "has_bracket" : false,
+      "country" : null,
+      "name" : "Regular Season: Bracket 1",
+      "begin_at" : "2014-05-31T14:00:00Z"
+    },
+    "modified_at" : "2019-07-26T11:24:24Z",
+    "status" : "finished",
+    "begin_at" : "2014-06-16T14:00:00Z",
+    "games" : [
+
+    ],
+    "original_scheduled_at" : "2014-06-16T14:00:00Z",
+    "winner" : {
+      "location" : null,
+      "slug" : "curse-academy",
+      "id" : 249,
+      "image_url" : "https:\/\/cdn.pandascore.co\/images\/team\/image\/249\/Curse_Academy.png",
+      "acronym" : "CA",
+      "modified_at" : "2018-07-17T06:40:18Z",
+      "name" : "Curse Academy"
+    },
+    "detailed_stats" : true,
+    "opponents" : [
+      {
+        "type" : "Team",
+        "opponent" : {
+          "location" : null,
+          "slug" : "curse-academy",
+          "id" : 249,
+          "image_url" : "https:\/\/cdn.pandascore.co\/images\/team\/image\/249\/Curse_Academy.png",
+          "acronym" : "CA",
+          "modified_at" : "2018-07-17T06:40:18Z",
+          "name" : "Curse Academy"
+        }
+      },
+      {
+        "type" : "Team",
+        "opponent" : {
+          "location" : null,
+          "slug" : "frank-fang-gaming",
+          "id" : 44,
+          "image_url" : "https:\/\/cdn.pandascore.co\/images\/team\/image\/44\/300px-FFG_logo.png",
+          "acronym" : "FFG",
+          "modified_at" : "2020-02-24T11:26:32Z",
+          "name" : "Frank Fang Gaming"
+        }
+      }
+    ],
+    "serie" : {
+      "id" : 1352,
+      "end_at" : "2014-08-24T00:00:00Z",
+      "full_name" : "Summer 2014",
+      "season" : "Summer",
+      "winner_id" : 6,
+      "slug" : "league-of-legends-na-challenger-series-summer-2014",
+      "year" : 2014,
+      "winner_type" : "Team",
+      "league_id" : 291,
+      "begin_at" : "2014-05-17T00:00:00Z",
+      "name" : null,
+      "modified_at" : "2022-08-08T15:44:00Z"
+    },
+    "match_type" : "best_of",
+    "results" : [
+      {
+        "team_id" : 249,
+        "score" : 0
+      },
+      {
+        "team_id" : 44,
+        "score" : 0
+      }
+    ],
+    "serie_id" : 1352,
+    "forfeit" : false,
+    "league_id" : 291
+  },
+  {
+    "game_advantage" : null,
+    "end_at" : "2014-06-22T05:37:51Z",
+    "streams_list" : [
+
+    ],
+    "draw" : false,
+    "id" : 21659,
+    "winner_id" : 85,
+    "slug" : "team-coast-vs-team-lolpro-2014-06-22",
+    "tournament_id" : 696,
+    "videogame" : {
+      "id" : 1,
+      "name" : "LoL",
+      "slug" : "league-of-legends"
+    },
+    "videogame_version" : null,
+    "number_of_games" : 3,
+    "videogame_title" : null,
+    "scheduled_at" : "2014-06-22T04:00:00Z",
+    "live" : {
+      "url" : null,
+      "supported" : false,
+      "opens_at" : null
+    },
+    "league" : {
+      "id" : 291,
+      "slug" : "league-of-legends-na-challenger-series",
+      "image_url" : "https:\/\/cdn.pandascore.co\/images\/league\/image\/291\/CS_NA_logo_re-up.png",
+      "name" : "NA Challenger Series",
+      "url" : "http:\/\/www.lolesports.com\/en_US\/na-cs",
+      "modified_at" : "2019-03-05T19:00:14Z"
+    },
+    "rescheduled" : false,
+    "name" : "Finals",
+    "winner_type" : "Team",
+    "tournament" : {
+      "id" : 696,
+      "end_at" : "2014-06-22T06:00:00Z",
+      "modified_at" : "2023-02-14T14:47:36Z",
+      "detailed_stats" : true,
+      "prizepool" : "20000 United States Dollar",
+      "region" : null,
+      "live_supported" : false,
+      "tier" : "d",
+      "type" : null,
+      "winner_id" : 85,
+      "slug" : "league-of-legends-na-challenger-series-summer-2014-regular-season",
+      "winner_type" : "Team",
+      "serie_id" : 1352,
+      "league_id" : 291,
+      "has_bracket" : false,
+      "country" : null,
+      "name" : "Regular Season: Bracket 1",
+      "begin_at" : "2014-05-31T14:00:00Z"
+    },
+    "modified_at" : "2020-02-24T11:26:23Z",
+    "status" : "finished",
+    "begin_at" : "2014-06-22T04:00:00Z",
+    "games" : [
+      {
+        "id" : 169709,
+        "end_at" : "2014-06-22T05:03:32Z",
+        "match_id" : 21659,
+        "position" : 1,
+        "detailed_stats" : false,
+        "forfeit" : false,
+        "length" : 3812,
+        "winner" : {
+          "id" : 85,
+          "type" : "Team"
+        },
+        "winner_type" : "Team",
+        "complete" : false,
+        "finished" : true,
+        "status" : "finished",
+        "begin_at" : "2014-06-22T04:00:00Z"
+      },
+      {
+        "id" : 169710,
+        "end_at" : "2014-06-22T05:37:51Z",
+        "match_id" : 21659,
+        "position" : 2,
+        "detailed_stats" : false,
+        "forfeit" : false,
+        "length" : 2271,
+        "winner" : {
+          "id" : 85,
+          "type" : "Team"
+        },
+        "winner_type" : "Team",
+        "complete" : false,
+        "finished" : true,
+        "status" : "finished",
+        "begin_at" : "2014-06-22T05:00:00Z"
+      }
+    ],
+    "original_scheduled_at" : "2014-06-22T04:00:00Z",
+    "winner" : {
+      "location" : null,
+      "slug" : "team-coast",
+      "id" : 85,
+      "image_url" : "https:\/\/cdn.pandascore.co\/images\/team\/image\/85\/Team_Coast.png",
+      "acronym" : "CST",
+      "modified_at" : "2020-02-24T11:26:32Z",
+      "name" : "Team Coast"
+    },
+    "detailed_stats" : false,
+    "opponents" : [
+      {
+        "type" : "Team",
+        "opponent" : {
+          "location" : null,
+          "slug" : "team-coast",
+          "id" : 85,
+          "image_url" : "https:\/\/cdn.pandascore.co\/images\/team\/image\/85\/Team_Coast.png",
+          "acronym" : "CST",
+          "modified_at" : "2020-02-24T11:26:32Z",
+          "name" : "Team Coast"
+        }
+      },
+      {
+        "type" : "Team",
+        "opponent" : {
+          "location" : null,
+          "slug" : "team-lolpro",
+          "id" : 1575,
+          "image_url" : "https:\/\/cdn.pandascore.co\/images\/team\/image\/1575\/300px-Team_LoLPro.png",
+          "acronym" : "LoLPro",
+          "modified_at" : "2021-07-27T15:31:02Z",
+          "name" : "Team LoLPro"
+        }
+      }
+    ],
+    "serie" : {
+      "id" : 1352,
+      "end_at" : "2014-08-24T00:00:00Z",
+      "full_name" : "Summer 2014",
+      "season" : "Summer",
+      "winner_id" : 6,
+      "slug" : "league-of-legends-na-challenger-series-summer-2014",
+      "year" : 2014,
+      "winner_type" : "Team",
+      "league_id" : 291,
+      "begin_at" : "2014-05-17T00:00:00Z",
+      "name" : null,
+      "modified_at" : "2022-08-08T15:44:00Z"
+    },
+    "match_type" : "best_of",
+    "results" : [
+      {
+        "team_id" : 85,
+        "score" : 2
+      },
+      {
+        "team_id" : 1575,
+        "score" : 0
+      }
+    ],
+    "serie_id" : 1352,
+    "forfeit" : false,
+    "league_id" : 291
+  },
+  {
+    "game_advantage" : null,
+    "end_at" : "2014-07-12T15:34:29Z",
+    "streams_list" : [
+
+    ],
+    "draw" : false,
+    "id" : 21661,
+    "winner_id" : 85,
+    "slug" : "team-coast-vs-denial-esports-2014-07-12",
+    "tournament_id" : 697,
+    "videogame" : {
+      "id" : 1,
+      "name" : "LoL",
+      "slug" : "league-of-legends"
+    },
+    "videogame_version" : {
+      "name" : "4.10.7",
+      "current" : false
+    },
+    "number_of_games" : 3,
+    "videogame_title" : null,
+    "scheduled_at" : "2014-07-12T14:00:00Z",
+    "live" : {
+      "url" : null,
+      "supported" : false,
+      "opens_at" : null
+    },
+    "league" : {
+      "id" : 291,
+      "slug" : "league-of-legends-na-challenger-series",
+      "image_url" : "https:\/\/cdn.pandascore.co\/images\/league\/image\/291\/CS_NA_logo_re-up.png",
+      "name" : "NA Challenger Series",
+      "url" : "http:\/\/www.lolesports.com\/en_US\/na-cs",
+      "modified_at" : "2019-03-05T19:00:14Z"
+    },
+    "rescheduled" : false,
+    "name" : "Qf1",
+    "winner_type" : "Team",
+    "tournament" : {
+      "id" : 697,
+      "end_at" : "2014-08-02T18:00:00Z",
+      "modified_at" : "2024-11-22T14:45:57Z",
+      "detailed_stats" : true,
+      "prizepool" : "20000 United States Dollar",
+      "region" : null,
+      "live_supported" : false,
+      "tier" : "d",
+      "type" : null,
+      "winner_id" : 85,
+      "slug" : "league-of-legends-na-challenger-series-summer-2014-bracket-two",
+      "winner_type" : "Team",
+      "serie_id" : 1352,
+      "league_id" : 291,
+      "has_bracket" : false,
+      "country" : null,
+      "name" : "Regular Season: Bracket 2",
+      "begin_at" : "2014-07-12T14:00:00Z"
+    },
+    "modified_at" : "2020-02-24T11:27:43Z",
+    "status" : "finished",
+    "begin_at" : "2014-07-12T14:00:00Z",
+    "games" : [
+      {
+        "id" : 169715,
+        "end_at" : "2014-07-12T14:29:40Z",
+        "match_id" : 21661,
+        "position" : 1,
+        "detailed_stats" : true,
+        "forfeit" : false,
+        "length" : 1779,
+        "winner" : {
+          "id" : 85,
+          "type" : "Team"
+        },
+        "winner_type" : "Team",
+        "complete" : false,
+        "finished" : true,
+        "status" : "finished",
+        "begin_at" : "2014-07-12T14:00:00Z"
+      },
+      {
+        "id" : 169716,
+        "end_at" : "2014-07-12T15:34:29Z",
+        "match_id" : 21661,
+        "position" : 2,
+        "detailed_stats" : true,
+        "forfeit" : false,
+        "length" : 2069,
+        "winner" : {
+          "id" : 85,
+          "type" : "Team"
+        },
+        "winner_type" : "Team",
+        "complete" : false,
+        "finished" : true,
+        "status" : "finished",
+        "begin_at" : "2014-07-12T15:00:00Z"
+      }
+    ],
+    "original_scheduled_at" : "2014-07-12T14:00:00Z",
+    "winner" : {
+      "location" : null,
+      "slug" : "team-coast",
+      "id" : 85,
+      "image_url" : "https:\/\/cdn.pandascore.co\/images\/team\/image\/85\/Team_Coast.png",
+      "acronym" : "CST",
+      "modified_at" : "2020-02-24T11:26:32Z",
+      "name" : "Team Coast"
+    },
+    "detailed_stats" : true,
+    "opponents" : [
+      {
+        "type" : "Team",
+        "opponent" : {
+          "location" : null,
+          "slug" : "team-coast",
+          "id" : 85,
+          "image_url" : "https:\/\/cdn.pandascore.co\/images\/team\/image\/85\/Team_Coast.png",
+          "acronym" : "CST",
+          "modified_at" : "2020-02-24T11:26:32Z",
+          "name" : "Team Coast"
+        }
+      },
+      {
+        "type" : "Team",
+        "opponent" : {
+          "location" : null,
+          "slug" : "denial-esports",
+          "id" : 52,
+          "image_url" : "https:\/\/cdn.pandascore.co\/images\/team\/image\/52\/Denial_eSports_EUlogo_square.png",
+          "acronym" : "DNE",
+          "modified_at" : "2020-02-24T11:37:07Z",
+          "name" : "Denial eSports"
+        }
+      }
+    ],
+    "serie" : {
+      "id" : 1352,
+      "end_at" : "2014-08-24T00:00:00Z",
+      "full_name" : "Summer 2014",
+      "season" : "Summer",
+      "winner_id" : 6,
+      "slug" : "league-of-legends-na-challenger-series-summer-2014",
+      "year" : 2014,
+      "winner_type" : "Team",
+      "league_id" : 291,
+      "begin_at" : "2014-05-17T00:00:00Z",
+      "name" : null,
+      "modified_at" : "2022-08-08T15:44:00Z"
+    },
+    "match_type" : "best_of",
+    "results" : [
+      {
+        "team_id" : 85,
+        "score" : 2
+      },
+      {
+        "team_id" : 52,
+        "score" : 0
+      }
+    ],
+    "serie_id" : 1352,
+    "forfeit" : false,
+    "league_id" : 291
+  },
+  {
+    "game_advantage" : null,
+    "end_at" : "2014-07-13T15:35:10Z",
+    "streams_list" : [
+
+    ],
+    "draw" : false,
+    "id" : 21662,
+    "winner_id" : 6,
+    "slug" : "team-8-vs-zenith-esports-2014-07-13",
+    "tournament_id" : 697,
+    "videogame" : {
+      "id" : 1,
+      "name" : "LoL",
+      "slug" : "league-of-legends"
+    },
+    "videogame_version" : {
+      "name" : "4.10.7",
+      "current" : false
+    },
+    "number_of_games" : 3,
+    "videogame_title" : null,
+    "scheduled_at" : "2014-07-13T14:00:00Z",
+    "live" : {
+      "url" : null,
+      "supported" : false,
+      "opens_at" : null
+    },
+    "league" : {
+      "id" : 291,
+      "slug" : "league-of-legends-na-challenger-series",
+      "image_url" : "https:\/\/cdn.pandascore.co\/images\/league\/image\/291\/CS_NA_logo_re-up.png",
+      "name" : "NA Challenger Series",
+      "url" : "http:\/\/www.lolesports.com\/en_US\/na-cs",
+      "modified_at" : "2019-03-05T19:00:14Z"
+    },
+    "rescheduled" : false,
+    "name" : "Qf2",
+    "winner_type" : "Team",
+    "tournament" : {
+      "id" : 697,
+      "end_at" : "2014-08-02T18:00:00Z",
+      "modified_at" : "2024-11-22T14:45:57Z",
+      "detailed_stats" : true,
+      "prizepool" : "20000 United States Dollar",
+      "region" : null,
+      "live_supported" : false,
+      "tier" : "d",
+      "type" : null,
+      "winner_id" : 85,
+      "slug" : "league-of-legends-na-challenger-series-summer-2014-bracket-two",
+      "winner_type" : "Team",
+      "serie_id" : 1352,
+      "league_id" : 291,
+      "has_bracket" : false,
+      "country" : null,
+      "name" : "Regular Season: Bracket 2",
+      "begin_at" : "2014-07-12T14:00:00Z"
+    },
+    "modified_at" : "2020-02-24T11:28:16Z",
+    "status" : "finished",
+    "begin_at" : "2014-07-13T14:00:00Z",
+    "games" : [
+      {
+        "id" : 169718,
+        "end_at" : "2014-07-13T14:30:01Z",
+        "match_id" : 21662,
+        "position" : 1,
+        "detailed_stats" : true,
+        "forfeit" : false,
+        "length" : 1801,
+        "winner" : {
+          "id" : 6,
+          "type" : "Team"
+        },
+        "winner_type" : "Team",
+        "complete" : false,
+        "finished" : true,
+        "status" : "finished",
+        "begin_at" : "2014-07-13T14:00:00Z"
+      },
+      {
+        "id" : 169719,
+        "end_at" : "2014-07-13T15:35:10Z",
+        "match_id" : 21662,
+        "position" : 2,
+        "detailed_stats" : true,
+        "forfeit" : false,
+        "length" : 2110,
+        "winner" : {
+          "id" : 6,
+          "type" : "Team"
+        },
+        "winner_type" : "Team",
+        "complete" : false,
+        "finished" : true,
+        "status" : "finished",
+        "begin_at" : "2014-07-13T15:00:00Z"
+      }
+    ],
+    "original_scheduled_at" : "2014-07-13T14:00:00Z",
+    "winner" : {
+      "location" : null,
+      "slug" : "team-8",
+      "id" : 6,
+      "image_url" : "https:\/\/cdn.pandascore.co\/images\/team\/image\/6\/Team8_logo.png",
+      "acronym" : "T8",
+      "modified_at" : "2024-11-22T14:45:58Z",
+      "name" : "Team 8"
+    },
+    "detailed_stats" : true,
+    "opponents" : [
+      {
+        "type" : "Team",
+        "opponent" : {
+          "location" : null,
+          "slug" : "team-8",
+          "id" : 6,
+          "image_url" : "https:\/\/cdn.pandascore.co\/images\/team\/image\/6\/Team8_logo.png",
+          "acronym" : "T8",
+          "modified_at" : "2024-11-22T14:45:58Z",
+          "name" : "Team 8"
+        }
+      },
+      {
+        "type" : "Team",
+        "opponent" : {
+          "location" : null,
+          "slug" : "zenith-esports",
+          "id" : 35,
+          "image_url" : "https:\/\/cdn.pandascore.co\/images\/team\/image\/35\/Zenith_eSportslogo_square.png",
+          "acronym" : "ZEN",
+          "modified_at" : "2022-12-30T16:44:13Z",
+          "name" : "Zenith eSports"
+        }
+      }
+    ],
+    "serie" : {
+      "id" : 1352,
+      "end_at" : "2014-08-24T00:00:00Z",
+      "full_name" : "Summer 2014",
+      "season" : "Summer",
+      "winner_id" : 6,
+      "slug" : "league-of-legends-na-challenger-series-summer-2014",
+      "year" : 2014,
+      "winner_type" : "Team",
+      "league_id" : 291,
+      "begin_at" : "2014-05-17T00:00:00Z",
+      "name" : null,
+      "modified_at" : "2022-08-08T15:44:00Z"
+    },
+    "match_type" : "best_of",
+    "results" : [
+      {
+        "team_id" : 6,
+        "score" : 2
+      },
+      {
+        "team_id" : 35,
+        "score" : 0
+      }
+    ],
+    "serie_id" : 1352,
+    "forfeit" : false,
+    "league_id" : 291
+  },
+  {
+    "game_advantage" : null,
+    "end_at" : "2014-07-19T16:38:17Z",
+    "streams_list" : [
+
+    ],
+    "draw" : false,
+    "id" : 21663,
+    "winner_id" : 249,
+    "slug" : "curse-academy-vs-wazabi-gaming-2014-07-19",
+    "tournament_id" : 697,
+    "videogame" : {
+      "id" : 1,
+      "name" : "LoL",
+      "slug" : "league-of-legends"
+    },
+    "videogame_version" : {
+      "name" : "4.10.7",
+      "current" : false
+    },
+    "number_of_games" : 3,
+    "videogame_title" : null,
+    "scheduled_at" : "2014-07-19T14:00:00Z",
+    "live" : {
+      "url" : null,
+      "supported" : false,
+      "opens_at" : null
+    },
+    "league" : {
+      "id" : 291,
+      "slug" : "league-of-legends-na-challenger-series",
+      "image_url" : "https:\/\/cdn.pandascore.co\/images\/league\/image\/291\/CS_NA_logo_re-up.png",
+      "name" : "NA Challenger Series",
+      "url" : "http:\/\/www.lolesports.com\/en_US\/na-cs",
+      "modified_at" : "2019-03-05T19:00:14Z"
+    },
+    "rescheduled" : false,
+    "name" : "Qf3",
+    "winner_type" : "Team",
+    "tournament" : {
+      "id" : 697,
+      "end_at" : "2014-08-02T18:00:00Z",
+      "modified_at" : "2024-11-22T14:45:57Z",
+      "detailed_stats" : true,
+      "prizepool" : "20000 United States Dollar",
+      "region" : null,
+      "live_supported" : false,
+      "tier" : "d",
+      "type" : null,
+      "winner_id" : 85,
+      "slug" : "league-of-legends-na-challenger-series-summer-2014-bracket-two",
+      "winner_type" : "Team",
+      "serie_id" : 1352,
+      "league_id" : 291,
+      "has_bracket" : false,
+      "country" : null,
+      "name" : "Regular Season: Bracket 2",
+      "begin_at" : "2014-07-12T14:00:00Z"
+    },
+    "modified_at" : "2019-07-26T18:57:37Z",
+    "status" : "finished",
+    "begin_at" : "2014-07-19T14:00:00Z",
+    "games" : [
+      {
+        "id" : 169721,
+        "end_at" : "2014-07-19T14:35:04Z",
+        "match_id" : 21663,
+        "position" : 1,
+        "detailed_stats" : true,
+        "forfeit" : false,
+        "length" : 2104,
+        "winner" : {
+          "id" : 249,
+          "type" : "Team"
+        },
+        "winner_type" : "Team",
+        "complete" : false,
+        "finished" : true,
+        "status" : "finished",
+        "begin_at" : "2014-07-19T14:00:00Z"
+      },
+      {
+        "id" : 169722,
+        "end_at" : "2014-07-19T15:11:12Z",
+        "match_id" : 21663,
+        "position" : 2,
+        "detailed_stats" : true,
+        "forfeit" : true,
+        "length" : 672,
+        "winner" : {
+          "id" : 1578,
+          "type" : "Team"
+        },
+        "winner_type" : "Team",
+        "complete" : false,
+        "finished" : true,
+        "status" : "finished",
+        "begin_at" : "2014-07-19T15:00:00Z"
+      },
+      {
+        "id" : 208506,
+        "end_at" : "2014-07-20T01:20:16Z",
+        "match_id" : 21663,
+        "position" : 3,
+        "detailed_stats" : true,
+        "forfeit" : false,
+        "length" : 2297,
+        "winner" : {
+          "id" : 249,
+          "type" : "Team"
+        },
+        "winner_type" : "Team",
+        "complete" : false,
+        "finished" : true,
+        "status" : "finished",
+        "begin_at" : "2014-07-20T00:41:59Z"
+      }
+    ],
+    "original_scheduled_at" : "2014-07-19T14:00:00Z",
+    "winner" : {
+      "location" : null,
+      "slug" : "curse-academy",
+      "id" : 249,
+      "image_url" : "https:\/\/cdn.pandascore.co\/images\/team\/image\/249\/Curse_Academy.png",
+      "acronym" : "CA",
+      "modified_at" : "2018-07-17T06:40:18Z",
+      "name" : "Curse Academy"
+    },
+    "detailed_stats" : true,
+    "opponents" : [
+      {
+        "type" : "Team",
+        "opponent" : {
+          "location" : null,
+          "slug" : "curse-academy",
+          "id" : 249,
+          "image_url" : "https:\/\/cdn.pandascore.co\/images\/team\/image\/249\/Curse_Academy.png",
+          "acronym" : "CA",
+          "modified_at" : "2018-07-17T06:40:18Z",
+          "name" : "Curse Academy"
+        }
+      },
+      {
+        "type" : "Team",
+        "opponent" : {
+          "location" : null,
+          "slug" : "wazabi-gaming",
+          "id" : 1578,
+          "image_url" : "https:\/\/cdn.pandascore.co\/images\/team\/image\/1578\/wazabigaminglogo1.png",
+          "acronym" : "WG",
+          "modified_at" : "2020-02-24T11:32:34Z",
+          "name" : "Wazabi Gaming"
+        }
+      }
+    ],
+    "serie" : {
+      "id" : 1352,
+      "end_at" : "2014-08-24T00:00:00Z",
+      "full_name" : "Summer 2014",
+      "season" : "Summer",
+      "winner_id" : 6,
+      "slug" : "league-of-legends-na-challenger-series-summer-2014",
+      "year" : 2014,
+      "winner_type" : "Team",
+      "league_id" : 291,
+      "begin_at" : "2014-05-17T00:00:00Z",
+      "name" : null,
+      "modified_at" : "2022-08-08T15:44:00Z"
+    },
+    "match_type" : "best_of",
+    "results" : [
+      {
+        "team_id" : 249,
+        "score" : 2
+      },
+      {
+        "team_id" : 1578,
+        "score" : 1
+      }
+    ],
+    "serie_id" : 1352,
+    "forfeit" : false,
+    "league_id" : 291
+  },
+  {
+    "game_advantage" : null,
+    "end_at" : "2014-07-20T16:35:27Z",
+    "streams_list" : [
+
+    ],
+    "draw" : false,
+    "id" : 21664,
+    "winner_id" : 1575,
+    "slug" : "team-lolpro-vs-cognitive-gaming-2014-07-20",
+    "tournament_id" : 697,
+    "videogame" : {
+      "id" : 1,
+      "name" : "LoL",
+      "slug" : "league-of-legends"
+    },
+    "videogame_version" : {
+      "name" : "4.10.7",
+      "current" : false
+    },
+    "number_of_games" : 3,
+    "videogame_title" : null,
+    "scheduled_at" : "2014-07-20T14:00:00Z",
+    "live" : {
+      "url" : null,
+      "supported" : false,
+      "opens_at" : null
+    },
+    "league" : {
+      "id" : 291,
+      "slug" : "league-of-legends-na-challenger-series",
+      "image_url" : "https:\/\/cdn.pandascore.co\/images\/league\/image\/291\/CS_NA_logo_re-up.png",
+      "name" : "NA Challenger Series",
+      "url" : "http:\/\/www.lolesports.com\/en_US\/na-cs",
+      "modified_at" : "2019-03-05T19:00:14Z"
+    },
+    "rescheduled" : false,
+    "name" : "Qf4",
+    "winner_type" : "Team",
+    "tournament" : {
+      "id" : 697,
+      "end_at" : "2014-08-02T18:00:00Z",
+      "modified_at" : "2024-11-22T14:45:57Z",
+      "detailed_stats" : true,
+      "prizepool" : "20000 United States Dollar",
+      "region" : null,
+      "live_supported" : false,
+      "tier" : "d",
+      "type" : null,
+      "winner_id" : 85,
+      "slug" : "league-of-legends-na-challenger-series-summer-2014-bracket-two",
+      "winner_type" : "Team",
+      "serie_id" : 1352,
+      "league_id" : 291,
+      "has_bracket" : false,
+      "country" : null,
+      "name" : "Regular Season: Bracket 2",
+      "begin_at" : "2014-07-12T14:00:00Z"
+    },
+    "modified_at" : "2020-02-24T11:29:21Z",
+    "status" : "finished",
+    "begin_at" : "2014-07-20T14:00:00Z",
+    "games" : [
+      {
+        "id" : 169724,
+        "end_at" : "2014-07-20T14:30:12Z",
+        "match_id" : 21664,
+        "position" : 1,
+        "detailed_stats" : true,
+        "forfeit" : false,
+        "length" : 1812,
+        "winner" : {
+          "id" : 1575,
+          "type" : "Team"
+        },
+        "winner_type" : "Team",
+        "complete" : false,
+        "finished" : true,
+        "status" : "finished",
+        "begin_at" : "2014-07-20T14:00:00Z"
+      },
+      {
+        "id" : 169725,
+        "end_at" : "2014-07-20T15:28:59Z",
+        "match_id" : 21664,
+        "position" : 2,
+        "detailed_stats" : true,
+        "forfeit" : false,
+        "length" : 1739,
+        "winner" : {
+          "id" : 1576,
+          "type" : "Team"
+        },
+        "winner_type" : "Team",
+        "complete" : false,
+        "finished" : true,
+        "status" : "finished",
+        "begin_at" : "2014-07-20T15:00:00Z"
+      },
+      {
+        "id" : 169726,
+        "end_at" : "2014-07-20T16:35:27Z",
+        "match_id" : 21664,
+        "position" : 3,
+        "detailed_stats" : true,
+        "forfeit" : false,
+        "length" : 2127,
+        "winner" : {
+          "id" : 1575,
+          "type" : "Team"
+        },
+        "winner_type" : "Team",
+        "complete" : false,
+        "finished" : true,
+        "status" : "finished",
+        "begin_at" : "2014-07-20T16:00:00Z"
+      }
+    ],
+    "original_scheduled_at" : "2014-07-20T14:00:00Z",
+    "winner" : {
+      "location" : null,
+      "slug" : "team-lolpro",
+      "id" : 1575,
+      "image_url" : "https:\/\/cdn.pandascore.co\/images\/team\/image\/1575\/300px-Team_LoLPro.png",
+      "acronym" : "LoLPro",
+      "modified_at" : "2021-07-27T15:31:02Z",
+      "name" : "Team LoLPro"
+    },
+    "detailed_stats" : true,
+    "opponents" : [
+      {
+        "type" : "Team",
+        "opponent" : {
+          "location" : null,
+          "slug" : "team-lolpro",
+          "id" : 1575,
+          "image_url" : "https:\/\/cdn.pandascore.co\/images\/team\/image\/1575\/300px-Team_LoLPro.png",
+          "acronym" : "LoLPro",
+          "modified_at" : "2021-07-27T15:31:02Z",
+          "name" : "Team LoLPro"
+        }
+      },
+      {
+        "type" : "Team",
+        "opponent" : {
+          "location" : null,
+          "slug" : "cognitive-gaming",
+          "id" : 1576,
+          "image_url" : "https:\/\/cdn.pandascore.co\/images\/team\/image\/1576\/600px-COG_Logo.png",
+          "acronym" : "COG",
+          "modified_at" : "2018-01-09T14:08:23Z",
+          "name" : "COGnitive Gaming"
+        }
+      }
+    ],
+    "serie" : {
+      "id" : 1352,
+      "end_at" : "2014-08-24T00:00:00Z",
+      "full_name" : "Summer 2014",
+      "season" : "Summer",
+      "winner_id" : 6,
+      "slug" : "league-of-legends-na-challenger-series-summer-2014",
+      "year" : 2014,
+      "winner_type" : "Team",
+      "league_id" : 291,
+      "begin_at" : "2014-05-17T00:00:00Z",
+      "name" : null,
+      "modified_at" : "2022-08-08T15:44:00Z"
+    },
+    "match_type" : "best_of",
+    "results" : [
+      {
+        "team_id" : 1575,
+        "score" : 2
+      },
+      {
+        "team_id" : 1576,
+        "score" : 1
+      }
+    ],
+    "serie_id" : 1352,
+    "forfeit" : false,
+    "league_id" : 291
+  }
+]
