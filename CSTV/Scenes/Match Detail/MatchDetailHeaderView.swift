@@ -20,6 +20,23 @@ class MatchDetailHeaderView: UIView {
     
     @IBOutlet var dateLabel: UILabel!
     
+    fileprivate lazy var dynamicWidthConstraint = NSLayoutConstraint(item: self,
+                                                                     attribute: .width,
+                                                                     relatedBy: .equal,
+                                                                     toItem: nil,
+                                                                     attribute: .notAnAttribute,
+                                                                     multiplier: 1,
+                                                                     constant: 0)
+    
+    var dynamicWidth: CGFloat {
+        get {
+            return dynamicWidthConstraint.constant
+        }
+        set {
+            dynamicWidthConstraint.constant = newValue
+        }
+    }
+    
     override func awakeFromNib() {
         setupInterface()
     }
@@ -39,6 +56,8 @@ class MatchDetailHeaderView: UIView {
         imageViews.forEach { iv in
             iv.backgroundColor = UIColor(named: "placeholder-bg-color")
         }
+        
+        addConstraint(dynamicWidthConstraint)
     }
     
     func populate(match describer: MatchDetailDescriber) {

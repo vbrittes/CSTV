@@ -89,18 +89,13 @@ class MatchDetailViewModel {
         guard let teamOnePlayers = teamOnePlayers,
               let teamTwoPlayers = teamTwoPlayers,
               teamOnePlayers.count == teamTwoPlayers.count else {
-            print("diff count")
             return
         }
-        
-        print("eq count")
-        
+                
         playerPairsRepresentation = (0..<teamOnePlayers.count).map { index in
             let teamOneMember = teamOnePlayers[index]
             let teamTwoMember = teamTwoPlayers[index]
-            
-            print("analyzing player \(index)")
-            
+                        
             return MatchPlayerPairDescriber(
                 playerOneNickname: teamOneMember.name,
                 playerOneFullname: "\(teamOneMember.firstName ?? "") \(teamOneMember.lastName ?? "")",

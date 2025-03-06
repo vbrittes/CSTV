@@ -17,6 +17,7 @@ class MatchDetailTableViewController: UITableViewController {
     fileprivate let cellReuseIdentifier = "playerCellIdentifier"
     
     private var headerView: MatchDetailHeaderView?
+    private var headerViewWidthConstraint: NSLayoutConstraint?
     
     init(viewModel: MatchDetailViewModel) {
         self.viewModel = viewModel
@@ -30,15 +31,16 @@ class MatchDetailTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        setupInterface()
         setupBinding()
         viewModel.loadContent()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
+        setupInterface()
         setupNavigationBar()
+        
+        reloadHeaderView()
     }
     
     override func viewDidLayoutSubviews() {
@@ -69,14 +71,6 @@ extension MatchDetailTableViewController {
     override func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
         return 58 + 6 + 6
     }
-    
-//    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-//        return headerView
-//    }
-//    
-//    override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-//        return 136
-//    }
 }
 
 fileprivate extension MatchDetailTableViewController {
@@ -86,8 +80,8 @@ fileprivate extension MatchDetailTableViewController {
         tableView.register(MatchPlayerTableViewCell.self, forCellReuseIdentifier: cellReuseIdentifier)
         
         headerView = MatchDetailHeaderView.ibInstance()
-        
-        headerView?.frame = CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 136)
+        headerView?.dynamicWidth = tableView.frame.width
+                
         tableView.tableHeaderView = headerView
     }
     
@@ -110,7 +104,8 @@ fileprivate extension MatchDetailTableViewController {
     
     func reloadHeaderView() {
         guard let representation = viewModel.matchRepresentation else { return }
-        headerView?.populate(match: representation)
+                
+        self.headerView?.populate(match: representation)
     }
     
     func setupNavigationBar() {

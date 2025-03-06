@@ -80,8 +80,8 @@ class PlayerHTTPService: PlayerService, HTTPPerformer {
                 case .success(let players):
                     completion(players, nil)
                 case .failure(let error):
-                    //debug purpose
-//                    print("\(self?.prettyPrintedJSON(from: response.data)  ?? "")")
+//                    debug purpose
+//                    print("\(self.prettyPrintedJSON(from: response.data)  ?? "")")
                     completion(nil, error)
                 }
             }
