@@ -30,7 +30,7 @@ class MatchHTTPService: MatchService, HTTPPerformer {
             .responseDecodable(of: [MatchObject].self) { response in
                 switch response.result {
                 case .success(let matches):
-//                    print("success: \(response.request?.urlRequest)")
+                    print("success: \(response.request?.urlRequest)")
                     completion(matches, nil)
                 case .failure(let error):
 //                    print("failure: \(response.request?.urlRequest)")

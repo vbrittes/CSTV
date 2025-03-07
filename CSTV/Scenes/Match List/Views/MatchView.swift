@@ -36,7 +36,7 @@ final class MatchView: UIView {
         leagueImageView.loadWithCirclePlaceholder(url: describer.leagueImageURL)
         leagueNameLabel.text = describer.leagueName
         
-        dateLabel.backgroundColor = .cellHighlightOnLabel
+        dateLabel.backgroundColor = describer.startDateHighlight ? .cellHighlightOnLabel : .cellHighlightOffLabelColor1
     }
     
     override func awakeFromNib() {

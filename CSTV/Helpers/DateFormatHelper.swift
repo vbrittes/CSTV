@@ -19,7 +19,6 @@ class DateFormatHelper {
     }
     
     func format(date toUI: Date) -> String {
-        print(toUI)
         return "\(formattedDay(for: toUI)), \(formattedHour(for: toUI))"
     }
     

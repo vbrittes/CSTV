@@ -121,16 +121,17 @@ final class MatchListViewModel {
 
 fileprivate extension MatchListViewModel {
     func bind() {
+        let f = DateFormatHelper()
+        
         $matches.map { match in
             match.map { m in
-                let f = DateFormatHelper()
-                return MatchListItemDescriber(
+                MatchListItemDescriber(
                     formattedStartDate: f.format(dateString: m.beginAt) ?? "",
                     startDateHighlight: m.status == .running,
                     teamOneImageURL: URL(string: m.opponents.first?.opponent?.imageURL ?? ""),
-                    teamOneName: m.opponents.first?.opponent?.name ?? "",
+                    teamOneName: m.opponents.first?.opponent?.name ?? "Não definido",
                     teamTwoImageURL: URL(string: m.opponents.last?.opponent?.imageURL ?? ""),
-                    teamTwoName: m.opponents.last?.opponent?.name ?? "",
+                    teamTwoName: m.opponents.last?.opponent?.name ?? "Não definido",
                     leagueName: m.league.name,
                     leagueImageURL: URL(string: m.league.imageURL ?? "")) }
         }

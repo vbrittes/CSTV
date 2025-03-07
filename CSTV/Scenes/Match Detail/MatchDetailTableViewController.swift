@@ -63,14 +63,11 @@ final class MatchDetailTableViewController: UITableViewController {
 extension MatchDetailTableViewController {
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        let count = viewModel.playerPairsRepresentation?.count ?? 0
-        return count == 0 ? 1 : count
+        return shouldDisplayLoading() ? 1 : viewModel.playerPairsRepresentation?.count ?? 0
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let count = viewModel.playerPairsRepresentation?.count ?? 0
-        
-        guard count > 0 else {
+        guard !shouldDisplayLoading() else {
             return LoadingTableViewCell()
         }
         
@@ -84,9 +81,7 @@ extension MatchDetailTableViewController {
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        let count = viewModel.playerPairsRepresentation?.count ?? 0
-        
-        guard count > 0 else {
+        guard !shouldDisplayLoading() else {
             return tableView.frame.height * 0.5
         }
         
@@ -94,7 +89,7 @@ extension MatchDetailTableViewController {
     }
     
     override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return viewModel.errorMessage != nil ? 44 : 0
+        return shouldDisplayLoading() ? 44 : 0
     }
     
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
@@ -105,6 +100,10 @@ extension MatchDetailTableViewController {
         label.attributedText = .formattedErrorDisplay(content: message)
         
         return label
+    }
+    
+    fileprivate func shouldDisplayLoading() -> Bool {
+        return viewModel.playerPairsRepresentation?.count == 0 && viewModel.errorMessage == nil
     }
     
 }
@@ -175,6 +174,14 @@ fileprivate extension MatchDetailTableViewController {
     
     func setupNavigationBar() {
         navigationController?.navigationBar.prefersLargeTitles = false
+        
+        let backImage = UIImage(systemName: "arrow.backward")
+        
+        let backItem = UIBarButtonItem(customView: UIImageView(image: backImage))
+        backItem.tintColor = .primaryText
+        
+        navigationController?.navigationItem.backBarButtonItem?.tintColor = .primaryText
+        navigationController?.navigationItem.backBarButtonItem = backItem
     }
     
 }
