@@ -63,10 +63,17 @@ final class MatchDetailTableViewController: UITableViewController {
 extension MatchDetailTableViewController {
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return viewModel.playerPairsRepresentation?.count ?? 0
+        let count = viewModel.playerPairsRepresentation?.count ?? 0
+        return count == 0 ? 1 : count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let count = viewModel.playerPairsRepresentation?.count ?? 0
+        
+        guard count > 0 else {
+            return LoadingTableViewCell()
+        }
+        
         let cell = tableView.dequeueReusableCell(withIdentifier: cellReuseIdentifier, for: indexPath) as! MatchPlayerTableViewCell
         
         if let pair = viewModel.playerPairsRepresentation?[indexPath.row] {
@@ -77,10 +84,12 @@ extension MatchDetailTableViewController {
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 58 + 6 + 6
-    }
-    
-    override func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
+        let count = viewModel.playerPairsRepresentation?.count ?? 0
+        
+        guard count > 0 else {
+            return tableView.frame.height * 0.5
+        }
+        
         return 58 + 6 + 6
     }
     

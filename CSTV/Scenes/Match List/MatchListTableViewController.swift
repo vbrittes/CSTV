@@ -51,15 +51,23 @@ final class MatchListTableViewController: UITableViewController {
     
     @objc func refreshAction() {
         viewModel.loadContent()
+        refreshControl?.endRefreshing()
     }
 }
 
 extension MatchListTableViewController {
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return viewModel.matchRepresentations.count
+        let count = viewModel.matchRepresentations.count
+        return count == 0 ? 1 : count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let count = viewModel.matchRepresentations.count
+        
+        guard count > 0 else {
+            return LoadingTableViewCell()
+        }
+        
         let cell = tableView.dequeueReusableCell(withIdentifier: cellReuseIdentifier, for: indexPath) as! MatchTableViewCell
         
         cell.populate(match: viewModel.matchRepresentations[indexPath.row])
@@ -68,6 +76,12 @@ extension MatchListTableViewController {
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        let count = viewModel.matchRepresentations.count
+        
+        guard count > 0 else {
+            return tableView.frame.height * 0.5
+        }
+        
         return 176 + 12 + 12
     }
     
@@ -86,7 +100,17 @@ extension MatchListTableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let count = viewModel.matchRepresentations.count
+        
+        guard count > 0 else {
+            return
+        }
+        
         viewModel.navigateToMatch(index: indexPath.row)
+    }
+    
+    override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        viewModel.updateLastDisplayed(element: indexPath.row)
     }
 }
 
@@ -102,7 +126,6 @@ fileprivate extension MatchListTableViewController {
             .receive(on: DispatchQueue.main)
             .sink { [weak self] _ in
                 self?.tableView.reloadData()
-                self?.refreshControl?.endRefreshing()
             }
             .store(in: &cancellables)
         
@@ -110,7 +133,6 @@ fileprivate extension MatchListTableViewController {
             .receive(on: DispatchQueue.main)
             .sink { [weak self] _ in
                 self?.tableView.reloadData()
-                self?.refreshControl?.endRefreshing()
             }
             .store(in: &cancellables)
     }
@@ -130,4 +152,39 @@ fileprivate extension MatchListTableViewController {
         navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.black]
     }
     
+}
+
+class LoadingTableViewCell: UITableViewCell {
+    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
+        super.init(style: style, reuseIdentifier: reuseIdentifier)
+        
+        addActivityIndicator()
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    fileprivate func addActivityIndicator() {
+        contentView.backgroundColor = .clear
+        backgroundColor = .clear
+        
+        let activityIndicador = UIActivityIndicatorView()
+        activityIndicador.style = .large
+        activityIndicador.color = .white
+        activityIndicador.startAnimating()
+        
+        activityIndicador.translatesAutoresizingMaskIntoConstraints = false
+        
+        contentView.addSubview(activityIndicador)
+        
+        NSLayoutConstraint.activate([
+            NSLayoutConstraint(item: activityIndicador, attribute: .centerX, relatedBy: .equal, toItem: contentView, attribute: .centerX, multiplier: 1, constant: 0),
+            NSLayoutConstraint(item: activityIndicador, attribute: .centerY, relatedBy: .equal, toItem: contentView, attribute: .centerY, multiplier: 1, constant: 0)
+        ])
+    }
+    
+    override func setHighlighted(_ highlighted: Bool, animated: Bool) { }
+    
+    override func setSelected(_ selected: Bool, animated: Bool) { }
 }

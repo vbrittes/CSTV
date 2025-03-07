@@ -52,6 +52,9 @@ final class MatchDetailViewModel {
             return
         }
         
+        self.teamOnePlayers = []
+        self.teamTwoPlayers = []
+        
         playerService.fetchPlayers(match: matchID) { [weak self] result, error in
             guard let self = self else { return }
             

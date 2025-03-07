@@ -11,16 +11,17 @@ class MatchHTTPService: MatchService, HTTPPerformer {
     
     fileprivate lazy var http: Session = http()
     
-    func fetchMatches(videogame id: Int, completion: @escaping (_ result: [MatchObject]?, _ error: Error?) -> Void) {
+    @discardableResult
+    func fetchMatches(page: Int, perPage: Int, completion: @escaping (_ result: [MatchObject]?, _ error: Error?) -> Void) -> DataRequest? {
         
         let parameters: [String: Any] = [
             "sort": "begin_at",
-            "page": "1",
-            "per_page": "10",
+            "page": page + 1,
+            "per_page": perPage,
             "token": API.apiToken
         ]
         
-        http.request(API.matches.url(),
+        return http.request(API.matches.url(),
                      method: .get,
                      parameters: parameters,
                      headers: defaultHeader)
