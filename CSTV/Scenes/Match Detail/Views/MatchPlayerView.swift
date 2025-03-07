@@ -8,7 +8,7 @@
 import UIKit
 import Kingfisher
 
-class MatchPlayerView: UIView {
+final class MatchPlayerView: UIView {
     
     @IBOutlet var playerOneContainerView: UIView!
     @IBOutlet var playerOneNicknameLabel: UILabel!
@@ -26,7 +26,19 @@ class MatchPlayerView: UIView {
         setupInterface()
     }
     
-    fileprivate func setupInterface() {
+    func populate(pair describer: MatchPlayerPairDescriber) {
+        playerOneNicknameLabel.text = describer.playerOneNickname
+        playerOneFullNameLabel.text = describer.playerOneFullname
+        playerOneImageView.kf.setImage(with: describer.playerOneImageURL)
+        
+        playerTwoNicknameLabel.text = describer.playerTwoNickname
+        playerTwoFullNameLabel.text = describer.playerTwoFullname
+        playerTwoImageView.kf.setImage(with: describer.playerTwoImageURL)
+    }
+}
+
+fileprivate extension MatchPlayerView {
+    func setupInterface() {
         backgroundColor = .clear
         
         playerOneContainerView.backgroundColor = UIColor(named: "cell-bg-color")
@@ -47,16 +59,6 @@ class MatchPlayerView: UIView {
         playerOneNicknameLabel.textColor = .white
         
         playerTwoNicknameLabel.textColor = .white
-    }
-    
-    func populate(pair describer: MatchPlayerPairDescriber) {
-        playerOneNicknameLabel.text = describer.playerOneNickname
-        playerOneFullNameLabel.text = describer.playerOneFullname
-        playerOneImageView.kf.setImage(with: describer.playerOneImageURL)
-        
-        playerTwoNicknameLabel.text = describer.playerTwoNickname
-        playerTwoFullNameLabel.text = describer.playerTwoFullname
-        playerTwoImageView.kf.setImage(with: describer.playerTwoImageURL)
     }
 }
 

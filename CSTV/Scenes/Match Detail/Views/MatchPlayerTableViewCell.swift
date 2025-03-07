@@ -7,7 +7,8 @@
 
 import UIKit
 
-class MatchPlayerTableViewCell: UITableViewCell {
+final class MatchPlayerTableViewCell: UITableViewCell {
+    
     fileprivate(set) lazy var matchPlayerView = MatchPlayerView.ibInstance()
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
@@ -20,14 +21,21 @@ class MatchPlayerTableViewCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    fileprivate func setupInterface() {
+    func populate(pair describer: MatchPlayerPairDescriber) {
+        matchPlayerView.populate(pair: describer)
+    }
+    
+}
+
+fileprivate extension MatchPlayerTableViewCell {
+    func setupInterface() {
         contentView.backgroundColor = .clear
         
         selectionStyle = .none
         backgroundColor = .clear
     }
     
-    fileprivate func setupConstraints() {
+    func setupConstraints() {
         matchPlayerView.translatesAutoresizingMaskIntoConstraints = false
         
         contentView.addSubview(matchPlayerView)
@@ -38,9 +46,5 @@ class MatchPlayerTableViewCell: UITableViewCell {
             matchPlayerView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 0),
             matchPlayerView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: 0)
             ])
-    }
-    
-    func populate(pair describer: MatchPlayerPairDescriber) {
-        matchPlayerView.populate(pair: describer)
     }
 }

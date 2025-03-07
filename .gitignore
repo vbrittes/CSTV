@@ -1,0 +1,27 @@
+# Arquivos do macOS
+.DS_Store
+
+# Configurações do Xcode
+xcuserdata/
+*.xcworkspace/
+DerivedData/
+build/
+.idea/
+
+# Arquivos de Dependências (CocoaPods, Carthage, SwiftPM)
+Pods/
+Carthage/
+.fastlane/
+.swiftpm/
+
+# Arquivos do Git
+.git/
+
+# Arquivos de Log
+*.log
+*.lock
+
+# Arquivos Temporários
+*.swp
+*.swo
+*.swn

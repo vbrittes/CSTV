@@ -13,7 +13,7 @@ import MatchService
 import Foundation
 
 class MatchMockService: MatchService, JSONFileLoadPerformer {
-    func fetchMatches(completion: @escaping (_ result: [MatchObject]?, _ error: Error?) -> Void) {
+    func fetchMatches(videogame id: Int, completion: @escaping (_ result: [MatchObject]?, _ error: Error?) -> Void) {
         load(fileName: "MatchListResponse", type: [MatchObject].self) { result, error in
             print("parse error: \(error?.localizedDescription)")
             completion(result, error)

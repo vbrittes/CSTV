@@ -8,7 +8,7 @@
 import UIKit
 import Combine
 
-class MatchDetailTableViewController: UITableViewController {
+final class MatchDetailTableViewController: UITableViewController {
 
     var viewModel: MatchDetailViewModel
     
@@ -43,13 +43,25 @@ class MatchDetailTableViewController: UITableViewController {
         reloadHeaderView()
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        self.setupRefreshControl()
+    }
+    
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         tableView.layoutIfNeeded()
     }
+    
+    @objc func refreshAction() {
+        viewModel.loadContent()
+    }
+    
 }
 
 extension MatchDetailTableViewController {
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return viewModel.playerPairsRepresentation?.count ?? 0
     }
@@ -71,6 +83,21 @@ extension MatchDetailTableViewController {
     override func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
         return 58 + 6 + 6
     }
+    
+    override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return viewModel.errorMessage != nil ? 44 : 0
+    }
+    
+    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        guard let message = viewModel.errorMessage else { return nil }
+        let label = UILabel()
+        label.backgroundColor = UIColor(white: 1, alpha: 0.5)
+        label.numberOfLines = 0
+        label.attributedText = .formattedErrorDisplay(content: message)
+        
+        return label
+    }
+    
 }
 
 fileprivate extension MatchDetailTableViewController {
@@ -90,6 +117,7 @@ fileprivate extension MatchDetailTableViewController {
             .receive(on: DispatchQueue.main)
             .sink { [weak self] _ in
                 self?.tableView.reloadData()
+                self?.refreshControl?.endRefreshing()
                 self?.reloadHeaderView()
             }
             .store(in: &cancellables)
@@ -97,7 +125,16 @@ fileprivate extension MatchDetailTableViewController {
         viewModel.$playerPairsRepresentation
             .receive(on: DispatchQueue.main)
             .sink { [weak self] _ in
+                self?.refreshControl?.endRefreshing()
                 self?.tableView.reloadData()
+            }
+            .store(in: &cancellables)
+        
+        viewModel.$errorMessage
+            .receive(on: DispatchQueue.main)
+            .sink { [weak self] _ in
+                self?.tableView.reloadData()
+                self?.refreshControl?.endRefreshing()
             }
             .store(in: &cancellables)
     }
@@ -106,6 +143,14 @@ fileprivate extension MatchDetailTableViewController {
         guard let representation = viewModel.matchRepresentation else { return }
                 
         self.headerView?.populate(match: representation)
+    }
+    
+    func setupRefreshControl() {
+        let refresh = UIRefreshControl()
+        refresh.addTarget(self, action: #selector(refreshAction), for: .valueChanged)
+        refresh.tintColor = .white
+        
+        tableView.refreshControl = refresh
     }
     
     func setupNavigationBar() {

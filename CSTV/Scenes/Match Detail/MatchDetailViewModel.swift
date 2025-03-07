@@ -26,7 +26,7 @@ struct MatchPlayerPairDescriber {
     var playerTwoImageURL: URL?
 }
 
-class MatchDetailViewModel {
+final class MatchDetailViewModel {
     
     weak var coordinator: Coordinator?
     
@@ -37,65 +37,73 @@ class MatchDetailViewModel {
     
     fileprivate var cancellables = Set<AnyCancellable>()
     
-    fileprivate(set) var errorMessage: String?
+    @Published var errorMessage: String?
+    
     @Published var matchRepresentation: MatchDetailDescriber?
     @Published var playerPairsRepresentation: [MatchPlayerPairDescriber]?
     
-    init(playerService: PlayerService = PlayerMockService()) {
+    init(playerService: PlayerService = PlayerHTTPService()) {
         self.playerService = playerService
         bind()
     }
     
     func loadContent() {
-        guard let teamOneID = match?.opponents.first?.opponent.id,
-              let teamTwoID = match?.opponents.last?.opponent.id,
-              match?.opponents.count == 2 else {
+        guard let matchID = match?.id else {
             return
         }
         
-        playerService.fetchPlayers(team: teamOneID) { players, error in
-            self.teamOnePlayers = players
+        playerService.fetchPlayers(match: matchID) { [weak self] result, error in
+            guard let self = self else { return }
+            
+            guard let result = result,
+                  result.count == 2 &&
+                    error == nil else {
+                self.errorMessage = "Falha ao obter jogadores"
+                return
+            }
+            
+            self.teamOnePlayers = result.first?.players
+            self.teamTwoPlayers = result.last?.players
             self.synchronizePlayerDescribers()
         }
         
-        playerService.fetchPlayers(team: teamTwoID) { players, error in
-            self.teamTwoPlayers = players
-            self.synchronizePlayerDescribers()
-        }
     }
     
     func prepareForNavigation(match: MatchObject) {
         self.match = match
         loadContent()
     }
+}
+
+fileprivate extension MatchDetailViewModel {
     
-    fileprivate func bind() {
+    func bind() {
         $match.map { match in
             match.map { m in
                 let firstOpponent = m.opponents.first?.opponent
                 let secondOpponent = m.opponents.last?.opponent
                 return MatchDetailDescriber(
                     formattedStartDate: m.beginAt ?? "",
-                    teamOneImageURL: URL(string: firstOpponent?.imageUrl ?? ""),
+                    teamOneImageURL: URL(string: firstOpponent?.imageURL ?? ""),
                     teamOneName: firstOpponent?.name ?? "",
-                    teamTwoImageURL: URL(string: secondOpponent?.imageUrl ?? ""),
+                    teamTwoImageURL: URL(string: secondOpponent?.imageURL ?? ""),
                     teamTwoName: firstOpponent?.name ?? "")
             }
         }
         .assign(to: &$matchRepresentation)
     }
     
-    fileprivate func synchronizePlayerDescribers() {
+    func synchronizePlayerDescribers() {
         guard let teamOnePlayers = teamOnePlayers,
               let teamTwoPlayers = teamTwoPlayers,
               teamOnePlayers.count == teamTwoPlayers.count else {
             return
         }
-                
+        
         playerPairsRepresentation = (0..<teamOnePlayers.count).map { index in
             let teamOneMember = teamOnePlayers[index]
             let teamTwoMember = teamTwoPlayers[index]
-                        
+            
             return MatchPlayerPairDescriber(
                 playerOneNickname: teamOneMember.name,
                 playerOneFullname: "\(teamOneMember.firstName ?? "") \(teamOneMember.lastName ?? "")",
@@ -105,4 +113,5 @@ class MatchDetailViewModel {
                 playerTwoImageURL: URL(string: teamTwoMember.imageURL ?? ""))
         }
     }
+    
 }

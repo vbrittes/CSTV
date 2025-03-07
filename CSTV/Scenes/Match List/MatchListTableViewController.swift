@@ -8,12 +8,11 @@
 import UIKit
 import Combine
 
-class MatchListTableViewController: UITableViewController {
+final class MatchListTableViewController: UITableViewController {
     
-    var viewModel: MatchListViewModel
+    fileprivate(set) var viewModel: MatchListViewModel
     
     fileprivate var cancellables = Set<AnyCancellable>()
-    
     fileprivate let cellReuseIdentifier = "matchCellIdentifier"
     
     init(viewModel: MatchListViewModel) {
@@ -39,9 +38,19 @@ class MatchListTableViewController: UITableViewController {
         setupNavigationBar()
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        self.setupRefreshControl()
+    }
+    
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         tableView.layoutIfNeeded()
+    }
+    
+    @objc func refreshAction() {
+        viewModel.loadContent()
     }
 }
 
@@ -62,6 +71,20 @@ extension MatchListTableViewController {
         return 176 + 12 + 12
     }
     
+    override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return viewModel.errorMessage != nil ? 44 : 0
+    }
+    
+    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        guard let message = viewModel.errorMessage else { return nil }
+        let label = UILabel()
+        label.backgroundColor = UIColor(white: 1, alpha: 0.5)
+        label.numberOfLines = 0
+        label.attributedText = .formattedErrorDisplay(content: message)
+        
+        return label
+    }
+    
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         viewModel.navigateToMatch(index: indexPath.row)
     }
@@ -79,8 +102,25 @@ fileprivate extension MatchListTableViewController {
             .receive(on: DispatchQueue.main)
             .sink { [weak self] _ in
                 self?.tableView.reloadData()
+                self?.refreshControl?.endRefreshing()
             }
             .store(in: &cancellables)
+        
+        viewModel.$errorMessage
+            .receive(on: DispatchQueue.main)
+            .sink { [weak self] _ in
+                self?.tableView.reloadData()
+                self?.refreshControl?.endRefreshing()
+            }
+            .store(in: &cancellables)
+    }
+    
+    func setupRefreshControl() {
+        let refresh = UIRefreshControl()
+        refresh.addTarget(self, action: #selector(refreshAction), for: .valueChanged)
+        refresh.tintColor = .white
+        
+        tableView.refreshControl = refresh
     }
     
     func setupNavigationBar() {

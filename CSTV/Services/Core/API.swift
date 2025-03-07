@@ -7,22 +7,25 @@
 
 import Foundation
 
-enum API: String {
+enum API {
     
     private var host: URL { URL(string: "https://api.pandascore.co/")! }
     
-    var apiToken: String { "37RdDYBEr8u_7om870eY2hyoBLs3tx_tkXaDpBKLksy_uEarHAo" }
+    static var apiToken: String { "37RdDYBEr8u_7om870eY2hyoBLs3tx_tkXaDpBKLksy_uEarHAo" }
     
     case matches
-    case players
+    case matchOpponents(String)
     
-    func url(params: [String]? = nil) -> URL {
-        let pathURL = URL(fileURLWithPath: rawValue, relativeTo: host)
+    func url() -> URL {
+        var path: String
         
-        guard let params = params else {
-            return pathURL
+        switch self {
+        case .matches: path = "csgo/matches"
+        case .matchOpponents(let id): path = "matches/\(id)/opponents"
         }
         
-        return params.reduce(pathURL) { $0.appending(path: $1) }
+        let pathURL = URL(fileURLWithPath: path, relativeTo: host)
+        
+        return pathURL
     }
 }

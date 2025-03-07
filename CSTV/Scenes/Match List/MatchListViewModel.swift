@@ -19,16 +19,18 @@ struct MatchListItemDescriber {
     var leagueImageURL: URL?
 }
 
-class MatchListViewModel {
+final class MatchListViewModel {
     
     weak var coordinator: MainCoordinator?
+    
+    private let counterStrikeID = 3
     
     fileprivate var matchService: MatchService
     @Published fileprivate var matches: [MatchObject] = []
     
     fileprivate var cancellables = Set<AnyCancellable>()
     
-    fileprivate(set) var errorMessage: String?
+    @Published var errorMessage: String?
     @Published var matchRepresentations: [MatchListItemDescriber] = []
     
     init(matchService: MatchService = MatchHTTPService()) {
@@ -37,39 +39,43 @@ class MatchListViewModel {
     }
     
     func loadContent() {
-        matchService.fetchMatches { [weak self] result, error in
+        matchService.fetchMatches(videogame: counterStrikeID) { [weak self] result, error in
             guard let self = self else {
                 return
             }
             
-            guard let matches = result else {
-                self.errorMessage = error?.localizedDescription ?? "Falha ao obter partidas"
-                return
-            }
+            guard let matches = result,
+                      error == nil else {
+                          self.errorMessage = "Falha ao obter partidas"
+                          return
+                      }
             
             self.matches = matches
         }
-    }
-    
-    private func bind() {
-        $matches.map { match in
-            match.map { m in MatchListItemDescriber(
-                formattedStartDate: "",//self.formattedStartDate(date: m.beginAt),
-                startDateHighlight: m.status == .running,
-                teamOneImageURL: URL(string: m.opponents.first?.opponent.imageUrl ?? ""),
-                teamOneName: m.opponents.first?.opponent.name ?? "",
-                teamTwoImageURL: URL(string: m.opponents.last?.opponent.imageUrl ?? ""),
-                teamTwoName: m.opponents.last?.opponent.name ?? "",
-                leagueName: m.league.name,
-                leagueImageURL: URL(string: m.league.imageUrl ?? "")) }
-        }
-        .assign(to: &$matchRepresentations)
     }
     
     func navigateToMatch(index: Int) {
         let match = matches[index]
         
         coordinator?.navigateToDetail(for: match)
+    }
+}
+
+fileprivate extension MatchListViewModel {
+    func bind() {
+        $matches.map { match in
+            match.map { m in
+                MatchListItemDescriber(
+                    formattedStartDate: m.beginAt ?? "",
+                    startDateHighlight: m.status == .running,
+                    teamOneImageURL: URL(string: m.opponents.first?.opponent?.imageURL ?? ""),
+                    teamOneName: m.opponents.first?.opponent?.name ?? "",
+                    teamTwoImageURL: URL(string: m.opponents.last?.opponent?.imageURL ?? ""),
+                    teamTwoName: m.opponents.last?.opponent?.name ?? "",
+                    leagueName: m.league.name,
+                    leagueImageURL: URL(string: m.league.imageURL ?? "")) }
+        }
+        .assign(to: &$matchRepresentations)
     }
 }
 
@@ -83,7 +89,7 @@ fileprivate extension MatchListViewModel {
         case .canceled:
             return "Cancelado"
         case .notStarted, .running:
-            return formattedStartDate(date: Date())//match.beginAt)
+            return match.beginAt ?? ""
         }
     }
     

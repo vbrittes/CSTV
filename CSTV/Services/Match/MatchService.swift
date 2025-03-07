@@ -6,5 +6,5 @@
 //
 
 protocol MatchService {
-    func fetchMatches(completion: @escaping (_ result: [MatchObject]?, _ error: Error?) -> Void)
+    func fetchMatches(videogame id: Int, completion: @escaping (_ result: [MatchObject]?, _ error: Error?) -> Void)
 }
