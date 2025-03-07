@@ -38,19 +38,36 @@ final class MatchDetailHeaderView: UIView {
     }
     
     func populate(match describer: MatchDetailDescriber) {
-        firstTeamImageView.kf.setImage(with: describer.teamOneImageURL, options: [.transition(.fade(0.3))])
-        firstTeamNameLabel.text = describer.teamOneName
+        firstTeamImageView.loadWithCirclePlaceholder(url: describer.teamOneImageURL)
         
-        secondTeamImageView.kf.setImage(with: describer.teamTwoImageURL, options: [.transition(.fade(0.3))])
+        firstTeamNameLabel.text = describer.teamOneName
+        firstTeamNameLabel.font = .customRegular(size: 10)
+        
+        secondTeamImageView.loadWithCirclePlaceholder(url: describer.teamTwoImageURL)
+        
         secondTeamNameLabel.text = describer.teamTwoName
+        secondTeamNameLabel.font = .customRegular(size: 10)
         
         vsLabel.text = "vs"
+        vsLabel.textColor = .secondaryText
+        vsLabel.font = .customRegular(size: 12)
         
         dateLabel.text = describer.formattedStartDate
+        dateLabel.font = .customBold(size: 12)
     }
     
     override func awakeFromNib() {
         setupInterface()
+    }
+}
+
+extension UIFont {
+    static func customRegular(size: CGFloat) -> UIFont {
+        return UIFont(name: "Roboto-Regular", size: size)!
+    }
+    
+    static func customBold(size: CGFloat) -> UIFont {
+        return UIFont(name: "Roboto-Bold", size: size)!
     }
 }
 
@@ -60,7 +77,7 @@ fileprivate extension MatchDetailHeaderView {
         
         let labels: [UILabel] = [firstTeamNameLabel, secondTeamNameLabel, dateLabel]
         labels.forEach { l in
-            l.textColor = .white
+            l.textColor = .primaryText
             l.numberOfLines = 2
             l.lineBreakMode = .byTruncatingTail
             l.textAlignment = .center
@@ -68,7 +85,7 @@ fileprivate extension MatchDetailHeaderView {
         
         let imageViews: [UIImageView] = [firstTeamImageView, secondTeamImageView]
         imageViews.forEach { iv in
-            iv.backgroundColor = UIColor(named: "placeholder-bg-color")
+            iv.backgroundColor = .placeholderBg
         }
         
         addConstraint(dynamicWidthConstraint)

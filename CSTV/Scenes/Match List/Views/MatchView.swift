@@ -25,18 +25,18 @@ final class MatchView: UIView {
     @IBOutlet var leagueNameLabel: UILabel!
     
     func populate(match describer: MatchListItemDescriber) {
-        loadImage(url: describer.teamOneImageURL, imageView: firstTeamImageView)
+        firstTeamImageView.loadWithCirclePlaceholder(url: describer.teamOneImageURL)
         firstTeamNameLabel.text = describer.teamOneName
         
-        loadImage(url: describer.teamTwoImageURL, imageView: secondTeamImageView)
+        secondTeamImageView.loadWithCirclePlaceholder(url: describer.teamTwoImageURL)
         secondTeamNameLabel.text = describer.teamTwoName
         
         dateLabel.text = describer.formattedStartDate
         
-        loadImage(url: describer.leagueImageURL, imageView: leagueImageView)
+        leagueImageView.loadWithCirclePlaceholder(url: describer.leagueImageURL)
         leagueNameLabel.text = describer.leagueName
         
-        dateLabel.backgroundColor = UIColor(named: "cell-highlight-on-label-color")
+        dateLabel.backgroundColor = describer.startDateHighlight ? .cellHighlightOnLabel : .cellHighlightOffLabelColor1
     }
     
     override func awakeFromNib() {
@@ -49,42 +49,36 @@ final class MatchView: UIView {
 
 fileprivate extension MatchView {
     
-    func loadImage(url: URL?, imageView: UIImageView) {
-        imageView.kf.setImage(with: url, options: [.transition(.fade(0.3))]) { result in
-            switch result {
-            case .success(let value):
-                imageView.backgroundColor = .clear
-            case .failure(_):
-                imageView.backgroundColor = UIColor(named: "placeholder-bg-color")
-            }
-            
-        }
-    }
-    
     func setupInterface() {
         layer.cornerRadius = 16
         clipsToBounds = true
         
+        firstTeamNameLabel.font = .customRegular(size: 10)
+        
+        secondTeamNameLabel.font = .customRegular(size: 10)
+        
+        leagueNameLabel.font = .customRegular(size: 8)
+        
         dateLabel.layer.cornerRadius = 16
         dateLabel.layer.maskedCorners = [.layerMinXMaxYCorner]
         dateLabel.clipsToBounds = true
+        dateLabel.font = .customBold(size: 8)
         
         vsLabel.text = "vs"
-        vsLabel.textColor = .white
-        vsLabel.alpha = 0.5
+        vsLabel.textColor = .secondaryText
+        vsLabel.font = .customRegular(size: 12)
         
-        separatorView.backgroundColor = .white
-        separatorView.alpha = 0.2
+        separatorView.backgroundColor = .borderSeparator
         
         let labelsToFormat: [UILabel] = [firstTeamNameLabel, secondTeamNameLabel, leagueNameLabel, dateLabel]
         labelsToFormat.forEach { label in
-            label.textColor = .white
+            label.textColor = .primaryText
             label.textAlignment = .center
             label.numberOfLines = 2
             label.lineBreakMode = .byTruncatingTail
         }
         
-        backgroundColor = UIColor(named: "cell-bg-color")
+        backgroundColor = .cellBg
     }
     
 }

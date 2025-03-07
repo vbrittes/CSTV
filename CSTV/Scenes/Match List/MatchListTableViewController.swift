@@ -57,14 +57,13 @@ final class MatchListTableViewController: UITableViewController {
 
 extension MatchListTableViewController {
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        let count = viewModel.matchRepresentations.count
-        return count == 0 ? 1 : count
+        return shouldDisplayLoading() ? 1 : viewModel.matchRepresentations.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let count = viewModel.matchRepresentations.count
         
-        guard count > 0 else {
+        guard !shouldDisplayLoading() else {
             return LoadingTableViewCell()
         }
         
@@ -76,9 +75,7 @@ extension MatchListTableViewController {
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        let count = viewModel.matchRepresentations.count
-        
-        guard count > 0 else {
+        guard !shouldDisplayLoading() else {
             return tableView.frame.height * 0.5
         }
         
@@ -86,13 +83,13 @@ extension MatchListTableViewController {
     }
     
     override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return viewModel.errorMessage != nil ? 44 : 0
+        return shouldDisplayLoading() ? 44 : 0
     }
     
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         guard let message = viewModel.errorMessage else { return nil }
         let label = UILabel()
-        label.backgroundColor = UIColor(white: 1, alpha: 0.5)
+        label.backgroundColor = .borderSeparator
         label.numberOfLines = 0
         label.attributedText = .formattedErrorDisplay(content: message)
         
@@ -112,12 +109,16 @@ extension MatchListTableViewController {
     override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         viewModel.updateLastDisplayed(element: indexPath.row)
     }
+    
+    fileprivate func shouldDisplayLoading() -> Bool {
+        return viewModel.matchRepresentations.count == 0 && viewModel.errorMessage == nil
+    }
 }
 
 fileprivate extension MatchListTableViewController {
     
     func setupInterface() {
-        tableView.backgroundColor = UIColor(named: "main-bg-color")
+        tableView.backgroundColor = .mainBg
         tableView.register(MatchTableViewCell.self, forCellReuseIdentifier: cellReuseIdentifier)
     }
     
@@ -140,7 +141,7 @@ fileprivate extension MatchListTableViewController {
     func setupRefreshControl() {
         let refresh = UIRefreshControl()
         refresh.addTarget(self, action: #selector(refreshAction), for: .valueChanged)
-        refresh.tintColor = .white
+        refresh.tintColor = .primaryText
         
         tableView.refreshControl = refresh
     }
@@ -148,8 +149,6 @@ fileprivate extension MatchListTableViewController {
     func setupNavigationBar() {
         navigationItem.title = "Partidas"
         navigationController?.navigationBar.prefersLargeTitles = true
-        navigationController?.navigationBar.largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
-        navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.black]
     }
     
 }
@@ -171,7 +170,7 @@ class LoadingTableViewCell: UITableViewCell {
         
         let activityIndicador = UIActivityIndicatorView()
         activityIndicador.style = .large
-        activityIndicador.color = .white
+        activityIndicador.color = .primaryText
         activityIndicador.startAnimating()
         
         activityIndicador.translatesAutoresizingMaskIntoConstraints = false

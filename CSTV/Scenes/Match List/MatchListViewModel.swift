@@ -18,6 +18,15 @@ struct MatchListItemDescriber {
     var teamTwoName: String
     var leagueName: String
     var leagueImageURL: URL?
+    
+    static var empty: MatchListItemDescriber {
+        MatchListItemDescriber(
+            formattedStartDate: "",
+            startDateHighlight: false,
+            teamOneName: "",
+            teamTwoName: "",
+            leagueName: "")
+    }
 }
 
 final class MatchListViewModel {
@@ -25,11 +34,13 @@ final class MatchListViewModel {
     weak var coordinator: MainCoordinator?
     
     fileprivate var matchService: MatchService
-    @Published fileprivate var matches: [MatchObject] = []
     fileprivate var fetchRequest: DataRequest?
     fileprivate var loadingNextPage = false
     
     fileprivate var cancellables = Set<AnyCancellable>()
+    
+    ///Bind internaly to sync [MatchObject] -> [MatchListItemDescriber]
+    @Published fileprivate var matches: [MatchObject] = []
     
     ///Bind to display error feedback
     @Published var errorMessage: String?
@@ -53,8 +64,6 @@ final class MatchListViewModel {
     }
     
     fileprivate func loadContent(force: Bool, page: Int) {
-        print("init load page: \(page)")
-        
         if force {
             fetchRequest?.cancel()
             loadingNextPage = false
@@ -67,7 +76,6 @@ final class MatchListViewModel {
         
         loadingNextPage = true
         
-        print("load page: \(page)")
         fetchRequest = matchService.fetchMatches(page: page, perPage: pageLength) { [weak self] result, error in
             guard let self = self else {
                 return
@@ -93,6 +101,7 @@ final class MatchListViewModel {
         }
     }
     
+    ///Call wight before displaying UI element, to assure automatic paging
     func updateLastDisplayed(element index: Int) {
         let triggerElement = Double(matches.count) * (1.0 - nextPageTrigger)
         
@@ -112,15 +121,17 @@ final class MatchListViewModel {
 
 fileprivate extension MatchListViewModel {
     func bind() {
+        let f = DateFormatHelper()
+        
         $matches.map { match in
             match.map { m in
                 MatchListItemDescriber(
-                    formattedStartDate: m.beginAt ?? "",
+                    formattedStartDate: f.format(dateString: m.beginAt) ?? "",
                     startDateHighlight: m.status == .running,
                     teamOneImageURL: URL(string: m.opponents.first?.opponent?.imageURL ?? ""),
-                    teamOneName: m.opponents.first?.opponent?.name ?? "",
+                    teamOneName: m.opponents.first?.opponent?.name ?? "Não definido",
                     teamTwoImageURL: URL(string: m.opponents.last?.opponent?.imageURL ?? ""),
-                    teamTwoName: m.opponents.last?.opponent?.name ?? "",
+                    teamTwoName: m.opponents.last?.opponent?.name ?? "Não definido",
                     leagueName: m.league.name,
                     leagueImageURL: URL(string: m.league.imageURL ?? "")) }
         }
@@ -141,26 +152,29 @@ fileprivate extension MatchListViewModel {
             return match.beginAt ?? ""
         }
     }
-    
-    func formattedStartDate(date: Date?) -> String {
-        let now = Date.now
-        
-        guard let date = date else {
-            return "Erro"
-        }
-        
-        guard date > now else {
-            return "Agora"
-        }
-        
-        return "\(formattedDay(for: date)), \(formattedHour(for: date))"
-    }
-    
-    private func formattedDay(for date: Date) -> String {
-        return ""
-    }
-    
-    private func formattedHour(for date: Date) -> String {
-        return ""
-    }
+//    
+//    func formattedStartDate(date: Date?) -> String {
+//        let now = Date.now
+//        
+//        guard let date = date else {
+//            return "Erro"
+//        }
+//        
+//        guard date > now else {
+//            return "Agora"
+//        }
+//        
+//        return CustomDateFormatter().formatDate(date: Date())
+//    }
+//    
+//    private func formattedDay(for date: Date) -> String {
+//        let formatter = DateFormatter()
+//        formatter.dateFormat = "Ee"
+//        
+//        return formatter.string(from: date)
+//    }
+//    
+//    private func formattedHour(for date: Date) -> String {
+//        return ""
+//    }
 }

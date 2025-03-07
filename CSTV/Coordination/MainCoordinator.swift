@@ -21,6 +21,7 @@ class MainCoordinator: Coordinator {
         
         let vc = MatchListTableViewController(viewModel: viewModel)
         
+        navigationController.applyCustomStyling()
         navigationController.pushViewController(vc, animated: true)
     }
     

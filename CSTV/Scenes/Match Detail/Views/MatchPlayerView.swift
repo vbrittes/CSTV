@@ -29,11 +29,11 @@ final class MatchPlayerView: UIView {
     func populate(pair describer: MatchPlayerPairDescriber) {
         playerOneNicknameLabel.text = describer.playerOneNickname
         playerOneFullNameLabel.text = describer.playerOneFullname
-        playerOneImageView.kf.setImage(with: describer.playerOneImageURL)
+        playerOneImageView.kf.setImage(with: describer.playerOneImageURL, options: [.transition(.fade(0.5))])
         
         playerTwoNicknameLabel.text = describer.playerTwoNickname
         playerTwoFullNameLabel.text = describer.playerTwoFullname
-        playerTwoImageView.kf.setImage(with: describer.playerTwoImageURL)
+        playerTwoImageView.kf.setImage(with: describer.playerTwoImageURL, options: [.transition(.fade(0.5))])
     }
 }
 
@@ -41,24 +41,33 @@ fileprivate extension MatchPlayerView {
     func setupInterface() {
         backgroundColor = .clear
         
-        playerOneContainerView.backgroundColor = UIColor(named: "cell-bg-color")
+        playerOneContainerView.backgroundColor = .cellBg
         playerOneContainerView.layer.cornerRadius = 12
         playerOneContainerView.layer.maskedCorners = [.layerMaxXMinYCorner, .layerMaxXMaxYCorner]
         
-        playerTwoContainerView.backgroundColor = UIColor(named: "cell-bg-color")
+        playerTwoContainerView.backgroundColor = .cellBg
         playerTwoContainerView.layer.cornerRadius = 12
         playerTwoContainerView.layer.maskedCorners = [.layerMinXMinYCorner, .layerMinXMaxYCorner]
         
         let placeholderIV: [UIImageView] = [playerOneImageView, playerTwoImageView]
         placeholderIV.forEach { iv in
-            iv.backgroundColor = UIColor(named: "placeholder-bg-color")
+            iv.contentMode = .scaleAspectFill
+            iv.backgroundColor = .placeholderBg
             iv.layer.cornerRadius = 8
             iv.layer.masksToBounds = true
         }
         
-        playerOneNicknameLabel.textColor = .white
+        playerOneNicknameLabel.textColor = .primaryText
+        playerOneNicknameLabel.font = .boldSystemFont(ofSize: 14)
         
-        playerTwoNicknameLabel.textColor = .white
+        playerOneFullNameLabel.textColor = .secondaryText
+        playerOneFullNameLabel.font = .customRegular(size: 12)
+        
+        playerTwoNicknameLabel.textColor = .primaryText
+        playerTwoNicknameLabel.font = .boldSystemFont(ofSize: 14)
+        
+        playerTwoFullNameLabel.textColor = .secondaryText
+        playerTwoFullNameLabel.font = .customRegular(size: 12)
     }
 }
 

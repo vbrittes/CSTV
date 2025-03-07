@@ -26,14 +26,10 @@ class PlayerHTTPService: PlayerService, HTTPPerformer {
         .responseDecodable(of: OpponentWrapperObject.self) { response in
             switch response.result {
             case .success(let opponent):
-                print("success: \(response.request!.urlRequest!)")
-//                print("\(self.prettyPrintedJSON(from: response.data)  ?? "")")
-//                print("count: \(opponent.opponents.count)")
+//                print("success: \(response.request!.urlRequest!)")
                 completion(opponent.opponents, nil)
             case .failure(let error):
-                print("failure: \(response.request!.urlRequest!)")
-                //                    debug purpose
-//                print("\(self.prettyPrintedJSON(from: response.data)  ?? "")")
+//                print("failure: \(response.request!.urlRequest!)")
                 completion(nil, error)
             }
         }
