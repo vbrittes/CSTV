@@ -42,7 +42,7 @@ final class MatchDetailViewModel {
     @Published var matchRepresentation: MatchDetailDescriber?
     @Published var playerPairsRepresentation: [MatchPlayerPairDescriber]?
     
-    init(playerService: PlayerService = PlayerMockService()) {
+    init(playerService: PlayerService = PlayerHTTPService()) {
         self.playerService = playerService
         bind()
     }
