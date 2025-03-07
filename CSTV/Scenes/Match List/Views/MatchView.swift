@@ -53,12 +53,20 @@ fileprivate extension MatchView {
         layer.cornerRadius = 16
         clipsToBounds = true
         
+        firstTeamNameLabel.font = .customRegular(size: 10)
+        
+        secondTeamNameLabel.font = .customRegular(size: 10)
+        
+        leagueNameLabel.font = .customRegular(size: 8)
+        
         dateLabel.layer.cornerRadius = 16
         dateLabel.layer.maskedCorners = [.layerMinXMaxYCorner]
         dateLabel.clipsToBounds = true
+        dateLabel.font = .customBold(size: 8)
         
         vsLabel.text = "vs"
         vsLabel.textColor = .secondaryText
+        vsLabel.font = .customRegular(size: 12)
         
         separatorView.backgroundColor = .borderSeparator
         

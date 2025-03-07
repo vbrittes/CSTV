@@ -58,10 +58,16 @@ fileprivate extension MatchPlayerView {
         }
         
         playerOneNicknameLabel.textColor = .primaryText
+        playerOneNicknameLabel.font = .boldSystemFont(ofSize: 14)
+        
         playerOneFullNameLabel.textColor = .secondaryText
+        playerOneFullNameLabel.font = .customRegular(size: 12)
         
         playerTwoNicknameLabel.textColor = .primaryText
+        playerTwoNicknameLabel.font = .boldSystemFont(ofSize: 14)
+        
         playerTwoFullNameLabel.textColor = .secondaryText
+        playerTwoFullNameLabel.font = .customRegular(size: 12)
     }
 }
 

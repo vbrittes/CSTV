@@ -39,19 +39,35 @@ final class MatchDetailHeaderView: UIView {
     
     func populate(match describer: MatchDetailDescriber) {
         firstTeamImageView.loadWithCirclePlaceholder(url: describer.teamOneImageURL)
+        
         firstTeamNameLabel.text = describer.teamOneName
+        firstTeamNameLabel.font = .customRegular(size: 10)
         
         secondTeamImageView.loadWithCirclePlaceholder(url: describer.teamTwoImageURL)
+        
         secondTeamNameLabel.text = describer.teamTwoName
+        secondTeamNameLabel.font = .customRegular(size: 10)
         
         vsLabel.text = "vs"
         vsLabel.textColor = .secondaryText
+        vsLabel.font = .customRegular(size: 12)
         
         dateLabel.text = describer.formattedStartDate
+        dateLabel.font = .customBold(size: 12)
     }
     
     override func awakeFromNib() {
         setupInterface()
+    }
+}
+
+extension UIFont {
+    static func customRegular(size: CGFloat) -> UIFont {
+        return UIFont(name: "Roboto-Regular", size: size)!
+    }
+    
+    static func customBold(size: CGFloat) -> UIFont {
+        return UIFont(name: "Roboto-Bold", size: size)!
     }
 }
 
