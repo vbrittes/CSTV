@@ -10,6 +10,7 @@ import Combine
 
 struct MatchDetailDescriber {
     var formattedStartDate: String
+    var formattedLeagueSerie: String
     var teamOneImageURL: URL?
     var teamOneName: String
     var teamTwoImageURL: URL?
@@ -87,6 +88,7 @@ fileprivate extension MatchDetailViewModel {
                 let secondOpponent = m.opponents.last?.opponent
                 return MatchDetailDescriber(
                     formattedStartDate: m.beginAt ?? "",
+                    formattedLeagueSerie: "\(m.league.name): \(m.serie.name ?? "")",
                     teamOneImageURL: URL(string: firstOpponent?.imageURL ?? ""),
                     teamOneName: firstOpponent?.name ?? "",
                     teamTwoImageURL: URL(string: secondOpponent?.imageURL ?? ""),

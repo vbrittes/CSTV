@@ -119,6 +119,12 @@ fileprivate extension MatchDetailTableViewController {
         headerView?.dynamicWidth = tableView.frame.width
                 
         tableView.tableHeaderView = headerView
+        
+        //TO-DO: Tint button according to content offset
+        tableView.isScrollEnabled = false
+        
+        setupNavigationBar()
+        reloadNavigationBar()
     }
     
     func setupBinding() {
@@ -128,6 +134,7 @@ fileprivate extension MatchDetailTableViewController {
                 self?.tableView.reloadData()
                 self?.refreshControl?.endRefreshing()
                 self?.reloadHeaderView()
+                self?.reloadNavigationBar()
             }
             .store(in: &cancellables)
         
@@ -151,7 +158,11 @@ fileprivate extension MatchDetailTableViewController {
     func reloadHeaderView() {
         guard let representation = viewModel.matchRepresentation else { return }
                 
-        self.headerView?.populate(match: representation)
+        headerView?.populate(match: representation)
+    }
+    
+    func reloadNavigationBar() {
+        navigationItem.title = viewModel.matchRepresentation?.formattedLeagueSerie
     }
     
     func setupRefreshControl() {
@@ -164,7 +175,6 @@ fileprivate extension MatchDetailTableViewController {
     
     func setupNavigationBar() {
         navigationController?.navigationBar.prefersLargeTitles = false
-        navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.primaryText]
     }
     
 }

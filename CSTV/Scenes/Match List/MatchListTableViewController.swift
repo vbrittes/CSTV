@@ -148,8 +148,6 @@ fileprivate extension MatchListTableViewController {
     func setupNavigationBar() {
         navigationItem.title = "Partidas"
         navigationController?.navigationBar.prefersLargeTitles = true
-        navigationController?.navigationBar.largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.primaryText]
-        navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.mainBg]
     }
     
 }
