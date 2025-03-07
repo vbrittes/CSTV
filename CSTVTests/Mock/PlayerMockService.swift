@@ -14,11 +14,11 @@ import Foundation
 
 class PlayerMockService: PlayerService, JSONFileLoadPerformer {
     func fetchPlayers(match id: Int, completion: @escaping (_ result: [OpponentObject]?, _ error: Error?) -> Void) {
-        load(fileName: "PlayerListResponse", type: [OpponentObject].self) { result, error in
+        load(fileName: "PlayerListResponse", type: OpponentWrapperObject.self) { result, error in
             print("parse error: \(error?.localizedDescription ?? "")")
-            print("result count: \(result?.count ?? 0)")
+//            print("result count: \(result?.count ?? 0)")
             
-            completion(result, error)
+            completion(result?.opponents, error)
         }
     }
 }

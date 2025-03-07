@@ -21,7 +21,7 @@ final class MatchDetailViewModelTests: XCTestCase {
         let expectation = XCTestExpectation()
         
         let matchService = MatchMockService()
-        matchService.fetchMatches { result, error in
+        matchService.fetchMatches(page: 0, perPage: 0) { result, error in
             self.mockMatch = result!.first
             expectation.fulfill()
         }
