@@ -84,6 +84,20 @@ extension MatchDetailTableViewController {
         return 58 + 6 + 6
     }
     
+    override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return viewModel.errorMessage != nil ? 44 : 0
+    }
+    
+    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        guard let message = viewModel.errorMessage else { return nil }
+        let label = UILabel()
+        label.backgroundColor = UIColor(white: 1, alpha: 0.5)
+        label.numberOfLines = 0
+        label.attributedText = .formattedErrorDisplay(content: message)
+        
+        return label
+    }
+    
 }
 
 fileprivate extension MatchDetailTableViewController {
@@ -113,6 +127,14 @@ fileprivate extension MatchDetailTableViewController {
             .sink { [weak self] _ in
                 self?.refreshControl?.endRefreshing()
                 self?.tableView.reloadData()
+            }
+            .store(in: &cancellables)
+        
+        viewModel.$errorMessage
+            .receive(on: DispatchQueue.main)
+            .sink { [weak self] _ in
+                self?.tableView.reloadData()
+                self?.refreshControl?.endRefreshing()
             }
             .store(in: &cancellables)
     }

@@ -71,6 +71,20 @@ extension MatchListTableViewController {
         return 176 + 12 + 12
     }
     
+    override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return viewModel.errorMessage != nil ? 44 : 0
+    }
+    
+    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        guard let message = viewModel.errorMessage else { return nil }
+        let label = UILabel()
+        label.backgroundColor = UIColor(white: 1, alpha: 0.5)
+        label.numberOfLines = 0
+        label.attributedText = .formattedErrorDisplay(content: message)
+        
+        return label
+    }
+    
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         viewModel.navigateToMatch(index: indexPath.row)
     }
@@ -85,6 +99,14 @@ fileprivate extension MatchListTableViewController {
     
     func setupBinding() {
         viewModel.$matchRepresentations
+            .receive(on: DispatchQueue.main)
+            .sink { [weak self] _ in
+                self?.tableView.reloadData()
+                self?.refreshControl?.endRefreshing()
+            }
+            .store(in: &cancellables)
+        
+        viewModel.$errorMessage
             .receive(on: DispatchQueue.main)
             .sink { [weak self] _ in
                 self?.tableView.reloadData()

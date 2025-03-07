@@ -30,7 +30,7 @@ final class MatchListViewModel {
     
     fileprivate var cancellables = Set<AnyCancellable>()
     
-    fileprivate(set) var errorMessage: String?
+    @Published var errorMessage: String?
     @Published var matchRepresentations: [MatchListItemDescriber] = []
     
     init(matchService: MatchService = MatchHTTPService()) {
@@ -44,10 +44,11 @@ final class MatchListViewModel {
                 return
             }
             
-            guard let matches = result else {
-                self.errorMessage = error?.localizedDescription ?? "Falha ao obter partidas"
-                return
-            }
+            guard let matches = result,
+                      error == nil else {
+                          self.errorMessage = "Falha ao obter partidas"
+                          return
+                      }
             
             self.matches = matches
         }
@@ -65,14 +66,14 @@ fileprivate extension MatchListViewModel {
         $matches.map { match in
             match.map { m in
                 MatchListItemDescriber(
-                formattedStartDate: m.beginAt ?? "",
-                startDateHighlight: m.status == .running,
-                teamOneImageURL: URL(string: m.opponents.first?.opponent?.imageURL ?? ""),
-                teamOneName: m.opponents.first?.opponent?.name ?? "",
-                teamTwoImageURL: URL(string: m.opponents.last?.opponent?.imageURL ?? ""),
-                teamTwoName: m.opponents.last?.opponent?.name ?? "",
-                leagueName: m.league.name,
-                leagueImageURL: URL(string: m.league.imageURL ?? "")) }
+                    formattedStartDate: m.beginAt ?? "",
+                    startDateHighlight: m.status == .running,
+                    teamOneImageURL: URL(string: m.opponents.first?.opponent?.imageURL ?? ""),
+                    teamOneName: m.opponents.first?.opponent?.name ?? "",
+                    teamTwoImageURL: URL(string: m.opponents.last?.opponent?.imageURL ?? ""),
+                    teamTwoName: m.opponents.last?.opponent?.name ?? "",
+                    leagueName: m.league.name,
+                    leagueImageURL: URL(string: m.league.imageURL ?? "")) }
         }
         .assign(to: &$matchRepresentations)
     }

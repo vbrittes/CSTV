@@ -37,7 +37,7 @@ final class MatchDetailViewModel {
     
     fileprivate var cancellables = Set<AnyCancellable>()
     
-    fileprivate(set) var errorMessage: String?
+    @Published var errorMessage: String?
     
     @Published var matchRepresentation: MatchDetailDescriber?
     @Published var playerPairsRepresentation: [MatchPlayerPairDescriber]?
@@ -52,9 +52,18 @@ final class MatchDetailViewModel {
             return
         }
         
-        playerService.fetchPlayers(match: matchID) { result, error in
-            self.teamOnePlayers = result?.first?.players
-            self.teamTwoPlayers = result?.last?.players
+        playerService.fetchPlayers(match: matchID) { [weak self] result, error in
+            guard let self = self else { return }
+            
+            guard let result = result,
+                  result.count == 2 &&
+                    error == nil else {
+                self.errorMessage = "Falha ao obter jogadores"
+                return
+            }
+            
+            self.teamOnePlayers = result.first?.players
+            self.teamTwoPlayers = result.last?.players
             self.synchronizePlayerDescribers()
         }
         
@@ -90,11 +99,11 @@ fileprivate extension MatchDetailViewModel {
               teamOnePlayers.count == teamTwoPlayers.count else {
             return
         }
-                
+        
         playerPairsRepresentation = (0..<teamOnePlayers.count).map { index in
             let teamOneMember = teamOnePlayers[index]
             let teamTwoMember = teamTwoPlayers[index]
-                        
+            
             return MatchPlayerPairDescriber(
                 playerOneNickname: teamOneMember.name,
                 playerOneFullname: "\(teamOneMember.firstName ?? "") \(teamOneMember.lastName ?? "")",
