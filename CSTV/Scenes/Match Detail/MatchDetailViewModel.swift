@@ -53,35 +53,17 @@ final class MatchDetailViewModel {
         }
         
         playerService.fetchPlayers(match: matchID) { result, error in
-            //result?.first?.opponent?.players
             self.teamOnePlayers = result?.first?.players
             self.teamTwoPlayers = result?.last?.players
             self.synchronizePlayerDescribers()
         }
         
-//        guard let teamOneID = match?.opponents.first?.opponent.id,
-//              let teamTwoID = match?.opponents.last?.opponent.id,
-//              match?.opponents.count == 2 else {
-//            return
-//        }
-        
-//        playerService.fetchPlayers(match: match?.id ?? 0) { [weak self] players, error in
-//            self?.teamOnePlayers = players?.first?.players
-//            self?.teamTwoPlayers = players?.last?.players
-//            self?.synchronizePlayerDescribers()
-//        }
-        
-//        playerService.fetchPlayers(match: teamTwoID) { players, error in
-//            self.teamTwoPlayers = players
-//            self.synchronizePlayerDescribers()
-//        }
     }
     
     func prepareForNavigation(match: MatchObject) {
         self.match = match
         loadContent()
     }
-    
 }
 
 fileprivate extension MatchDetailViewModel {
