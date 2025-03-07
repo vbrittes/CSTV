@@ -7,6 +7,7 @@
 
 import Foundation
 import Combine
+import Alamofire
 
 struct MatchListItemDescriber {
     var formattedStartDate: String
@@ -23,34 +24,82 @@ final class MatchListViewModel {
     
     weak var coordinator: MainCoordinator?
     
-    private let counterStrikeID = 3
-    
     fileprivate var matchService: MatchService
     @Published fileprivate var matches: [MatchObject] = []
+    fileprivate var fetchRequest: DataRequest?
+    fileprivate var loadingNextPage = false
     
     fileprivate var cancellables = Set<AnyCancellable>()
     
+    ///Bind to display error feedback
     @Published var errorMessage: String?
+    ///Bind to update interface according to loaded content
     @Published var matchRepresentations: [MatchListItemDescriber] = []
+    
+    
+    ///Max number of elements retrieved
+    fileprivate let pageLength = 10
+    ///The last page missing portion to trigger next page loading
+    fileprivate let nextPageTrigger = 0.25
     
     init(matchService: MatchService = MatchHTTPService()) {
         self.matchService = matchService
         bind()
     }
     
+    ///Load enough listing content, page management is done by view model according to updateLastDisplayed()
     func loadContent() {
-        matchService.fetchMatches(videogame: counterStrikeID) { [weak self] result, error in
+        loadContent(force: true, page: 0)
+    }
+    
+    fileprivate func loadContent(force: Bool, page: Int) {
+        print("init load page: \(page)")
+        
+        if force {
+            fetchRequest?.cancel()
+            loadingNextPage = false
+            matches = []
+        }
+        
+        if loadingNextPage {
+            fetchRequest?.cancel()
+        }
+        
+        loadingNextPage = true
+        
+        print("load page: \(page)")
+        fetchRequest = matchService.fetchMatches(page: page, perPage: pageLength) { [weak self] result, error in
             guard let self = self else {
                 return
             }
             
             guard let matches = result,
-                      error == nil else {
-                          self.errorMessage = "Falha ao obter partidas"
-                          return
-                      }
+                  error == nil else {
+
+                if error?.asAFError?.isExplicitlyCancelledError == false {
+                    self.errorMessage = "Falha ao obter partidas"
+                }
+                
+                return
+            }
             
-            self.matches = matches
+            self.errorMessage = nil
+            
+            if force {
+                self.matches = matches
+            } else {
+                self.matches.append(contentsOf: matches)
+            }
+        }
+    }
+    
+    func updateLastDisplayed(element index: Int) {
+        let triggerElement = Double(matches.count) * (1.0 - nextPageTrigger)
+        
+        let nextPage = matches.count / pageLength
+        
+        if Double(index) == floor(triggerElement) {
+            loadContent(force: false, page: nextPage)
         }
     }
     

@@ -5,6 +5,10 @@
 //  Created by Victor Milen Brittes on 28/02/25.
 //
 
+import Foundation
+import Alamofire
+
 protocol MatchService {
-    func fetchMatches(videogame id: Int, completion: @escaping (_ result: [MatchObject]?, _ error: Error?) -> Void)
+    @discardableResult
+    func fetchMatches(page: Int, perPage: Int, completion: @escaping (_ result: [MatchObject]?, _ error: Error?) -> Void) -> DataRequest?
 }
