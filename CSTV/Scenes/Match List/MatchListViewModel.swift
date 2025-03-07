@@ -64,8 +64,6 @@ final class MatchListViewModel {
     }
     
     fileprivate func loadContent(force: Bool, page: Int) {
-        print("init load page: \(page)")
-        
         if force {
             fetchRequest?.cancel()
             loadingNextPage = false
@@ -78,7 +76,6 @@ final class MatchListViewModel {
         
         loadingNextPage = true
         
-        print("load page: \(page)")
         fetchRequest = matchService.fetchMatches(page: page, perPage: pageLength) { [weak self] result, error in
             guard let self = self else {
                 return

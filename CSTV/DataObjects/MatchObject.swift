@@ -15,7 +15,6 @@ enum MatchStatus: String, Codable {
     case canceled
 }
 
-// MARK: - Match
 struct MatchObject: Codable {
     let id: Int
     let name: String
