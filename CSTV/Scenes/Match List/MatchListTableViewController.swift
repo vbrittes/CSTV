@@ -61,8 +61,6 @@ extension MatchListTableViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let count = viewModel.matchRepresentations.count
-        
         guard !shouldDisplayLoading() else {
             return LoadingTableViewCell()
         }
@@ -112,6 +110,13 @@ extension MatchListTableViewController {
     
     fileprivate func shouldDisplayLoading() -> Bool {
         return viewModel.matchRepresentations.count == 0 && viewModel.errorMessage == nil
+    }
+    
+    override func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+        //Force navigation bar appearence to update
+        navigationController?.navigationBar.setNeedsLayout()
+        navigationController?.navigationBar.layoutIfNeeded()
+        navigationController?.navigationBar.setNeedsDisplay()
     }
 }
 
