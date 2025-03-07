@@ -57,12 +57,10 @@ struct MatchObject: Codable {
     let slug: String
     let league: LeagueObject
     let serie: SerieObject
-    let tournament: TournamentObject
-    let videogame: VideoGameObject
-    let opponents: [OpponentWrapperObject]
+    let opponents: [OpponentObject]
 
     enum CodingKeys: String, CodingKey {
-        case id, name, status, league, serie, tournament, videogame, opponents
+        case id, name, status, league, serie, opponents
         case beginAt = "begin_at"
         case endAt = "end_at"
         case modifiedAt = "modified_at"

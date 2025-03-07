@@ -48,21 +48,33 @@ final class MatchDetailViewModel {
     }
     
     func loadContent() {
-        guard let teamOneID = match?.opponents.first?.opponent.id,
-              let teamTwoID = match?.opponents.last?.opponent.id,
-              match?.opponents.count == 2 else {
+        guard let matchID = match?.id else {
             return
         }
         
-        playerService.fetchPlayers(team: teamOneID) { players, error in
-            self.teamOnePlayers = players
+        playerService.fetchPlayers(match: matchID) { result, error in
+            //result?.first?.opponent?.players
+            self.teamOnePlayers = result?.first?.players
+            self.teamTwoPlayers = result?.last?.players
             self.synchronizePlayerDescribers()
         }
         
-        playerService.fetchPlayers(team: teamTwoID) { players, error in
-            self.teamTwoPlayers = players
-            self.synchronizePlayerDescribers()
-        }
+//        guard let teamOneID = match?.opponents.first?.opponent.id,
+//              let teamTwoID = match?.opponents.last?.opponent.id,
+//              match?.opponents.count == 2 else {
+//            return
+//        }
+        
+//        playerService.fetchPlayers(match: match?.id ?? 0) { [weak self] players, error in
+//            self?.teamOnePlayers = players?.first?.players
+//            self?.teamTwoPlayers = players?.last?.players
+//            self?.synchronizePlayerDescribers()
+//        }
+        
+//        playerService.fetchPlayers(match: teamTwoID) { players, error in
+//            self.teamTwoPlayers = players
+//            self.synchronizePlayerDescribers()
+//        }
     }
     
     func prepareForNavigation(match: MatchObject) {
@@ -81,9 +93,9 @@ fileprivate extension MatchDetailViewModel {
                 let secondOpponent = m.opponents.last?.opponent
                 return MatchDetailDescriber(
                     formattedStartDate: m.beginAt ?? "",
-                    teamOneImageURL: URL(string: firstOpponent?.imageUrl ?? ""),
+                    teamOneImageURL: URL(string: firstOpponent?.imageURL ?? ""),
                     teamOneName: firstOpponent?.name ?? "",
-                    teamTwoImageURL: URL(string: secondOpponent?.imageUrl ?? ""),
+                    teamTwoImageURL: URL(string: secondOpponent?.imageURL ?? ""),
                     teamTwoName: firstOpponent?.name ?? "")
             }
         }

@@ -63,15 +63,16 @@ final class MatchListViewModel {
 fileprivate extension MatchListViewModel {
     func bind() {
         $matches.map { match in
-            match.map { m in MatchListItemDescriber(
+            match.map { m in
+                MatchListItemDescriber(
                 formattedStartDate: m.beginAt ?? "",
                 startDateHighlight: m.status == .running,
-                teamOneImageURL: URL(string: m.opponents.first?.opponent.imageUrl ?? ""),
-                teamOneName: m.opponents.first?.opponent.name ?? "",
-                teamTwoImageURL: URL(string: m.opponents.last?.opponent.imageUrl ?? ""),
-                teamTwoName: m.opponents.last?.opponent.name ?? "",
+                teamOneImageURL: URL(string: m.opponents.first?.opponent?.imageURL ?? ""),
+                teamOneName: m.opponents.first?.opponent?.name ?? "",
+                teamTwoImageURL: URL(string: m.opponents.last?.opponent?.imageURL ?? ""),
+                teamTwoName: m.opponents.last?.opponent?.name ?? "",
                 leagueName: m.league.name,
-                leagueImageURL: URL(string: m.league.imageUrl ?? "")) }
+                leagueImageURL: URL(string: m.league.imageURL ?? "")) }
         }
         .assign(to: &$matchRepresentations)
     }

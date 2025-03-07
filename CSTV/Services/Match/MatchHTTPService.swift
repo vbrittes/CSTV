@@ -12,30 +12,28 @@ class MatchHTTPService: MatchService, HTTPPerformer {
     fileprivate lazy var http: Session = http()
     
     func fetchMatches(videogame id: Int, completion: @escaping (_ result: [MatchObject]?, _ error: Error?) -> Void) {
-        let headers: HTTPHeaders = [
-            "accept": "application/json",
-            "authorization": "Bearer 37RdDYBEr8u_7om870eY2hyoBLs3tx_tkXaDpBKLksy_uEarHAo"
-        ]
         
         let parameters: [String: Any] = [
             "sort": "begin_at",
-            "videogame": String(id),
             "page": "1",
-            "per_page": "10"
+            "per_page": "10",
+            "token": API.apiToken
         ]
         
         http.request(API.matches.url(),
                      method: .get,
                      parameters: parameters,
-                     headers: headers)
+                     headers: defaultHeader)
             .validate()
             .responseDecodable(of: [MatchObject].self) { response in
                 switch response.result {
                 case .success(let matches):
+//                    print("success: \(response.request?.urlRequest)")
                     completion(matches, nil)
                 case .failure(let error):
+//                    print("failure: \(response.request?.urlRequest)")
 //                    debug purpose
-//                    print("\(self?.prettyPrintedJSON(from: response.data)  ?? "")")
+//                    print("\(self.prettyPrintedJSON(from: response.data)  ?? "")")
                     completion(nil, error)
                 }
             }

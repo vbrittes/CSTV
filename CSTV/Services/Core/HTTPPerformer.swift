@@ -19,7 +19,7 @@ extension HTTPPerformer {
     var defaultHeader: HTTPHeaders {
         return [
             "accept": "application/json",
-            "authorization": "Bearer 37RdDYBEr8u_7om870eY2hyoBLs3tx_tkXaDpBKLksy_uEarHAo"
+            "authorization": "Bearer \(API.apiToken)"
         ]
     }
     
