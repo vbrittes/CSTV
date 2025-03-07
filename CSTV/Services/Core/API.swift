@@ -16,6 +16,8 @@ enum API {
     case matches
     case matchOpponents(String)
     
+    static var dateFormatter: ISO8601DateFormatter = ISO8601DateFormatter()
+    
     func url() -> URL {
         var path: String
         

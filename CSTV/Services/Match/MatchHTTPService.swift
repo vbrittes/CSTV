@@ -18,7 +18,8 @@ class MatchHTTPService: MatchService, HTTPPerformer {
             "sort": "begin_at",
             "page": page + 1,
             "per_page": perPage,
-            "token": API.apiToken
+            "token": API.apiToken,
+            "filter[future]": "true"
         ]
         
         return http.request(API.matches.url(),
@@ -33,8 +34,6 @@ class MatchHTTPService: MatchService, HTTPPerformer {
                     completion(matches, nil)
                 case .failure(let error):
 //                    print("failure: \(response.request?.urlRequest)")
-//                    debug purpose
-//                    print("\(self.prettyPrintedJSON(from: response.data)  ?? "")")
                     completion(nil, error)
                 }
             }
