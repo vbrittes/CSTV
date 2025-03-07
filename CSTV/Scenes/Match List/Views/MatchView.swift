@@ -25,15 +25,15 @@ final class MatchView: UIView {
     @IBOutlet var leagueNameLabel: UILabel!
     
     func populate(match describer: MatchListItemDescriber) {
-        loadImage(url: describer.teamOneImageURL, imageView: firstTeamImageView)
+        firstTeamImageView.loadWithCirclePlaceholder(url: describer.teamOneImageURL)
         firstTeamNameLabel.text = describer.teamOneName
         
-        loadImage(url: describer.teamTwoImageURL, imageView: secondTeamImageView)
+        secondTeamImageView.loadWithCirclePlaceholder(url: describer.teamTwoImageURL)
         secondTeamNameLabel.text = describer.teamTwoName
         
         dateLabel.text = describer.formattedStartDate
         
-        loadImage(url: describer.leagueImageURL, imageView: leagueImageView)
+        leagueImageView.loadWithCirclePlaceholder(url: describer.leagueImageURL)
         leagueNameLabel.text = describer.leagueName
         
         dateLabel.backgroundColor = .cellHighlightOnLabel
@@ -49,18 +49,6 @@ final class MatchView: UIView {
 
 fileprivate extension MatchView {
     
-    func loadImage(url: URL?, imageView: UIImageView) {
-        imageView.kf.setImage(with: url, options: [.transition(.fade(0.3))]) { result in
-            switch result {
-            case .success(let value):
-                imageView.backgroundColor = .clear
-            case .failure(_):
-                imageView.backgroundColor = .placeholderBg
-            }
-            
-        }
-    }
-    
     func setupInterface() {
         layer.cornerRadius = 16
         clipsToBounds = true
@@ -70,7 +58,7 @@ fileprivate extension MatchView {
         dateLabel.clipsToBounds = true
         
         vsLabel.text = "vs"
-        vsLabel.textColor = .secondaryLabel
+        vsLabel.textColor = .secondaryText
         
         separatorView.backgroundColor = .borderSeparator
         

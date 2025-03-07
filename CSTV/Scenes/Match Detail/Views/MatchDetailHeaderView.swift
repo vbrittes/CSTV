@@ -38,13 +38,14 @@ final class MatchDetailHeaderView: UIView {
     }
     
     func populate(match describer: MatchDetailDescriber) {
-        firstTeamImageView.kf.setImage(with: describer.teamOneImageURL, options: [.transition(.fade(0.3))])
+        firstTeamImageView.loadWithCirclePlaceholder(url: describer.teamOneImageURL)
         firstTeamNameLabel.text = describer.teamOneName
         
-        secondTeamImageView.kf.setImage(with: describer.teamTwoImageURL, options: [.transition(.fade(0.3))])
+        secondTeamImageView.loadWithCirclePlaceholder(url: describer.teamTwoImageURL)
         secondTeamNameLabel.text = describer.teamTwoName
         
         vsLabel.text = "vs"
+        vsLabel.textColor = .secondaryText
         
         dateLabel.text = describer.formattedStartDate
     }

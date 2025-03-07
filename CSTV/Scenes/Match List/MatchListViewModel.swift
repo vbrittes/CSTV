@@ -18,6 +18,15 @@ struct MatchListItemDescriber {
     var teamTwoName: String
     var leagueName: String
     var leagueImageURL: URL?
+    
+    static var empty: MatchListItemDescriber {
+        MatchListItemDescriber(
+            formattedStartDate: "",
+            startDateHighlight: false,
+            teamOneName: "",
+            teamTwoName: "",
+            leagueName: "")
+    }
 }
 
 final class MatchListViewModel {
@@ -25,11 +34,13 @@ final class MatchListViewModel {
     weak var coordinator: MainCoordinator?
     
     fileprivate var matchService: MatchService
-    @Published fileprivate var matches: [MatchObject] = []
     fileprivate var fetchRequest: DataRequest?
     fileprivate var loadingNextPage = false
     
     fileprivate var cancellables = Set<AnyCancellable>()
+    
+    ///Bind internaly to sync [MatchObject] -> [MatchListItemDescriber]
+    @Published fileprivate var matches: [MatchObject] = []
     
     ///Bind to display error feedback
     @Published var errorMessage: String?
@@ -93,6 +104,7 @@ final class MatchListViewModel {
         }
     }
     
+    ///Call wight before displaying UI element, to assure automatic paging
     func updateLastDisplayed(element index: Int) {
         let triggerElement = Double(matches.count) * (1.0 - nextPageTrigger)
         

@@ -29,6 +29,11 @@ final class MatchTableViewCell: UITableViewCell {
         matchView.layer.borderWidth = highlighted ? 1 : 0
     }
     
+    override func prepareForReuse() {
+        //avoid cached images to appear as placeholder
+        matchView.populate(match: .empty)
+    }
+    
     func populate(match describer: MatchListItemDescriber) {
         matchView.populate(match: describer)
     }
