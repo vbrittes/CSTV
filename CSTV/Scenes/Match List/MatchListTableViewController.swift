@@ -38,9 +38,19 @@ final class MatchListTableViewController: UITableViewController {
         setupNavigationBar()
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        self.setupRefreshControl()
+    }
+    
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         tableView.layoutIfNeeded()
+    }
+    
+    @objc func refreshAction() {
+        viewModel.loadContent()
     }
 }
 
@@ -78,8 +88,17 @@ fileprivate extension MatchListTableViewController {
             .receive(on: DispatchQueue.main)
             .sink { [weak self] _ in
                 self?.tableView.reloadData()
+                self?.refreshControl?.endRefreshing()
             }
             .store(in: &cancellables)
+    }
+    
+    func setupRefreshControl() {
+        let refresh = UIRefreshControl()
+        refresh.addTarget(self, action: #selector(refreshAction), for: .valueChanged)
+        refresh.tintColor = .white
+        
+        tableView.refreshControl = refresh
     }
     
     func setupNavigationBar() {
