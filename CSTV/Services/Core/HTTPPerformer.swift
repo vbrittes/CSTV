@@ -16,6 +16,13 @@ extension HTTPPerformer {
         return AF
     }
     
+    var defaultHeader: HTTPHeaders {
+        return [
+            "accept": "application/json",
+            "authorization": "Bearer 37RdDYBEr8u_7om870eY2hyoBLs3tx_tkXaDpBKLksy_uEarHAo"
+        ]
+    }
+    
     func prettyPrintedJSON(from data: Data?) -> String? {
         guard let data = data else {
             return nil
