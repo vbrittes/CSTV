@@ -60,7 +60,7 @@ fileprivate extension MatchDetailHeaderView {
         
         let labels: [UILabel] = [firstTeamNameLabel, secondTeamNameLabel, dateLabel]
         labels.forEach { l in
-            l.textColor = .white
+            l.textColor = .primaryText
             l.numberOfLines = 2
             l.lineBreakMode = .byTruncatingTail
             l.textAlignment = .center
@@ -68,7 +68,7 @@ fileprivate extension MatchDetailHeaderView {
         
         let imageViews: [UIImageView] = [firstTeamImageView, secondTeamImageView]
         imageViews.forEach { iv in
-            iv.backgroundColor = UIColor(named: "placeholder-bg-color")
+            iv.backgroundColor = .placeholderBg
         }
         
         addConstraint(dynamicWidthConstraint)

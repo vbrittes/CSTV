@@ -36,7 +36,7 @@ final class MatchView: UIView {
         loadImage(url: describer.leagueImageURL, imageView: leagueImageView)
         leagueNameLabel.text = describer.leagueName
         
-        dateLabel.backgroundColor = UIColor(named: "cell-highlight-on-label-color")
+        dateLabel.backgroundColor = .cellHighlightOnLabel
     }
     
     override func awakeFromNib() {
@@ -55,7 +55,7 @@ fileprivate extension MatchView {
             case .success(let value):
                 imageView.backgroundColor = .clear
             case .failure(_):
-                imageView.backgroundColor = UIColor(named: "placeholder-bg-color")
+                imageView.backgroundColor = .placeholderBg
             }
             
         }
@@ -70,21 +70,19 @@ fileprivate extension MatchView {
         dateLabel.clipsToBounds = true
         
         vsLabel.text = "vs"
-        vsLabel.textColor = .white
-        vsLabel.alpha = 0.5
+        vsLabel.textColor = .secondaryLabel
         
-        separatorView.backgroundColor = .white
-        separatorView.alpha = 0.2
+        separatorView.backgroundColor = .borderSeparator
         
         let labelsToFormat: [UILabel] = [firstTeamNameLabel, secondTeamNameLabel, leagueNameLabel, dateLabel]
         labelsToFormat.forEach { label in
-            label.textColor = .white
+            label.textColor = .primaryText
             label.textAlignment = .center
             label.numberOfLines = 2
             label.lineBreakMode = .byTruncatingTail
         }
         
-        backgroundColor = UIColor(named: "cell-bg-color")
+        backgroundColor = .cellBg
     }
     
 }

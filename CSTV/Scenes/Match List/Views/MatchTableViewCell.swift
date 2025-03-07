@@ -25,7 +25,7 @@ final class MatchTableViewCell: UITableViewCell {
     
     override func setHighlighted(_ highlighted: Bool, animated: Bool) {
         matchView.alpha = highlighted ? 0.5 : 1
-        matchView.layer.borderColor = highlighted ? UIColor(white: 1, alpha: 0.2).cgColor : UIColor.clear.cgColor
+        matchView.layer.borderColor = highlighted ? UIColor.borderSeparator.cgColor : UIColor.clear.cgColor
         matchView.layer.borderWidth = highlighted ? 1 : 0
     }
     

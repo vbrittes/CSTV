@@ -41,24 +41,24 @@ fileprivate extension MatchPlayerView {
     func setupInterface() {
         backgroundColor = .clear
         
-        playerOneContainerView.backgroundColor = UIColor(named: "cell-bg-color")
+        playerOneContainerView.backgroundColor = .cellBg
         playerOneContainerView.layer.cornerRadius = 12
         playerOneContainerView.layer.maskedCorners = [.layerMaxXMinYCorner, .layerMaxXMaxYCorner]
         
-        playerTwoContainerView.backgroundColor = UIColor(named: "cell-bg-color")
+        playerTwoContainerView.backgroundColor = .cellBg
         playerTwoContainerView.layer.cornerRadius = 12
         playerTwoContainerView.layer.maskedCorners = [.layerMinXMinYCorner, .layerMinXMaxYCorner]
         
         let placeholderIV: [UIImageView] = [playerOneImageView, playerTwoImageView]
         placeholderIV.forEach { iv in
-            iv.backgroundColor = UIColor(named: "placeholder-bg-color")
+            iv.backgroundColor = .placeholderBg
             iv.layer.cornerRadius = 8
             iv.layer.masksToBounds = true
         }
         
-        playerOneNicknameLabel.textColor = .white
+        playerOneNicknameLabel.textColor = .primaryText
         
-        playerTwoNicknameLabel.textColor = .white
+        playerTwoNicknameLabel.textColor = .primaryText
     }
 }
 

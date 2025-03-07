@@ -92,7 +92,7 @@ extension MatchListTableViewController {
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         guard let message = viewModel.errorMessage else { return nil }
         let label = UILabel()
-        label.backgroundColor = UIColor(white: 1, alpha: 0.5)
+        label.backgroundColor = .borderSeparator
         label.numberOfLines = 0
         label.attributedText = .formattedErrorDisplay(content: message)
         
@@ -117,7 +117,7 @@ extension MatchListTableViewController {
 fileprivate extension MatchListTableViewController {
     
     func setupInterface() {
-        tableView.backgroundColor = UIColor(named: "main-bg-color")
+        tableView.backgroundColor = .mainBg
         tableView.register(MatchTableViewCell.self, forCellReuseIdentifier: cellReuseIdentifier)
     }
     
@@ -140,7 +140,7 @@ fileprivate extension MatchListTableViewController {
     func setupRefreshControl() {
         let refresh = UIRefreshControl()
         refresh.addTarget(self, action: #selector(refreshAction), for: .valueChanged)
-        refresh.tintColor = .white
+        refresh.tintColor = .primaryText
         
         tableView.refreshControl = refresh
     }
@@ -148,8 +148,8 @@ fileprivate extension MatchListTableViewController {
     func setupNavigationBar() {
         navigationItem.title = "Partidas"
         navigationController?.navigationBar.prefersLargeTitles = true
-        navigationController?.navigationBar.largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
-        navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.black]
+        navigationController?.navigationBar.largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.primaryText]
+        navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.mainBg]
     }
     
 }
@@ -171,7 +171,7 @@ class LoadingTableViewCell: UITableViewCell {
         
         let activityIndicador = UIActivityIndicatorView()
         activityIndicador.style = .large
-        activityIndicador.color = .white
+        activityIndicador.color = .primaryText
         activityIndicador.startAnimating()
         
         activityIndicador.translatesAutoresizingMaskIntoConstraints = false

@@ -100,7 +100,7 @@ extension MatchDetailTableViewController {
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         guard let message = viewModel.errorMessage else { return nil }
         let label = UILabel()
-        label.backgroundColor = UIColor(white: 1, alpha: 0.5)
+        label.backgroundColor = .borderSeparator
         label.numberOfLines = 0
         label.attributedText = .formattedErrorDisplay(content: message)
         
@@ -112,7 +112,7 @@ extension MatchDetailTableViewController {
 fileprivate extension MatchDetailTableViewController {
     
     func setupInterface() {
-        tableView.backgroundColor = UIColor(named: "main-bg-color")
+        tableView.backgroundColor = .mainBg
         tableView.register(MatchPlayerTableViewCell.self, forCellReuseIdentifier: cellReuseIdentifier)
         
         headerView = MatchDetailHeaderView.ibInstance()
@@ -157,14 +157,14 @@ fileprivate extension MatchDetailTableViewController {
     func setupRefreshControl() {
         let refresh = UIRefreshControl()
         refresh.addTarget(self, action: #selector(refreshAction), for: .valueChanged)
-        refresh.tintColor = .white
+        refresh.tintColor = .primaryText
         
         tableView.refreshControl = refresh
     }
     
     func setupNavigationBar() {
         navigationController?.navigationBar.prefersLargeTitles = false
-        navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
+        navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.primaryText]
     }
     
 }
