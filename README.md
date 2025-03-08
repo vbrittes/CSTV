@@ -1,5 +1,6 @@
 # CSTV
-This is a Challenge Project assess de developer technical skills.
+This is a Challenge Project to assess the developer technical skills. 
+It uses Panda Score API to display current and upcoming Counter Strike matches on a list and also navigates to display further details.
 
 ## Libraries used
 ### Alamofire
@@ -28,4 +29,4 @@ Before compiling, update SPM's dependencies. If any dependency error occurs, cle
 - Pagination support ✅
 - Reactive programming (Combine) ✅
 - Responsiveness ⚠️
- - The content is displayed with no distortions, but no optimization was made
+	- The content is displayed with no distortions, but no optimization was made
