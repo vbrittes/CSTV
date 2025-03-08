@@ -10,7 +10,7 @@ import Foundation
 protocol JSONFileLoadPerformer { }
 
 extension JSONFileLoadPerformer {
-    func load<T: Decodable>(fileName: String, type: T.Type, delay: DispatchTime = .now() + 1, completion: @escaping ((_ result: T?, _ error: Error?) -> Void)) {
+    func load<T: Decodable>(fileName: String, type: T.Type, delay: DispatchTime = .now() + 0.1, completion: @escaping ((_ result: T?, _ error: Error?) -> Void)) {
         DispatchQueue.global().asyncAfter(deadline: delay) {
             guard let url = Bundle.main.url(forResource: fileName, withExtension: "json") else {
                 print("Failed to load \(fileName).json. \nMake sure the file is added correctly (Build Phases > Copy Bundle Resources)")

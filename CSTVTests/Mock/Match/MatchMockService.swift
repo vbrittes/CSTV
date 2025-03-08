@@ -39,8 +39,8 @@ class MatchMockSuccessService: MatchService, JSONFileLoadPerformer {
 class MatchMockFailureService: MatchService, JSONFileLoadPerformer {
     @discardableResult
     func fetchMatches(page: Int, perPage: Int, completion: @escaping (_ result: [MatchObject]?, _ error: Error?) -> Void) -> DataRequest? {
-        DispatchQueue.global().asyncAfter(deadline: .now() + 1) {
-            completion(nil, NSError(domain: "Forced error", code: 0))
+        load(fileName: "x", type: [MatchObject].self) { result, error in
+            completion(result, error)
         }
         return nil
     }

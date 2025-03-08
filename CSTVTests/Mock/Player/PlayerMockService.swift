@@ -34,10 +34,9 @@ class PlayerMockSuccessService: PlayerService, JSONFileLoadPerformer {
 }
 
 class PlayerMockFailureService: PlayerService, JSONFileLoadPerformer {
-    @discardableResult
     func fetchPlayers(match id: Int, completion: @escaping (_ result: [OpponentObject]?, _ error: Error?) -> Void) {
-        DispatchQueue.global().asyncAfter(deadline: .now() + 1) {
-            completion(nil, NSError(domain: "Forced error", code: 0))
+        load(fileName: "x", type: OpponentWrapperObject.self) { result, error in
+            completion(result?.opponents, error)
         }
     }
 }

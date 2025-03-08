@@ -41,22 +41,38 @@ final class MatchListViewModelTests: XCTestCase {
     func testErrorFetchMatch() {
         sut = MatchListViewModel(matchService: MatchMockService(success: false))
         
-        triggerLoadContent()
+        let expectation = XCTestExpectation(description: "error expectation")
+        expectation.expectedFulfillmentCount = 1
+
+        sut.$errorMessage
+            .sink { _ in
+                expectation.fulfill()
+            }
+            .store(in: &cancellables)
+        
+        sut.loadContent()
+        
+        wait(for: [expectation])
+        
+        sleep(1) //binding thread performance issue, not ideal solution :(
         
         XCTAssertEqual(sut.matchRepresentations.count, 0)
-        XCTAssertEqual(sut.errorMessage, "")
+        XCTAssertEqual(sut.errorMessage, "Falha ao obter partidas")
     }
     
     func testNavigateToDetail() {
         let expectation = XCTestExpectation()
         
         let coordinator = MockCoordinator(expectation: expectation)
+        sut.coordinator = coordinator
         
         triggerLoadContent()
         
+        sleep(1) //binding thread performance issue, not ideal solution :(
+        
         sut.navigateToMatch(index: 0)
         
-        XCTAssertEqual(coordinator.lastGottenMatch?.id, 0)
+        XCTAssertEqual(coordinator.lastGottenMatch?.id, 1135296)
     }
     
     func testUpdateLastDisplayed() {
@@ -64,18 +80,17 @@ final class MatchListViewModelTests: XCTestCase {
         
         triggerLoadContent()
         
-        let expectation = XCTestExpectation()
-        expectation.expectedFulfillmentCount = 9
+        let expectation = XCTestExpectation(description: "last displayed expectation")
+        expectation.expectedFulfillmentCount = 2
         
         bind(expectation: expectation)
         
-        //check not loading automaticallly
-        sut.updateLastDisplayed(element: 0)
-        //check loading automaticallly
-        sut.updateLastDisplayed(element: 10)
-        
+        (0..<sut.matchRepresentations.count).forEach { index in
+            sut.updateLastDisplayed(element: index)
+        }
+                
         wait(for: [expectation])
-        
+                
         XCTAssertEqual(sut.matchRepresentations.count, 20)
     }
     
@@ -85,9 +100,9 @@ final class MatchListViewModelTests: XCTestCase {
 }
 
 extension MatchListViewModelTests {
-    func triggerLoadContent() {
+    func triggerLoadContent(expected fulfillment: Int = 3) {
         let expectation = XCTestExpectation()
-        expectation.expectedFulfillmentCount = 3
+        expectation.expectedFulfillmentCount = fulfillment
         
         bind(expectation: expectation)
         sut.loadContent()
@@ -99,6 +114,7 @@ extension MatchListViewModelTests {
         sut.$matchRepresentations
             .sink { _ in
                 expectation.fulfill()
+                print("kkk aaa \(expectation.expectationDescription)")
             }
             .store(in: &cancellables)
     }
