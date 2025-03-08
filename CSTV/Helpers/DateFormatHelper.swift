@@ -8,6 +8,12 @@
 import Foundation
 
 class DateFormatHelper {
+    var now: Date
+    
+    init(now: Date = Date()) {
+        self.now = now
+    }
+    
     func format(dateString fromAPI: String?) -> String? {
         let formatter = API.dateFormatter
         
@@ -41,7 +47,7 @@ class DateFormatHelper {
     }
     
     private func withinNextSevenDays(date: Date) -> Bool {
-        guard let sevenDaysFromNow = Calendar.current.date(byAdding: .day, value: 7, to: Date()) else {
+        guard let sevenDaysFromNow = Calendar.current.date(byAdding: .day, value: 7, to: now) else {
             return false
         }
         

@@ -31,7 +31,7 @@ struct MatchListItemDescriber {
 
 final class MatchListViewModel {
     
-    weak var coordinator: MainCoordinator?
+    weak var coordinator: Coordinator?
     
     fileprivate var matchService: MatchService
     fileprivate var fetchRequest: DataRequest?

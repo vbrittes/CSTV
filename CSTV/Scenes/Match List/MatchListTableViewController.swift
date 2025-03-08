@@ -118,6 +118,14 @@ extension MatchListTableViewController {
         navigationController?.navigationBar.layoutIfNeeded()
         navigationController?.navigationBar.setNeedsDisplay()
     }
+    
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        super.viewWillTransition(to: size, with: coordinator)
+
+        coordinator.animate(alongsideTransition: { _ in
+            self.view.layoutIfNeeded()
+        })
+    }
 }
 
 fileprivate extension MatchListTableViewController {
@@ -131,14 +139,14 @@ fileprivate extension MatchListTableViewController {
         viewModel.$matchRepresentations
             .receive(on: DispatchQueue.main)
             .sink { [weak self] _ in
-                self?.tableView.reloadData()
+                self?.reloadData()
             }
             .store(in: &cancellables)
         
         viewModel.$errorMessage
             .receive(on: DispatchQueue.main)
             .sink { [weak self] _ in
-                self?.tableView.reloadData()
+                self?.reloadData()
             }
             .store(in: &cancellables)
     }
@@ -156,6 +164,13 @@ fileprivate extension MatchListTableViewController {
         navigationController?.navigationBar.prefersLargeTitles = true
     }
     
+    func reloadData() {
+        if tableView.visibleCells.count == 0 {
+            tableView.reloadSections(IndexSet(integer: 0), with: .fade)
+        } else {
+            tableView.reloadData()
+        }
+    }
 }
 
 class LoadingTableViewCell: UITableViewCell {

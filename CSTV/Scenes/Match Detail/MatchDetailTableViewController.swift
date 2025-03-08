@@ -106,6 +106,28 @@ extension MatchDetailTableViewController {
         return viewModel.playerPairsRepresentation?.count == 0 && viewModel.errorMessage == nil
     }
     
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        super.viewWillTransition(to: size, with: coordinator)
+
+        headerView?.dynamicWidth = size.width
+        
+        coordinator.animate(alongsideTransition: { _ in
+            self.view.layoutIfNeeded()
+        })
+    }
+    
+    override func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+        //Force navigation bar appearence to update
+        navigationController?.navigationBar.setNeedsLayout()
+        navigationController?.navigationBar.layoutIfNeeded()
+        navigationController?.navigationBar.setNeedsDisplay()
+    }
+    
+    override func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        let transparentNavigation = scrollView.contentOffset.y > -view.safeAreaInsets.top
+        navigationController?.navigationBar.tintColor = transparentNavigation ? .mainBg : .primaryText
+    }
+    
 }
 
 fileprivate extension MatchDetailTableViewController {
@@ -118,9 +140,6 @@ fileprivate extension MatchDetailTableViewController {
         headerView?.dynamicWidth = tableView.frame.width
                 
         tableView.tableHeaderView = headerView
-        
-        //TO-DO: Tint button according to content offset
-        tableView.isScrollEnabled = false
         
         setupNavigationBar()
         reloadNavigationBar()
@@ -160,6 +179,14 @@ fileprivate extension MatchDetailTableViewController {
         headerView?.populate(match: representation)
     }
     
+    func reloadData() {
+        if tableView.visibleCells.count == 0 {
+            tableView.reloadSections(IndexSet(integer: 0), with: .fade)
+        } else {
+            tableView.reloadData()
+        }
+    }
+    
     func reloadNavigationBar() {
         navigationItem.title = viewModel.matchRepresentation?.formattedLeagueSerie
     }
@@ -185,4 +212,3 @@ fileprivate extension MatchDetailTableViewController {
     }
     
 }
-
