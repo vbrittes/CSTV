@@ -66,7 +66,7 @@ final class MatchDetailViewModelTests: XCTestCase {
         
         XCTAssertEqual(sut.playerPairsRepresentation?.count, nil)
         
-        XCTAssertEqual(sut.errorMessage, "")
+        XCTAssertEqual(sut.errorMessage, "Falha ao obter jogadores")
         
     }
     
