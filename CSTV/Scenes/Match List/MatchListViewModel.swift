@@ -31,7 +31,7 @@ struct MatchListItemDescriber {
 
 final class MatchListViewModel {
     
-    weak var coordinator: MainCoordinator?
+    weak var coordinator: Coordinator?
     
     fileprivate var matchService: MatchService
     fileprivate var fetchRequest: DataRequest?
@@ -83,11 +83,12 @@ final class MatchListViewModel {
             
             guard let matches = result,
                   error == nil else {
-
-                if error?.asAFError?.isExplicitlyCancelledError == false {
-                    self.errorMessage = "Falha ao obter partidas"
+                if error?.asAFError?.isExplicitlyCancelledError == true {
+                    self.errorMessage = nil
+                    return
                 }
                 
+                self.errorMessage = "Falha ao obter partidas"
                 return
             }
             
@@ -126,7 +127,7 @@ fileprivate extension MatchListViewModel {
         $matches.map { match in
             match.map { m in
                 MatchListItemDescriber(
-                    formattedStartDate: f.format(dateString: m.beginAt) ?? "",
+                    formattedStartDate: m.status == .running ? "AGORA" : f.format(dateString: m.beginAt) ?? "",
                     startDateHighlight: m.status == .running,
                     teamOneImageURL: URL(string: m.opponents.first?.opponent?.imageURL ?? ""),
                     teamOneName: m.opponents.first?.opponent?.name ?? "Não definido",
@@ -152,29 +153,5 @@ fileprivate extension MatchListViewModel {
             return match.beginAt ?? ""
         }
     }
-//    
-//    func formattedStartDate(date: Date?) -> String {
-//        let now = Date.now
-//        
-//        guard let date = date else {
-//            return "Erro"
-//        }
-//        
-//        guard date > now else {
-//            return "Agora"
-//        }
-//        
-//        return CustomDateFormatter().formatDate(date: Date())
-//    }
-//    
-//    private func formattedDay(for date: Date) -> String {
-//        let formatter = DateFormatter()
-//        formatter.dateFormat = "Ee"
-//        
-//        return formatter.string(from: date)
-//    }
-//    
-//    private func formattedHour(for date: Date) -> String {
-//        return ""
-//    }
+
 }

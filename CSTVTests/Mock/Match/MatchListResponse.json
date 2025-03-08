@@ -1,0 +1,1883 @@
+[
+  {
+    "league_id": 4854,
+    "results": [
+      {
+        "team_id": 131505,
+        "score": 1
+      },
+      {
+        "team_id": 130342,
+        "score": 1
+      }
+    ],
+    "detailed_stats": true,
+    "videogame_title": {
+      "id": 13,
+      "name": "Counter-Strike 2",
+      "slug": "cs-2",
+      "videogame_id": 3
+    },
+    "league": {
+      "id": 4854,
+      "name": "European Pro League",
+      "url": null,
+      "slug": "cs-go-european-pro-league",
+      "modified_at": "2023-12-22T16:34:11Z",
+      "image_url": "https://cdn.pandascore.co/images/league/image/4854/799px-european_pro_league_2023_lightmode-png"
+    },
+    "videogame_version": null,
+    "scheduled_at": "2025-03-08T11:30:00Z",
+    "game_advantage": null,
+    "winner_type": "Team",
+    "rescheduled": false,
+    "serie_id": 9113,
+    "live": {
+      "supported": false,
+      "url": null,
+      "opens_at": null
+    },
+    "streams_list": [
+      {
+        "main": true,
+        "language": "en",
+        "embed_url": "https://player.twitch.tv/?channel=eplcs_en2",
+        "official": true,
+        "raw_url": "https://www.twitch.tv/eplcs_en2"
+      },
+      {
+        "main": false,
+        "language": "ru",
+        "embed_url": "https://player.twitch.tv/?channel=eplcs_ru",
+        "official": false,
+        "raw_url": "https://www.twitch.tv/eplcs_ru"
+      }
+    ],
+    "tournament_id": 16186,
+    "winner": null,
+    "slug": "aurora-gaming-vs-bad-news-eagles-2025-03-08",
+    "modified_at": "2025-03-08T13:43:58Z",
+    "videogame": {
+      "id": 3,
+      "name": "Counter-Strike",
+      "slug": "cs-go"
+    },
+    "status": "running",
+    "original_scheduled_at": "2025-03-08T11:30:00Z",
+    "forfeit": false,
+    "begin_at": "2025-03-08T11:30:13Z",
+    "id": 1135296,
+    "name": "Winners match: AUR vs BNE",
+    "opponents": [
+      {
+        "type": "Team",
+        "opponent": {
+          "id": 131505,
+          "name": "Aurora Gaming",
+          "location": "RU",
+          "slug": "aurora-gaming",
+          "modified_at": "2025-03-06T19:09:13Z",
+          "acronym": "AUR",
+          "image_url": "https://cdn.pandascore.co/images/team/image/131505/893px_aurora_gaming_2023_allmode.png"
+        }
+      },
+      {
+        "type": "Team",
+        "opponent": {
+          "id": 130342,
+          "name": "Bad News Eagles",
+          "location": "XK",
+          "slug": "bad-news-eagles",
+          "modified_at": "2025-03-07T10:43:46Z",
+          "acronym": "BNE",
+          "image_url": "https://cdn.pandascore.co/images/team/image/130342/bad_news_eagles_allmode.png"
+        }
+      }
+    ],
+    "match_type": "best_of",
+    "end_at": null,
+    "number_of_games": 3,
+    "games": [
+      {
+        "complete": true,
+        "id": 165905,
+        "position": 1,
+        "status": "finished",
+        "length": 3156,
+        "finished": true,
+        "match_id": 1135296,
+        "begin_at": "2025-03-08T11:30:27Z",
+        "detailed_stats": true,
+        "end_at": "2025-03-08T12:23:04Z",
+        "forfeit": false,
+        "winner_type": "Team",
+        "winner": {
+          "id": 131505,
+          "type": "Team"
+        }
+      },
+      {
+        "complete": true,
+        "id": 165906,
+        "position": 2,
+        "status": "finished",
+        "length": 2446,
+        "finished": true,
+        "match_id": 1135296,
+        "begin_at": "2025-03-08T12:46:09Z",
+        "detailed_stats": true,
+        "end_at": "2025-03-08T13:26:55Z",
+        "forfeit": false,
+        "winner_type": "Team",
+        "winner": {
+          "id": 130342,
+          "type": "Team"
+        }
+      },
+      {
+        "complete": false,
+        "id": 165907,
+        "position": 3,
+        "status": "running",
+        "length": null,
+        "finished": false,
+        "match_id": 1135296,
+        "begin_at": "2025-03-08T13:43:58Z",
+        "detailed_stats": true,
+        "end_at": null,
+        "forfeit": false,
+        "winner_type": "Team",
+        "winner": {
+          "id": null,
+          "type": "Team"
+        }
+      }
+    ],
+    "tournament": {
+      "id": 16186,
+      "name": "Group D",
+      "type": "online",
+      "country": null,
+      "begin_at": "2025-03-04T09:00:00Z",
+      "detailed_stats": true,
+      "end_at": "2025-03-11T23:00:00Z",
+      "winner_id": null,
+      "winner_type": "Team",
+      "slug": "cs-go-european-pro-league-23-2025-group-d",
+      "modified_at": "2025-03-05T15:17:27Z",
+      "serie_id": 9113,
+      "league_id": 4854,
+      "prizepool": null,
+      "tier": "d",
+      "has_bracket": true,
+      "region": "WEU",
+      "live_supported": false
+    },
+    "serie": {
+      "id": 9113,
+      "name": "",
+      "year": 2025,
+      "begin_at": "2025-03-01T11:30:00Z",
+      "end_at": "2025-03-18T22:00:00Z",
+      "winner_id": null,
+      "winner_type": "Team",
+      "slug": "cs-go-european-pro-league-23-2025",
+      "modified_at": "2025-02-28T14:47:44Z",
+      "league_id": 4854,
+      "season": "23",
+      "full_name": "Season 23 2025"
+    },
+    "draw": false,
+    "winner_id": null
+  },
+  {
+    "league_id": 5078,
+    "results": [
+      {
+        "team_id": 134816,
+        "score": 1
+      },
+      {
+        "team_id": 136611,
+        "score": 1
+      }
+    ],
+    "detailed_stats": false,
+    "videogame_title": {
+      "id": 13,
+      "name": "Counter-Strike 2",
+      "slug": "cs-2",
+      "videogame_id": 3
+    },
+    "league": {
+      "id": 5078,
+      "name": "United21",
+      "url": null,
+      "slug": "cs-go-united21",
+      "modified_at": "2023-12-22T16:36:10Z",
+      "image_url": "https://cdn.pandascore.co/images/league/image/5078/800px-united21_allmode-png"
+    },
+    "videogame_version": null,
+    "scheduled_at": "2025-03-08T11:40:00Z",
+    "game_advantage": null,
+    "winner_type": "Team",
+    "rescheduled": true,
+    "serie_id": 9118,
+    "live": {
+      "supported": false,
+      "url": null,
+      "opens_at": null
+    },
+    "streams_list": [
+      {
+        "main": true,
+        "language": "en",
+        "embed_url": "https://player.twitch.tv/?channel=united21_en",
+        "official": true,
+        "raw_url": "https://www.twitch.tv/united21_en"
+      }
+    ],
+    "tournament_id": 16202,
+    "winner": null,
+    "slug": "wopa-esport-vs-ex-heimo-esports-2025-03-08",
+    "modified_at": "2025-03-08T13:24:17Z",
+    "videogame": {
+      "id": 3,
+      "name": "Counter-Strike",
+      "slug": "cs-go"
+    },
+    "status": "running",
+    "original_scheduled_at": "2025-03-08T11:30:00Z",
+    "forfeit": false,
+    "begin_at": "2025-03-08T11:37:30Z",
+    "id": 1136285,
+    "name": "Elimination match: WOPA vs eHE",
+    "opponents": [
+      {
+        "type": "Team",
+        "opponent": {
+          "id": 134816,
+          "name": "WOPA Esport",
+          "location": "DK",
+          "slug": "wopa-esport",
+          "modified_at": "2025-03-04T20:54:30Z",
+          "acronym": "WOPA",
+          "image_url": "https://cdn.pandascore.co/images/team/image/134816/190px_wopa_esport_allmode.png"
+        }
+      },
+      {
+        "type": "Team",
+        "opponent": {
+          "id": 136611,
+          "name": "ex-Heimo Esports",
+          "location": "FI",
+          "slug": "ex-heimo-esports",
+          "modified_at": "2025-03-03T23:09:42Z",
+          "acronym": "eHE",
+          "image_url": null
+        }
+      }
+    ],
+    "match_type": "best_of",
+    "end_at": null,
+    "number_of_games": 3,
+    "games": [
+      {
+        "complete": true,
+        "id": 166322,
+        "position": 1,
+        "status": "finished",
+        "length": 2321,
+        "finished": true,
+        "match_id": 1136285,
+        "begin_at": "2025-03-08T11:37:34Z",
+        "detailed_stats": false,
+        "end_at": "2025-03-08T12:16:16Z",
+        "forfeit": false,
+        "winner_type": "Team",
+        "winner": {
+          "id": 136611,
+          "type": "Team"
+        }
+      },
+      {
+        "complete": true,
+        "id": 166323,
+        "position": 2,
+        "status": "finished",
+        "length": 2293,
+        "finished": true,
+        "match_id": 1136285,
+        "begin_at": "2025-03-08T12:32:23Z",
+        "detailed_stats": false,
+        "end_at": "2025-03-08T13:10:37Z",
+        "forfeit": false,
+        "winner_type": "Team",
+        "winner": {
+          "id": 134816,
+          "type": "Team"
+        }
+      },
+      {
+        "complete": false,
+        "id": 166324,
+        "position": 3,
+        "status": "running",
+        "length": null,
+        "finished": false,
+        "match_id": 1136285,
+        "begin_at": "2025-03-08T13:24:17Z",
+        "detailed_stats": false,
+        "end_at": null,
+        "forfeit": false,
+        "winner_type": "Team",
+        "winner": {
+          "id": null,
+          "type": "Team"
+        }
+      }
+    ],
+    "tournament": {
+      "id": 16202,
+      "name": "Group B",
+      "type": "online",
+      "country": null,
+      "begin_at": "2025-03-04T09:00:00Z",
+      "detailed_stats": false,
+      "end_at": "2025-03-11T14:00:00Z",
+      "winner_id": 134756,
+      "winner_type": "Team",
+      "slug": "cs-go-united21-28-2025-group-b",
+      "modified_at": "2025-03-08T11:25:31Z",
+      "serie_id": 9118,
+      "league_id": 5078,
+      "prizepool": null,
+      "tier": "d",
+      "has_bracket": true,
+      "region": "WEU",
+      "live_supported": false
+    },
+    "serie": {
+      "id": 9118,
+      "name": "",
+      "year": 2025,
+      "begin_at": "2025-03-03T09:00:00Z",
+      "end_at": "2025-03-20T22:00:00Z",
+      "winner_id": null,
+      "winner_type": "Team",
+      "slug": "cs-go-united21-28-2025",
+      "modified_at": "2025-03-02T19:28:57Z",
+      "league_id": 5078,
+      "season": "28",
+      "full_name": "Season 28 2025"
+    },
+    "draw": false,
+    "winner_id": null
+  },
+  {
+    "league_id": 4568,
+    "results": [
+      {
+        "team_id": 125847,
+        "score": 0
+      },
+      {
+        "team_id": 125751,
+        "score": 1
+      }
+    ],
+    "detailed_stats": true,
+    "videogame_title": {
+      "id": 13,
+      "name": "Counter-Strike 2",
+      "slug": "cs-2",
+      "videogame_id": 3
+    },
+    "league": {
+      "id": 4568,
+      "name": "ESL Pro League",
+      "url": "https://pro.eslgaming.com/csgo/proleague/",
+      "slug": "cs-go-esl-pro-league",
+      "modified_at": "2021-08-23T07:15:00Z",
+      "image_url": null
+    },
+    "videogame_version": null,
+    "scheduled_at": "2025-03-08T12:00:00Z",
+    "game_advantage": null,
+    "winner_type": "Team",
+    "rescheduled": false,
+    "serie_id": 9063,
+    "live": {
+      "supported": true,
+      "url": "wss://live.pandascore.co/matches/1134210",
+      "opens_at": "2025-03-08T11:46:08.000000Z"
+    },
+    "streams_list": [
+      {
+        "main": false,
+        "language": "hu",
+        "embed_url": "https://player.twitch.tv/?channel=esport1tv",
+        "official": false,
+        "raw_url": "https://www.twitch.tv/esport1tv"
+      },
+      {
+        "main": false,
+        "language": "uk",
+        "embed_url": "https://player.twitch.tv/?channel=cs2_maincast2",
+        "official": false,
+        "raw_url": "https://www.twitch.tv/cs2_maincast2"
+      },
+      {
+        "main": true,
+        "language": "en",
+        "embed_url": "https://player.twitch.tv/?channel=ESLCSb",
+        "official": true,
+        "raw_url": "https://www.twitch.tv/ESLCSb"
+      }
+    ],
+    "tournament_id": 16056,
+    "winner": null,
+    "slug": "2025-03-08-f11bab8c-fb44-456a-8204-35731e08b4d0",
+    "modified_at": "2025-03-08T13:03:09Z",
+    "videogame": {
+      "id": 3,
+      "name": "Counter-Strike",
+      "slug": "cs-go"
+    },
+    "status": "running",
+    "original_scheduled_at": "2025-03-08T12:00:00Z",
+    "forfeit": false,
+    "begin_at": "2025-03-08T12:01:08Z",
+    "id": 1134210,
+    "name": "Round 2: GL vs paiN",
+    "opponents": [
+      {
+        "type": "Team",
+        "opponent": {
+          "id": 125847,
+          "name": "GamerLegion",
+          "location": "DE",
+          "slug": "gamerlegion",
+          "modified_at": "2025-03-06T13:18:03Z",
+          "acronym": "GL",
+          "image_url": "https://cdn.pandascore.co/images/team/image/125847/800px_gamer_legion_2023_lightmode.png"
+        }
+      },
+      {
+        "type": "Team",
+        "opponent": {
+          "id": 125751,
+          "name": "paiN",
+          "location": "BR",
+          "slug": "pain-gaming-cs-go",
+          "modified_at": "2025-03-06T13:15:11Z",
+          "acronym": "paiN",
+          "image_url": "https://cdn.pandascore.co/images/team/image/125751/pain-gaming-farnhu45.png"
+        }
+      }
+    ],
+    "match_type": "best_of",
+    "end_at": null,
+    "number_of_games": 3,
+    "games": [
+      {
+        "complete": true,
+        "id": 165590,
+        "position": 1,
+        "status": "finished",
+        "length": 2747,
+        "finished": true,
+        "match_id": 1134210,
+        "begin_at": "2025-03-08T12:01:08Z",
+        "detailed_stats": true,
+        "end_at": "2025-03-08T12:46:56Z",
+        "forfeit": false,
+        "winner_type": "Team",
+        "winner": {
+          "id": 125751,
+          "type": "Team"
+        }
+      },
+      {
+        "complete": false,
+        "id": 165591,
+        "position": 2,
+        "status": "running",
+        "length": null,
+        "finished": false,
+        "match_id": 1134210,
+        "begin_at": "2025-03-08T13:03:04Z",
+        "detailed_stats": true,
+        "end_at": null,
+        "forfeit": false,
+        "winner_type": "Team",
+        "winner": {
+          "id": null,
+          "type": "Team"
+        }
+      },
+      {
+        "complete": false,
+        "id": 165592,
+        "position": 3,
+        "status": "not_started",
+        "length": null,
+        "finished": false,
+        "match_id": 1134210,
+        "begin_at": null,
+        "detailed_stats": true,
+        "end_at": null,
+        "forfeit": false,
+        "winner_type": "Team",
+        "winner": {
+          "id": null,
+          "type": "Team"
+        }
+      }
+    ],
+    "tournament": {
+      "id": 16056,
+      "name": "Group Stage",
+      "type": "offline",
+      "country": "SE",
+      "begin_at": "2025-03-07T09:30:00Z",
+      "detailed_stats": true,
+      "end_at": "2025-03-11T20:30:00Z",
+      "winner_id": null,
+      "winner_type": "Team",
+      "slug": "cs-go-esl-pro-league-21-2025-group-stage-1",
+      "modified_at": "2025-03-06T13:18:04Z",
+      "serie_id": 9063,
+      "league_id": 4568,
+      "prizepool": null,
+      "tier": "a",
+      "has_bracket": false,
+      "region": "WEU",
+      "live_supported": true
+    },
+    "serie": {
+      "id": 9063,
+      "name": "",
+      "year": 2025,
+      "begin_at": "2025-03-01T08:00:00Z",
+      "end_at": "2025-03-16T22:00:00Z",
+      "winner_id": null,
+      "winner_type": "Team",
+      "slug": "cs-go-esl-pro-league-21-2025",
+      "modified_at": "2025-02-18T10:42:33Z",
+      "league_id": 4568,
+      "season": "21",
+      "full_name": "Season 21 2025"
+    },
+    "draw": false,
+    "winner_id": null
+  },
+  {
+    "league_id": 5365,
+    "results": [
+      {
+        "team_id": 129356,
+        "score": 1
+      },
+      {
+        "team_id": 131506,
+        "score": 1
+      }
+    ],
+    "detailed_stats": true,
+    "videogame_title": {
+      "id": 13,
+      "name": "Counter-Strike 2",
+      "slug": "cs-2",
+      "videogame_id": 3
+    },
+    "league": {
+      "id": 5365,
+      "name": "PGL",
+      "url": null,
+      "slug": "cs-go-pgl",
+      "modified_at": "2025-02-05T15:08:30Z",
+      "image_url": null
+    },
+    "videogame_version": null,
+    "scheduled_at": "2025-03-08T12:00:00Z",
+    "game_advantage": null,
+    "winner_type": "Team",
+    "rescheduled": true,
+    "serie_id": 9111,
+    "live": {
+      "supported": false,
+      "url": null,
+      "opens_at": null
+    },
+    "streams_list": [
+      {
+        "main": true,
+        "language": "ru",
+        "embed_url": "https://player.twitch.tv/?channel=vanishofficial_",
+        "official": true,
+        "raw_url": "https://www.twitch.tv/vanishofficial_"
+      }
+    ],
+    "tournament_id": 16172,
+    "winner": null,
+    "slug": "dynamo-eclot-2025-03-08",
+    "modified_at": "2025-03-08T13:54:32Z",
+    "videogame": {
+      "id": 3,
+      "name": "Counter-Strike",
+      "slug": "cs-go"
+    },
+    "status": "running",
+    "original_scheduled_at": "2025-03-01T15:00:00Z",
+    "forfeit": false,
+    "begin_at": "2025-03-08T12:10:56Z",
+    "id": 1133432,
+    "name": "Upper bracket semifinal 1: DNE vs 9P",
+    "opponents": [
+      {
+        "type": "Team",
+        "opponent": {
+          "id": 129356,
+          "name": "Dynamo Eclot",
+          "location": "CZ",
+          "slug": "dynamo-eclot-cs-go",
+          "modified_at": "2025-03-07T10:43:48Z",
+          "acronym": "DNE",
+          "image_url": "https://cdn.pandascore.co/images/team/image/129356/1092px_dynamo_eclot_allmode.png"
+        }
+      },
+      {
+        "type": "Team",
+        "opponent": {
+          "id": 131506,
+          "name": "9 Pandas",
+          "location": "RU",
+          "slug": "9-pandas",
+          "modified_at": "2025-03-07T16:02:36Z",
+          "acronym": "9P",
+          "image_url": "https://cdn.pandascore.co/images/team/image/131506/112px_9_pandas_lightmode.png"
+        }
+      }
+    ],
+    "match_type": "best_of",
+    "end_at": null,
+    "number_of_games": 3,
+    "games": [
+      {
+        "complete": true,
+        "id": 165285,
+        "position": 1,
+        "status": "finished",
+        "length": 2241,
+        "finished": true,
+        "match_id": 1133432,
+        "begin_at": "2025-03-08T12:10:57Z",
+        "detailed_stats": true,
+        "end_at": "2025-03-08T12:48:18Z",
+        "forfeit": false,
+        "winner_type": "Team",
+        "winner": {
+          "id": 131506,
+          "type": "Team"
+        }
+      },
+      {
+        "complete": false,
+        "id": 165286,
+        "position": 2,
+        "status": "finished",
+        "length": 1986,
+        "finished": true,
+        "match_id": 1133432,
+        "begin_at": "2025-03-08T13:06:46Z",
+        "detailed_stats": true,
+        "end_at": "2025-03-08T13:39:52Z",
+        "forfeit": false,
+        "winner_type": "Team",
+        "winner": {
+          "id": 129356,
+          "type": "Team"
+        }
+      },
+      {
+        "complete": false,
+        "id": 165287,
+        "position": 3,
+        "status": "not_started",
+        "length": null,
+        "finished": false,
+        "match_id": 1133432,
+        "begin_at": null,
+        "detailed_stats": true,
+        "end_at": null,
+        "forfeit": false,
+        "winner_type": "Team",
+        "winner": {
+          "id": null,
+          "type": "Team"
+        }
+      }
+    ],
+    "tournament": {
+      "id": 16172,
+      "name": "Group B",
+      "type": "online",
+      "country": null,
+      "begin_at": "2025-03-07T09:00:00Z",
+      "detailed_stats": true,
+      "end_at": "2025-03-10T18:00:00Z",
+      "winner_id": null,
+      "winner_type": "Team",
+      "slug": "cs-go-pgl-bucharest-european-closed-qualifier-2025-group-b",
+      "modified_at": "2025-03-07T16:02:36Z",
+      "serie_id": 9111,
+      "league_id": 5365,
+      "prizepool": null,
+      "tier": "b",
+      "has_bracket": true,
+      "region": "WEU",
+      "live_supported": false
+    },
+    "serie": {
+      "id": 9111,
+      "name": "Bucharest: European Closed Qualifier",
+      "year": 2025,
+      "begin_at": "2025-03-07T09:00:00Z",
+      "end_at": "2025-04-12T19:00:00Z",
+      "winner_id": null,
+      "winner_type": "Team",
+      "slug": "cs-go-pgl-bucharest-european-closed-qualifier-2025",
+      "modified_at": "2025-03-04T19:53:38Z",
+      "league_id": 5365,
+      "season": null,
+      "full_name": "Bucharest: European Closed Qualifier 2025"
+    },
+    "draw": false,
+    "winner_id": null
+  },
+  {
+    "league_id": 5365,
+    "results": [
+      {
+        "team_id": 133458,
+        "score": 1
+      },
+      {
+        "team_id": 128766,
+        "score": 0
+      }
+    ],
+    "detailed_stats": true,
+    "videogame_title": {
+      "id": 13,
+      "name": "Counter-Strike 2",
+      "slug": "cs-2",
+      "videogame_id": 3
+    },
+    "league": {
+      "id": 5365,
+      "name": "PGL",
+      "url": null,
+      "slug": "cs-go-pgl",
+      "modified_at": "2025-02-05T15:08:30Z",
+      "image_url": null
+    },
+    "videogame_version": null,
+    "scheduled_at": "2025-03-08T12:15:00Z",
+    "game_advantage": null,
+    "winner_type": "Team",
+    "rescheduled": true,
+    "serie_id": 9111,
+    "live": {
+      "supported": false,
+      "url": null,
+      "opens_at": null
+    },
+    "streams_list": [
+      {
+        "main": true,
+        "language": "ru",
+        "embed_url": "https://player.twitch.tv/?channel=watchfultvb",
+        "official": true,
+        "raw_url": "https://www.twitch.tv/watchfultvb"
+      }
+    ],
+    "tournament_id": 16174,
+    "winner": null,
+    "slug": "betboom-team-2025-03-08",
+    "modified_at": "2025-03-08T13:29:08Z",
+    "videogame": {
+      "id": 3,
+      "name": "Counter-Strike",
+      "slug": "cs-go"
+    },
+    "status": "running",
+    "original_scheduled_at": "2025-03-01T18:00:00Z",
+    "forfeit": false,
+    "begin_at": "2025-03-08T12:14:55Z",
+    "id": 1133470,
+    "name": "Upper bracket semifinal 2: BB vs TS.A",
+    "opponents": [
+      {
+        "type": "Team",
+        "opponent": {
+          "id": 133458,
+          "name": "BetBoom Team",
+          "location": "RU",
+          "slug": "betboom-team-cs-go",
+          "modified_at": "2025-03-07T01:26:22Z",
+          "acronym": "BB",
+          "image_url": "https://cdn.pandascore.co/images/team/image/133458/bet_boom_team_2024_allmode.png"
+        }
+      },
+      {
+        "type": "Team",
+        "opponent": {
+          "id": 128766,
+          "name": "Spirit Academy",
+          "location": "RU",
+          "slug": "spirit-academy",
+          "modified_at": "2025-03-04T20:30:47Z",
+          "acronym": "TS.A",
+          "image_url": "https://cdn.pandascore.co/images/team/image/128766/900px_team_spirit_academy_2021_logo.png"
+        }
+      }
+    ],
+    "match_type": "best_of",
+    "end_at": null,
+    "number_of_games": 3,
+    "games": [
+      {
+        "complete": true,
+        "id": 165372,
+        "position": 1,
+        "status": "finished",
+        "length": 2812,
+        "finished": true,
+        "match_id": 1133470,
+        "begin_at": "2025-03-08T12:14:57Z",
+        "detailed_stats": true,
+        "end_at": "2025-03-08T13:01:50Z",
+        "forfeit": false,
+        "winner_type": "Team",
+        "winner": {
+          "id": 133458,
+          "type": "Team"
+        }
+      },
+      {
+        "complete": false,
+        "id": 165373,
+        "position": 2,
+        "status": "running",
+        "length": null,
+        "finished": false,
+        "match_id": 1133470,
+        "begin_at": "2025-03-08T13:14:32Z",
+        "detailed_stats": true,
+        "end_at": null,
+        "forfeit": false,
+        "winner_type": "Team",
+        "winner": {
+          "id": null,
+          "type": "Team"
+        }
+      },
+      {
+        "complete": false,
+        "id": 165374,
+        "position": 3,
+        "status": "not_started",
+        "length": null,
+        "finished": false,
+        "match_id": 1133470,
+        "begin_at": null,
+        "detailed_stats": true,
+        "end_at": null,
+        "forfeit": false,
+        "winner_type": "Team",
+        "winner": {
+          "id": null,
+          "type": "Team"
+        }
+      }
+    ],
+    "tournament": {
+      "id": 16174,
+      "name": "Group D",
+      "type": "online",
+      "country": null,
+      "begin_at": "2025-03-07T09:00:00Z",
+      "detailed_stats": true,
+      "end_at": "2025-03-10T18:00:00Z",
+      "winner_id": null,
+      "winner_type": "Team",
+      "slug": "cs-go-pgl-bucharest-european-closed-qualifier-2025-group-d",
+      "modified_at": "2025-03-04T20:30:51Z",
+      "serie_id": 9111,
+      "league_id": 5365,
+      "prizepool": null,
+      "tier": "b",
+      "has_bracket": true,
+      "region": "WEU",
+      "live_supported": false
+    },
+    "serie": {
+      "id": 9111,
+      "name": "Bucharest: European Closed Qualifier",
+      "year": 2025,
+      "begin_at": "2025-03-07T09:00:00Z",
+      "end_at": "2025-04-12T19:00:00Z",
+      "winner_id": null,
+      "winner_type": "Team",
+      "slug": "cs-go-pgl-bucharest-european-closed-qualifier-2025",
+      "modified_at": "2025-03-04T19:53:38Z",
+      "league_id": 5365,
+      "season": null,
+      "full_name": "Bucharest: European Closed Qualifier 2025"
+    },
+    "draw": false,
+    "winner_id": null
+  },
+  {
+    "league_id": 4568,
+    "results": [
+      {
+        "team_id": 3210,
+        "score": 1
+      },
+      {
+        "team_id": 3272,
+        "score": 0
+      }
+    ],
+    "detailed_stats": true,
+    "videogame_title": {
+      "id": 13,
+      "name": "Counter-Strike 2",
+      "slug": "cs-2",
+      "videogame_id": 3
+    },
+    "league": {
+      "id": 4568,
+      "name": "ESL Pro League",
+      "url": "https://pro.eslgaming.com/csgo/proleague/",
+      "slug": "cs-go-esl-pro-league",
+      "modified_at": "2021-08-23T07:15:00Z",
+      "image_url": null
+    },
+    "videogame_version": null,
+    "scheduled_at": "2025-03-08T12:30:00Z",
+    "game_advantage": null,
+    "winner_type": "Team",
+    "rescheduled": true,
+    "serie_id": 9063,
+    "live": {
+      "supported": true,
+      "url": "wss://live.pandascore.co/matches/1134209",
+      "opens_at": "2025-03-08T12:17:02.000000Z"
+    },
+    "streams_list": [
+      {
+        "main": false,
+        "language": "pt",
+        "embed_url": "https://player.twitch.tv/?channel=rtparenacs",
+        "official": false,
+        "raw_url": "https://www.twitch.tv/rtparenacs"
+      },
+      {
+        "main": false,
+        "language": "pl",
+        "embed_url": "https://player.twitch.tv/?channel=izakooo",
+        "official": false,
+        "raw_url": "https://www.twitch.tv/izakooo"
+      },
+      {
+        "main": false,
+        "language": "uk",
+        "embed_url": "https://player.twitch.tv/?channel=CS2_maincast",
+        "official": false,
+        "raw_url": "https://www.twitch.tv/CS2_maincast"
+      },
+      {
+        "main": false,
+        "language": "ru",
+        "embed_url": "https://player.twitch.tv/?channel=bysl4m",
+        "official": false,
+        "raw_url": "https://www.twitch.tv/bysl4m"
+      },
+      {
+        "main": true,
+        "language": "en",
+        "embed_url": "https://player.twitch.tv/?channel=ESLCS",
+        "official": true,
+        "raw_url": "https://www.twitch.tv/ESLCS"
+      }
+    ],
+    "tournament_id": 16056,
+    "winner": null,
+    "slug": "2025-03-07-96950b6d-b297-4ee4-8400-5974f7d4e725",
+    "modified_at": "2025-03-08T13:33:11Z",
+    "videogame": {
+      "id": 3,
+      "name": "Counter-Strike",
+      "slug": "cs-go"
+    },
+    "status": "running",
+    "original_scheduled_at": "2025-03-08T12:00:00Z",
+    "forfeit": false,
+    "begin_at": "2025-03-08T12:32:02Z",
+    "id": 1134209,
+    "name": "Round 2: G2 vs MGLZ",
+    "opponents": [
+      {
+        "type": "Team",
+        "opponent": {
+          "id": 3210,
+          "name": "G2",
+          "location": "DE",
+          "slug": "g2",
+          "modified_at": "2025-02-26T13:24:26Z",
+          "acronym": "G2",
+          "image_url": "https://cdn.pandascore.co/images/team/image/3210/5995.png"
+        }
+      },
+      {
+        "type": "Team",
+        "opponent": {
+          "id": 3272,
+          "name": "TheMongolz",
+          "location": "MN",
+          "slug": "themongolz",
+          "modified_at": "2025-02-26T13:24:32Z",
+          "acronym": "MGLZ",
+          "image_url": "https://cdn.pandascore.co/images/team/image/3272/702px_the_mongol_z_2024_03_allmode.png"
+        }
+      }
+    ],
+    "match_type": "best_of",
+    "end_at": null,
+    "number_of_games": 3,
+    "games": [
+      {
+        "complete": true,
+        "id": 165587,
+        "position": 1,
+        "status": "finished",
+        "length": 2735,
+        "finished": true,
+        "match_id": 1134209,
+        "begin_at": "2025-03-08T12:32:02Z",
+        "detailed_stats": true,
+        "end_at": "2025-03-08T13:17:38Z",
+        "forfeit": false,
+        "winner_type": "Team",
+        "winner": {
+          "id": 3210,
+          "type": "Team"
+        }
+      },
+      {
+        "complete": false,
+        "id": 165588,
+        "position": 2,
+        "status": "running",
+        "length": null,
+        "finished": false,
+        "match_id": 1134209,
+        "begin_at": "2025-03-08T13:33:05Z",
+        "detailed_stats": true,
+        "end_at": null,
+        "forfeit": false,
+        "winner_type": "Team",
+        "winner": {
+          "id": null,
+          "type": "Team"
+        }
+      },
+      {
+        "complete": false,
+        "id": 165589,
+        "position": 3,
+        "status": "not_started",
+        "length": null,
+        "finished": false,
+        "match_id": 1134209,
+        "begin_at": null,
+        "detailed_stats": true,
+        "end_at": null,
+        "forfeit": false,
+        "winner_type": "Team",
+        "winner": {
+          "id": null,
+          "type": "Team"
+        }
+      }
+    ],
+    "tournament": {
+      "id": 16056,
+      "name": "Group Stage",
+      "type": "offline",
+      "country": "SE",
+      "begin_at": "2025-03-07T09:30:00Z",
+      "detailed_stats": true,
+      "end_at": "2025-03-11T20:30:00Z",
+      "winner_id": null,
+      "winner_type": "Team",
+      "slug": "cs-go-esl-pro-league-21-2025-group-stage-1",
+      "modified_at": "2025-03-06T13:18:04Z",
+      "serie_id": 9063,
+      "league_id": 4568,
+      "prizepool": null,
+      "tier": "a",
+      "has_bracket": false,
+      "region": "WEU",
+      "live_supported": true
+    },
+    "serie": {
+      "id": 9063,
+      "name": "",
+      "year": 2025,
+      "begin_at": "2025-03-01T08:00:00Z",
+      "end_at": "2025-03-16T22:00:00Z",
+      "winner_id": null,
+      "winner_type": "Team",
+      "slug": "cs-go-esl-pro-league-21-2025",
+      "modified_at": "2025-02-18T10:42:33Z",
+      "league_id": 4568,
+      "season": "21",
+      "full_name": "Season 21 2025"
+    },
+    "draw": false,
+    "winner_id": null
+  },
+  {
+    "league_id": 5365,
+    "results": [
+      {
+        "team_id": 130360,
+        "score": 0
+      },
+      {
+        "team_id": 131010,
+        "score": 1
+      }
+    ],
+    "detailed_stats": true,
+    "videogame_title": {
+      "id": 13,
+      "name": "Counter-Strike 2",
+      "slug": "cs-2",
+      "videogame_id": 3
+    },
+    "league": {
+      "id": 5365,
+      "name": "PGL",
+      "url": null,
+      "slug": "cs-go-pgl",
+      "modified_at": "2025-02-05T15:08:30Z",
+      "image_url": null
+    },
+    "videogame_version": null,
+    "scheduled_at": "2025-03-08T12:55:00Z",
+    "game_advantage": null,
+    "winner_type": "Team",
+    "rescheduled": true,
+    "serie_id": 9111,
+    "live": {
+      "supported": false,
+      "url": null,
+      "opens_at": null
+    },
+    "streams_list": [],
+    "tournament_id": 16174,
+    "winner": null,
+    "slug": "arcred-2025-03-08",
+    "modified_at": "2025-03-08T13:32:11Z",
+    "videogame": {
+      "id": 3,
+      "name": "Counter-Strike",
+      "slug": "cs-go"
+    },
+    "status": "running",
+    "original_scheduled_at": "2025-03-01T12:00:00Z",
+    "forfeit": false,
+    "begin_at": "2025-03-08T12:47:36Z",
+    "id": 1133474,
+    "name": "Lower bracket round 1 match 2: ARC vs SASHI",
+    "opponents": [
+      {
+        "type": "Team",
+        "opponent": {
+          "id": 130360,
+          "name": "ARCRED",
+          "location": "",
+          "slug": "arcred-cs-go",
+          "modified_at": "2025-03-04T20:54:25Z",
+          "acronym": "ARC",
+          "image_url": "https://cdn.pandascore.co/images/team/image/130360/600px_arcred_lightmode_full.png"
+        }
+      },
+      {
+        "type": "Team",
+        "opponent": {
+          "id": 131010,
+          "name": "Sashi Esport",
+          "location": "DK",
+          "slug": "sashi-esport",
+          "modified_at": "2025-03-08T11:24:37Z",
+          "acronym": "SASHI",
+          "image_url": "https://cdn.pandascore.co/images/team/image/131010/get_team_logos.png"
+        }
+      }
+    ],
+    "match_type": "best_of",
+    "end_at": null,
+    "number_of_games": 3,
+    "games": [
+      {
+        "complete": false,
+        "id": 165381,
+        "position": 1,
+        "status": "finished",
+        "length": 2227,
+        "finished": true,
+        "match_id": 1133474,
+        "begin_at": "2025-03-08T12:47:37Z",
+        "detailed_stats": true,
+        "end_at": "2025-03-08T13:24:45Z",
+        "forfeit": false,
+        "winner_type": "Team",
+        "winner": {
+          "id": 131010,
+          "type": "Team"
+        }
+      },
+      {
+        "complete": false,
+        "id": 165382,
+        "position": 2,
+        "status": "running",
+        "length": null,
+        "finished": false,
+        "match_id": 1133474,
+        "begin_at": "2025-03-08T13:32:11Z",
+        "detailed_stats": true,
+        "end_at": null,
+        "forfeit": false,
+        "winner_type": "Team",
+        "winner": {
+          "id": null,
+          "type": "Team"
+        }
+      },
+      {
+        "complete": false,
+        "id": 165383,
+        "position": 3,
+        "status": "not_started",
+        "length": null,
+        "finished": false,
+        "match_id": 1133474,
+        "begin_at": null,
+        "detailed_stats": true,
+        "end_at": null,
+        "forfeit": false,
+        "winner_type": "Team",
+        "winner": {
+          "id": null,
+          "type": "Team"
+        }
+      }
+    ],
+    "tournament": {
+      "id": 16174,
+      "name": "Group D",
+      "type": "online",
+      "country": null,
+      "begin_at": "2025-03-07T09:00:00Z",
+      "detailed_stats": true,
+      "end_at": "2025-03-10T18:00:00Z",
+      "winner_id": null,
+      "winner_type": "Team",
+      "slug": "cs-go-pgl-bucharest-european-closed-qualifier-2025-group-d",
+      "modified_at": "2025-03-04T20:30:51Z",
+      "serie_id": 9111,
+      "league_id": 5365,
+      "prizepool": null,
+      "tier": "b",
+      "has_bracket": true,
+      "region": "WEU",
+      "live_supported": false
+    },
+    "serie": {
+      "id": 9111,
+      "name": "Bucharest: European Closed Qualifier",
+      "year": 2025,
+      "begin_at": "2025-03-07T09:00:00Z",
+      "end_at": "2025-04-12T19:00:00Z",
+      "winner_id": null,
+      "winner_type": "Team",
+      "slug": "cs-go-pgl-bucharest-european-closed-qualifier-2025",
+      "modified_at": "2025-03-04T19:53:38Z",
+      "league_id": 5365,
+      "season": null,
+      "full_name": "Bucharest: European Closed Qualifier 2025"
+    },
+    "draw": false,
+    "winner_id": null
+  },
+  {
+    "league_id": 4243,
+    "results": [
+      {
+        "team_id": 134652,
+        "score": 0
+      },
+      {
+        "team_id": 136222,
+        "score": 1
+      }
+    ],
+    "detailed_stats": true,
+    "videogame_title": {
+      "id": 13,
+      "name": "Counter-Strike 2",
+      "slug": "cs-2",
+      "videogame_id": 3
+    },
+    "league": {
+      "id": 4243,
+      "name": "ESEA",
+      "url": "https://play.esea.net/",
+      "slug": "cs-go-esea",
+      "modified_at": "2020-11-12T15:51:24Z",
+      "image_url": null
+    },
+    "videogame_version": null,
+    "scheduled_at": "2025-03-08T13:10:00Z",
+    "game_advantage": null,
+    "winner_type": "Team",
+    "rescheduled": true,
+    "serie_id": 8905,
+    "live": {
+      "supported": false,
+      "url": null,
+      "opens_at": null
+    },
+    "streams_list": [
+      {
+        "main": true,
+        "language": "ru",
+        "embed_url": "https://player.twitch.tv/?channel=GoYareGo",
+        "official": true,
+        "raw_url": "https://www.twitch.tv/GoYareGo"
+      }
+    ],
+    "tournament_id": 16212,
+    "winner": null,
+    "slug": "2025-03-08-1f6d4cd6-7fa0-48fc-8af9-accf0dd7c000",
+    "modified_at": "2025-03-08T13:49:25Z",
+    "videogame": {
+      "id": 3,
+      "name": "Counter-Strike",
+      "slug": "cs-go"
+    },
+    "status": "running",
+    "original_scheduled_at": "2025-03-08T19:30:00Z",
+    "forfeit": false,
+    "begin_at": "2025-03-08T13:15:31Z",
+    "id": 1136762,
+    "name": "Lower bracket round 1 match 4: LEON vs ALASKA",
+    "opponents": [
+      {
+        "type": "Team",
+        "opponent": {
+          "id": 134652,
+          "name": "LEON",
+          "location": "RU",
+          "slug": "leon",
+          "modified_at": "2025-03-03T23:09:51Z",
+          "acronym": "LEON",
+          "image_url": "https://cdn.pandascore.co/images/team/image/134652/224px_leon_esports_lightmode.png"
+        }
+      },
+      {
+        "type": "Team",
+        "opponent": {
+          "id": 136222,
+          "name": "ALASKA",
+          "location": "GB",
+          "slug": "alaska",
+          "modified_at": "2025-03-06T19:09:13Z",
+          "acronym": null,
+          "image_url": "https://cdn.pandascore.co/images/team/image/136222/133px_alaska_allmode.png"
+        }
+      }
+    ],
+    "match_type": "best_of",
+    "end_at": null,
+    "number_of_games": 3,
+    "games": [
+      {
+        "complete": false,
+        "id": 166469,
+        "position": 1,
+        "status": "finished",
+        "length": 2033,
+        "finished": true,
+        "match_id": 1136762,
+        "begin_at": "2025-03-08T13:15:31Z",
+        "detailed_stats": true,
+        "end_at": "2025-03-08T13:49:25Z",
+        "forfeit": false,
+        "winner_type": "Team",
+        "winner": {
+          "id": 136222,
+          "type": "Team"
+        }
+      },
+      {
+        "complete": false,
+        "id": 166470,
+        "position": 2,
+        "status": "not_started",
+        "length": null,
+        "finished": false,
+        "match_id": 1136762,
+        "begin_at": null,
+        "detailed_stats": true,
+        "end_at": null,
+        "forfeit": false,
+        "winner_type": "Team",
+        "winner": {
+          "id": null,
+          "type": "Team"
+        }
+      },
+      {
+        "complete": false,
+        "id": 166471,
+        "position": 3,
+        "status": "not_started",
+        "length": null,
+        "finished": false,
+        "match_id": 1136762,
+        "begin_at": null,
+        "detailed_stats": true,
+        "end_at": null,
+        "forfeit": false,
+        "winner_type": "Team",
+        "winner": {
+          "id": null,
+          "type": "Team"
+        }
+      }
+    ],
+    "tournament": {
+      "id": 16212,
+      "name": "Playoffs",
+      "type": "online",
+      "country": null,
+      "begin_at": "2025-03-04T16:00:00Z",
+      "detailed_stats": true,
+      "end_at": "2025-03-14T23:00:00Z",
+      "winner_id": null,
+      "winner_type": "Team",
+      "slug": "cs-go-esea-advanced-europe-52-2025-playoffs",
+      "modified_at": "2025-03-06T18:45:01Z",
+      "serie_id": 8905,
+      "league_id": 4243,
+      "prizepool": null,
+      "tier": "d",
+      "has_bracket": true,
+      "region": "EEU",
+      "live_supported": false
+    },
+    "serie": {
+      "id": 8905,
+      "name": "Advanced Europe",
+      "year": 2025,
+      "begin_at": "2025-01-12T20:00:00Z",
+      "end_at": null,
+      "winner_id": null,
+      "winner_type": "Team",
+      "slug": "cs-go-esea-advanced-europe-52-2025",
+      "modified_at": "2025-01-12T07:43:05Z",
+      "league_id": 4243,
+      "season": "52",
+      "full_name": "Advanced Europe season 52 2025"
+    },
+    "draw": false,
+    "winner_id": null
+  },
+  {
+    "league_id": 5232,
+    "results": [
+      {
+        "team_id": 3249,
+        "score": 0
+      },
+      {
+        "team_id": 135177,
+        "score": 1
+      }
+    ],
+    "detailed_stats": true,
+    "videogame_title": {
+      "id": 13,
+      "name": "Counter-Strike 2",
+      "slug": "cs-2",
+      "videogame_id": 3
+    },
+    "league": {
+      "id": 5232,
+      "name": "CCT Europe",
+      "url": null,
+      "slug": "cs-go-cct-europe",
+      "modified_at": "2024-04-13T08:58:18Z",
+      "image_url": "https://cdn.pandascore.co/images/league/image/5232/799px-cct_2024_europe_allmode-png"
+    },
+    "videogame_version": null,
+    "scheduled_at": "2025-03-08T13:30:00Z",
+    "game_advantage": null,
+    "winner_type": "Team",
+    "rescheduled": true,
+    "serie_id": 9092,
+    "live": {
+      "supported": false,
+      "url": null,
+      "opens_at": null
+    },
+    "streams_list": [
+      {
+        "main": true,
+        "language": "en",
+        "embed_url": "https://player.twitch.tv/?channel=cct_cs2",
+        "official": true,
+        "raw_url": "https://www.twitch.tv/cct_cs2"
+      }
+    ],
+    "tournament_id": 16196,
+    "winner": null,
+    "slug": "2025-03-08-fce7ee8b-898e-4ce6-aeaa-1070b4260b7a",
+    "modified_at": "2025-03-08T13:57:16Z",
+    "videogame": {
+      "id": 3,
+      "name": "Counter-Strike",
+      "slug": "cs-go"
+    },
+    "status": "running",
+    "original_scheduled_at": "2025-03-08T13:00:00Z",
+    "forfeit": false,
+    "begin_at": "2025-03-08T13:17:56Z",
+    "id": 1136072,
+    "name": "Round of 16 match 2: BIG vs BCG",
+    "opponents": [
+      {
+        "type": "Team",
+        "opponent": {
+          "id": 3249,
+          "name": "BIG",
+          "location": "DE",
+          "slug": "big",
+          "modified_at": "2025-03-07T01:26:09Z",
+          "acronym": "BIG",
+          "image_url": "https://cdn.pandascore.co/images/team/image/3249/600px_big_2020_lightmode.png"
+        }
+      },
+      {
+        "type": "Team",
+        "opponent": {
+          "id": 135177,
+          "name": "BC.Game Esports",
+          "location": "",
+          "slug": "bc-game-esports",
+          "modified_at": "2025-03-07T01:26:10Z",
+          "acronym": "BCG",
+          "image_url": "https://cdn.pandascore.co/images/team/image/135177/188px_bc.game_esports_lightmode.png"
+        }
+      }
+    ],
+    "match_type": "best_of",
+    "end_at": null,
+    "number_of_games": 3,
+    "games": [
+      {
+        "complete": false,
+        "id": 166175,
+        "position": 1,
+        "status": "finished",
+        "length": 2357,
+        "finished": true,
+        "match_id": 1136072,
+        "begin_at": "2025-03-08T13:17:58Z",
+        "detailed_stats": true,
+        "end_at": "2025-03-08T13:57:16Z",
+        "forfeit": false,
+        "winner_type": "Team",
+        "winner": {
+          "id": 135177,
+          "type": "Team"
+        }
+      },
+      {
+        "complete": false,
+        "id": 166176,
+        "position": 2,
+        "status": "not_started",
+        "length": null,
+        "finished": false,
+        "match_id": 1136072,
+        "begin_at": null,
+        "detailed_stats": true,
+        "end_at": null,
+        "forfeit": false,
+        "winner_type": "Team",
+        "winner": {
+          "id": null,
+          "type": "Team"
+        }
+      },
+      {
+        "complete": false,
+        "id": 166177,
+        "position": 3,
+        "status": "not_started",
+        "length": null,
+        "finished": false,
+        "match_id": 1136072,
+        "begin_at": null,
+        "detailed_stats": true,
+        "end_at": null,
+        "forfeit": false,
+        "winner_type": "Team",
+        "winner": {
+          "id": null,
+          "type": "Team"
+        }
+      }
+    ],
+    "tournament": {
+      "id": 16196,
+      "name": "Playoffs",
+      "type": "online",
+      "country": null,
+      "begin_at": "2025-03-08T10:00:00Z",
+      "detailed_stats": true,
+      "end_at": "2025-03-11T20:30:00Z",
+      "winner_id": null,
+      "winner_type": "Team",
+      "slug": "cs-go-cct-europe-series-19-2-2025-playoffs",
+      "modified_at": "2025-03-07T01:26:25Z",
+      "serie_id": 9092,
+      "league_id": 5232,
+      "prizepool": "50000 United States Dollar",
+      "tier": "b",
+      "has_bracket": true,
+      "region": "WEU",
+      "live_supported": false
+    },
+    "serie": {
+      "id": 9092,
+      "name": "Series #19",
+      "year": 2025,
+      "begin_at": "2025-02-26T10:00:00Z",
+      "end_at": "2025-03-11T22:00:00Z",
+      "winner_id": null,
+      "winner_type": "Team",
+      "slug": "cs-go-cct-europe-series-19-2-2025",
+      "modified_at": "2025-03-02T08:42:05Z",
+      "league_id": 5232,
+      "season": "2",
+      "full_name": "Series #19 season 2 2025"
+    },
+    "draw": false,
+    "winner_id": null
+  },
+  {
+    "league_id": 4243,
+    "results": [
+      {
+        "team_id": 132426,
+        "score": 0
+      },
+      {
+        "team_id": 136075,
+        "score": 0
+      }
+    ],
+    "detailed_stats": true,
+    "videogame_title": {
+      "id": 13,
+      "name": "Counter-Strike 2",
+      "slug": "cs-2",
+      "videogame_id": 3
+    },
+    "league": {
+      "id": 4243,
+      "name": "ESEA",
+      "url": "https://play.esea.net/",
+      "slug": "cs-go-esea",
+      "modified_at": "2020-11-12T15:51:24Z",
+      "image_url": null
+    },
+    "videogame_version": null,
+    "scheduled_at": "2025-03-08T13:20:00Z",
+    "game_advantage": null,
+    "winner_type": "Team",
+    "rescheduled": true,
+    "serie_id": 8905,
+    "live": {
+      "supported": false,
+      "url": null,
+      "opens_at": null
+    },
+    "streams_list": [
+      {
+        "main": true,
+        "language": "uk",
+        "embed_url": "https://player.twitch.tv/?channel=lzrcats",
+        "official": true,
+        "raw_url": "https://www.twitch.tv/lzrcats"
+      }
+    ],
+    "tournament_id": 16212,
+    "winner": null,
+    "slug": "2025-03-08-70dad205-3e8e-4499-8ad1-b9bb37df0619",
+    "modified_at": "2025-03-08T13:21:33Z",
+    "videogame": {
+      "id": 3,
+      "name": "Counter-Strike",
+      "slug": "cs-go"
+    },
+    "status": "running",
+    "original_scheduled_at": "2025-03-08T19:30:00Z",
+    "forfeit": false,
+    "begin_at": "2025-03-08T13:18:44Z",
+    "id": 1136766,
+    "name": "Lower bracket round 1 match 8: LC vs WC.A",
+    "opponents": [
+      {
+        "type": "Team",
+        "opponent": {
+          "id": 132426,
+          "name": "Lazer Cats",
+          "location": "UA",
+          "slug": "lazer-cats",
+          "modified_at": "2025-03-03T23:09:41Z",
+          "acronym": "LC",
+          "image_url": "https://cdn.pandascore.co/images/team/image/132426/178px_lazer_cats_allmode.png"
+        }
+      },
+      {
+        "type": "Team",
+        "opponent": {
+          "id": 136075,
+          "name": "Wildcard Academy",
+          "location": "US",
+          "slug": "wildcard-academy",
+          "modified_at": "2025-03-05T01:08:16Z",
+          "acronym": "WC.A",
+          "image_url": "https://cdn.pandascore.co/images/team/image/136075/125px_wildcard_2024_lightmode.png"
+        }
+      }
+    ],
+    "match_type": "best_of",
+    "end_at": null,
+    "number_of_games": 3,
+    "games": [
+      {
+        "complete": false,
+        "id": 166481,
+        "position": 1,
+        "status": "running",
+        "length": null,
+        "finished": false,
+        "match_id": 1136766,
+        "begin_at": "2025-03-08T13:18:44Z",
+        "detailed_stats": true,
+        "end_at": null,
+        "forfeit": false,
+        "winner_type": "Team",
+        "winner": {
+          "id": null,
+          "type": "Team"
+        }
+      },
+      {
+        "complete": false,
+        "id": 166482,
+        "position": 2,
+        "status": "not_started",
+        "length": null,
+        "finished": false,
+        "match_id": 1136766,
+        "begin_at": null,
+        "detailed_stats": true,
+        "end_at": null,
+        "forfeit": false,
+        "winner_type": "Team",
+        "winner": {
+          "id": null,
+          "type": "Team"
+        }
+      },
+      {
+        "complete": false,
+        "id": 166483,
+        "position": 3,
+        "status": "not_started",
+        "length": null,
+        "finished": false,
+        "match_id": 1136766,
+        "begin_at": null,
+        "detailed_stats": true,
+        "end_at": null,
+        "forfeit": false,
+        "winner_type": "Team",
+        "winner": {
+          "id": null,
+          "type": "Team"
+        }
+      }
+    ],
+    "tournament": {
+      "id": 16212,
+      "name": "Playoffs",
+      "type": "online",
+      "country": null,
+      "begin_at": "2025-03-04T16:00:00Z",
+      "detailed_stats": true,
+      "end_at": "2025-03-14T23:00:00Z",
+      "winner_id": null,
+      "winner_type": "Team",
+      "slug": "cs-go-esea-advanced-europe-52-2025-playoffs",
+      "modified_at": "2025-03-06T18:45:01Z",
+      "serie_id": 8905,
+      "league_id": 4243,
+      "prizepool": null,
+      "tier": "d",
+      "has_bracket": true,
+      "region": "EEU",
+      "live_supported": false
+    },
+    "serie": {
+      "id": 8905,
+      "name": "Advanced Europe",
+      "year": 2025,
+      "begin_at": "2025-01-12T20:00:00Z",
+      "end_at": null,
+      "winner_id": null,
+      "winner_type": "Team",
+      "slug": "cs-go-esea-advanced-europe-52-2025",
+      "modified_at": "2025-01-12T07:43:05Z",
+      "league_id": 4243,
+      "season": "52",
+      "full_name": "Advanced Europe season 52 2025"
+    },
+    "draw": false,
+    "winner_id": null
+  }
+]

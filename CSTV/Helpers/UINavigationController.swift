@@ -15,33 +15,31 @@ struct NavigationBarAppearences {
 extension UINavigationController {
     func applyCustomStyling() {
         
-        let backImage = UIImage(systemName: "arrow.backward")
-        
         let barButtonAppearance = UIBarButtonItemAppearance(style: .plain)
-                barButtonAppearance.normal.titleTextAttributes = [.foregroundColor: UIColor.clear]
+        barButtonAppearance.normal.titleTextAttributes = [.foregroundColor: UIColor.clear]
+
+        let backImage = UIImage(systemName: "arrow.backward")
         
         //When opaque
         let standardAppearence = UINavigationBarAppearance()
         standardAppearence.configureWithDefaultBackground()
-        
+        standardAppearence.setBackIndicatorImage(backImage, transitionMaskImage: backImage)
         standardAppearence.largeTitleTextAttributes = [.foregroundColor: UIColor.mainBg]
         standardAppearence.titleTextAttributes = [.foregroundColor: UIColor.mainBg]
-        standardAppearence.setBackIndicatorImage(backImage, transitionMaskImage: backImage)
         standardAppearence.backButtonAppearance = barButtonAppearance
         
-        NavigationBarAppearences.standardAppearence = standardAppearence
         navigationBar.standardAppearance = standardAppearence
+        navigationBar.compactAppearance = standardAppearence
+        navigationBar.compactScrollEdgeAppearance = standardAppearence
         
         //When transparent
         let scrollAppearence = UINavigationBarAppearance()
         scrollAppearence.configureWithTransparentBackground()
-        
+        scrollAppearence.setBackIndicatorImage(backImage, transitionMaskImage: backImage)
         scrollAppearence.largeTitleTextAttributes = [.foregroundColor: UIColor.primaryText]
         scrollAppearence.titleTextAttributes = [.foregroundColor: UIColor.primaryText]
-        scrollAppearence.setBackIndicatorImage(backImage, transitionMaskImage: backImage)
         scrollAppearence.backButtonAppearance = barButtonAppearance
-        
-        NavigationBarAppearences.scrollAppearence = scrollAppearence
+
         navigationBar.scrollEdgeAppearance = scrollAppearence
         
         navigationBar.tintColor = .primaryText

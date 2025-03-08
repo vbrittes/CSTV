@@ -19,7 +19,7 @@ class MatchHTTPService: MatchService, HTTPPerformer {
             "page": page + 1,
             "per_page": perPage,
             "token": API.apiToken,
-            "filter[future]": "true"
+            "filter[status]": "running,not_started"
         ]
         
         return http.request(API.matches.url(),
@@ -30,10 +30,10 @@ class MatchHTTPService: MatchService, HTTPPerformer {
             .responseDecodable(of: [MatchObject].self) { response in
                 switch response.result {
                 case .success(let matches):
-                    print("success: \(response.request?.urlRequest)")
+                    print("response: \(response.request)")
                     completion(matches, nil)
                 case .failure(let error):
-//                    print("failure: \(response.request?.urlRequest)")
+                    print("response: \(response.request)")
                     completion(nil, error)
                 }
             }
