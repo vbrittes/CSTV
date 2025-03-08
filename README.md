@@ -16,12 +16,14 @@ The UI was built using Storyboard for interface wireframing, and view-code for b
 ### Dependency management
 All of the dependencies are managed by SPM, compatible to the latest versions respectively.
 ### Unit tests
-Unit tests are focused on View models, in order to detect formatting issues, loading misbehavior and API contract inconsistencies.
+Unit tests are focused mostly on View models, in order to detect formatting issues, loading misbehavior and API contract inconsistencies.
+
 Mock services are provided based in json files for better consistency checking and easily test scenario update, either manually or via pipeline scripts.
 
 ## Running
-To run the project, make sure the local main branch is updated with the remote and if possible use the Xcode's latest version.
-Before compiling, update SPM's dependencies. If any dependency error occurs, cleaning the cache is recommended.
+To run the project, make sure the local main branch is updated with the remote and if possible use Xcode's latest version.
+
+Before compiling, update SPM's dependencies; If any dependency error occurs, cleaning the cache is recommended.
 
 ## Optionals covered
 - Unit tests ✅
