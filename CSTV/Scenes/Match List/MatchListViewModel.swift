@@ -83,11 +83,12 @@ final class MatchListViewModel {
             
             guard let matches = result,
                   error == nil else {
-
-                if error?.asAFError?.isExplicitlyCancelledError == false {
-                    self.errorMessage = "Falha ao obter partidas"
+                if error?.asAFError?.isExplicitlyCancelledError == true {
+                    self.errorMessage = nil
+                    return
                 }
                 
+                self.errorMessage = "Falha ao obter partidas"
                 return
             }
             
