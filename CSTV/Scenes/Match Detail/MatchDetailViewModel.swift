@@ -80,7 +80,7 @@ final class MatchDetailViewModel {
         
     }
     
-    ///The match correponding to detail and players list to be shown 
+    ///The match correponding to detail and players list to be shown
     func prepareForNavigation(match: MatchObject) {
         self.match = match
         loadContent()
