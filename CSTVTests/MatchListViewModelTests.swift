@@ -114,7 +114,6 @@ extension MatchListViewModelTests {
         sut.$matchRepresentations
             .sink { _ in
                 expectation.fulfill()
-                print("kkk aaa \(expectation.expectationDescription)")
             }
             .store(in: &cancellables)
     }
