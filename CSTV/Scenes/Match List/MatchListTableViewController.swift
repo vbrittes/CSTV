@@ -175,10 +175,6 @@ fileprivate extension MatchListTableViewController {
     }
     
     func reloadData() {
-        if tableView.visibleCells.count == 0 {
-            tableView.reloadSections(IndexSet(integer: 0), with: .fade)
-        } else {
-            tableView.reloadData()
-        }
+        tableView.reloadData()
     }
 }
