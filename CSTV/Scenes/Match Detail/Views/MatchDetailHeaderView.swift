@@ -61,16 +61,6 @@ final class MatchDetailHeaderView: UIView {
     }
 }
 
-extension UIFont {
-    static func customRegular(size: CGFloat) -> UIFont {
-        return UIFont(name: "Roboto-Regular", size: size)!
-    }
-    
-    static func customBold(size: CGFloat) -> UIFont {
-        return UIFont(name: "Roboto-Bold", size: size)!
-    }
-}
-
 fileprivate extension MatchDetailHeaderView {
     func setupInterface() {
         backgroundColor = .clear

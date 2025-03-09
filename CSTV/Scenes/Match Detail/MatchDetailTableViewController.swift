@@ -28,6 +28,10 @@ final class MatchDetailTableViewController: UITableViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
+}
+
+//MARK: - UIViewController lifecycle
+extension MatchDetailTableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -54,12 +58,29 @@ final class MatchDetailTableViewController: UITableViewController {
         tableView.layoutIfNeeded()
     }
     
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        super.viewWillTransition(to: size, with: coordinator)
+
+        headerView?.dynamicWidth = size.width
+        
+        coordinator.animate(alongsideTransition: { _ in
+            self.view.layoutIfNeeded()
+        })
+    }
+}
+
+//MARK: State management
+extension MatchDetailTableViewController {
     @objc func refreshAction() {
         viewModel.loadContent()
     }
     
+    fileprivate func shouldDisplayLoading() -> Bool {
+        return viewModel.playerPairsRepresentation?.count == 0 && viewModel.errorMessage == nil
+    }
 }
 
+//MARK: UITableViewDelegate & UITableViewDataSource
 extension MatchDetailTableViewController {
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -102,20 +123,6 @@ extension MatchDetailTableViewController {
         return label
     }
     
-    fileprivate func shouldDisplayLoading() -> Bool {
-        return viewModel.playerPairsRepresentation?.count == 0 && viewModel.errorMessage == nil
-    }
-    
-    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
-        super.viewWillTransition(to: size, with: coordinator)
-
-        headerView?.dynamicWidth = size.width
-        
-        coordinator.animate(alongsideTransition: { _ in
-            self.view.layoutIfNeeded()
-        })
-    }
-    
     override func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
         //Force navigation bar appearence to update
         navigationController?.navigationBar.setNeedsLayout()
@@ -130,6 +137,7 @@ extension MatchDetailTableViewController {
     
 }
 
+//MARK: UI setup
 fileprivate extension MatchDetailTableViewController {
     
     func setupInterface() {
@@ -173,24 +181,6 @@ fileprivate extension MatchDetailTableViewController {
             .store(in: &cancellables)
     }
     
-    func reloadHeaderView() {
-        guard let representation = viewModel.matchRepresentation else { return }
-                
-        headerView?.populate(match: representation)
-    }
-    
-    func reloadData() {
-        if tableView.visibleCells.count == 0 {
-            tableView.reloadSections(IndexSet(integer: 0), with: .fade)
-        } else {
-            tableView.reloadData()
-        }
-    }
-    
-    func reloadNavigationBar() {
-        navigationItem.title = viewModel.matchRepresentation?.formattedLeagueSerie
-    }
-    
     func setupRefreshControl() {
         let refresh = UIRefreshControl()
         refresh.addTarget(self, action: #selector(refreshAction), for: .valueChanged)
@@ -209,6 +199,29 @@ fileprivate extension MatchDetailTableViewController {
         
         navigationController?.navigationItem.backBarButtonItem?.tintColor = .primaryText
         navigationController?.navigationItem.backBarButtonItem = backItem
+    }
+    
+}
+
+//MARK: UI updating
+fileprivate extension MatchDetailTableViewController {
+    
+    func reloadHeaderView() {
+        guard let representation = viewModel.matchRepresentation else { return }
+                
+        headerView?.populate(match: representation)
+    }
+    
+    func reloadData() {
+        if tableView.visibleCells.count == 0 {
+            tableView.reloadSections(IndexSet(integer: 0), with: .fade)
+        } else {
+            tableView.reloadData()
+        }
+    }
+    
+    func reloadNavigationBar() {
+        navigationItem.title = viewModel.matchRepresentation?.formattedLeagueSerie
     }
     
 }

@@ -23,7 +23,11 @@ final class MatchListTableViewController: UITableViewController {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
+
+}
+
+//MARK: - UIViewController lifecycle
+extension MatchListTableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -49,12 +53,28 @@ final class MatchListTableViewController: UITableViewController {
         tableView.layoutIfNeeded()
     }
     
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        super.viewWillTransition(to: size, with: coordinator)
+
+        coordinator.animate(alongsideTransition: { _ in
+            self.view.layoutIfNeeded()
+        })
+    }
+}
+
+//MARK: State management
+extension MatchListTableViewController {
     @objc func refreshAction() {
         viewModel.loadContent()
         refreshControl?.endRefreshing()
     }
+    
+    fileprivate func shouldDisplayLoading() -> Bool {
+        return viewModel.matchRepresentations.count == 0 && viewModel.errorMessage == nil
+    }
 }
 
+//MARK: UITableViewDelegate & UITableViewDataSource
 extension MatchListTableViewController {
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return shouldDisplayLoading() ? 1 : viewModel.matchRepresentations.count
@@ -108,26 +128,16 @@ extension MatchListTableViewController {
         viewModel.updateLastDisplayed(element: indexPath.row)
     }
     
-    fileprivate func shouldDisplayLoading() -> Bool {
-        return viewModel.matchRepresentations.count == 0 && viewModel.errorMessage == nil
-    }
-    
     override func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
         //Force navigation bar appearence to update
         navigationController?.navigationBar.setNeedsLayout()
         navigationController?.navigationBar.layoutIfNeeded()
         navigationController?.navigationBar.setNeedsDisplay()
     }
-    
-    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
-        super.viewWillTransition(to: size, with: coordinator)
 
-        coordinator.animate(alongsideTransition: { _ in
-            self.view.layoutIfNeeded()
-        })
-    }
 }
 
+//MARK: UI setup and updating
 fileprivate extension MatchListTableViewController {
     
     func setupInterface() {
@@ -171,39 +181,4 @@ fileprivate extension MatchListTableViewController {
             tableView.reloadData()
         }
     }
-}
-
-class LoadingTableViewCell: UITableViewCell {
-    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
-        super.init(style: style, reuseIdentifier: reuseIdentifier)
-        
-        addActivityIndicator()
-    }
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
-    fileprivate func addActivityIndicator() {
-        contentView.backgroundColor = .clear
-        backgroundColor = .clear
-        
-        let activityIndicador = UIActivityIndicatorView()
-        activityIndicador.style = .large
-        activityIndicador.color = .primaryText
-        activityIndicador.startAnimating()
-        
-        activityIndicador.translatesAutoresizingMaskIntoConstraints = false
-        
-        contentView.addSubview(activityIndicador)
-        
-        NSLayoutConstraint.activate([
-            NSLayoutConstraint(item: activityIndicador, attribute: .centerX, relatedBy: .equal, toItem: contentView, attribute: .centerX, multiplier: 1, constant: 0),
-            NSLayoutConstraint(item: activityIndicador, attribute: .centerY, relatedBy: .equal, toItem: contentView, attribute: .centerY, multiplier: 1, constant: 0)
-        ])
-    }
-    
-    override func setHighlighted(_ highlighted: Bool, animated: Bool) { }
-    
-    override func setSelected(_ selected: Bool, animated: Bool) { }
 }
