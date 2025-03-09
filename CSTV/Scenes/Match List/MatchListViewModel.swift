@@ -104,6 +104,8 @@ final class MatchListViewModel {
     
     ///Call wight before displaying UI element, to assure automatic paging
     func updateLastDisplayed(element index: Int) {
+        guard matches.count > 0 else { return }
+        
         let triggerElement = Double(matches.count) * (1.0 - nextPageTrigger)
         
         let nextPage = matches.count / pageLength
