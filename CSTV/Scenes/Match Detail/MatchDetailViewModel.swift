@@ -32,15 +32,21 @@ final class MatchDetailViewModel {
     weak var coordinator: Coordinator?
     
     fileprivate var playerService: PlayerService
-    @Published fileprivate var match: MatchObject?
-    fileprivate var teamOnePlayers: [PlayerObject]?
-    fileprivate var teamTwoPlayers: [PlayerObject]?
     
     fileprivate var cancellables = Set<AnyCancellable>()
     
+    fileprivate var teamOnePlayers: [PlayerObject]?
+    fileprivate var teamTwoPlayers: [PlayerObject]?
+    
+    ///Bind internaly to sync MatchObject -> MatchDetailDescriber
+    @Published fileprivate var match: MatchObject?
+    
+    ///Bind to display error feedback
     @Published var errorMessage: String?
     
+    ///Bind to update interface according to loaded content
     @Published var matchRepresentation: MatchDetailDescriber?
+    ///Bind to update interface according to loaded content
     @Published var playerPairsRepresentation: [MatchPlayerPairDescriber]?
     
     init(playerService: PlayerService = PlayerHTTPService()) {
@@ -48,6 +54,7 @@ final class MatchDetailViewModel {
         bind()
     }
     
+    ///Load players list; match values are reused from navigation
     func loadContent() {
         guard let matchID = match?.id else {
             return
@@ -73,6 +80,7 @@ final class MatchDetailViewModel {
         
     }
     
+    ///The match correponding to detail and players list to be shown 
     func prepareForNavigation(match: MatchObject) {
         self.match = match
         loadContent()
