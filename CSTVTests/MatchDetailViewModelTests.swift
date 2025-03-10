@@ -16,7 +16,7 @@ final class MatchDetailViewModelTests: XCTestCase {
     private var mockMatch: MatchObject!
     
     override func setUp() {
-        sut = MatchDetailViewModel(playerService: PlayerMockService())
+        sut = MatchDetailViewModel(playerService: PlayerMockService(), dateFormatHelper: DateFormatHelper(now: DateFormatHelper.baseDate))
         loadMatchMock()
     }
     

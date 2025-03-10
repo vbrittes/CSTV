@@ -29,7 +29,7 @@ class DateFormatHelper {
     }
     
     private func formattedDay(for date: Date) -> String {
-        guard !Calendar.current.isDateInToday(date) else {
+        guard !Calendar.current.isDate(date, inSameDayAs: now) else {
             return "Hoje"
         }
         

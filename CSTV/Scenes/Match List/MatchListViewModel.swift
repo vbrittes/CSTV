@@ -35,6 +35,7 @@ final class MatchListViewModel {
     
     fileprivate var matchService: MatchService
     fileprivate var fetchRequest: DataRequest?
+    fileprivate var dateFormatHelper: DateFormatHelper
     fileprivate var loadingNextPage = false
     
     fileprivate var cancellables = Set<AnyCancellable>()
@@ -53,8 +54,9 @@ final class MatchListViewModel {
     ///The last page missing portion to trigger next page loading
     fileprivate let nextPageTrigger = 0.25
     
-    init(matchService: MatchService = MatchHTTPService()) {
+    init(matchService: MatchService = MatchHTTPService(), dateFormatHelper: DateFormatHelper = DateFormatHelper()) {
         self.matchService = matchService
+        self.dateFormatHelper = dateFormatHelper
         bind()
     }
     
@@ -124,12 +126,10 @@ final class MatchListViewModel {
 
 fileprivate extension MatchListViewModel {
     func bind() {
-        let f = DateFormatHelper()
-        
         $matches.map { match in
             match.map { m in
                 MatchListItemDescriber(
-                    formattedStartDate: m.status == .running ? "AGORA" : f.format(dateString: m.beginAt) ?? "",
+                    formattedStartDate: m.status == .running ? "AGORA" : self.dateFormatHelper.format(dateString: m.beginAt) ?? "",
                     startDateHighlight: m.status == .running,
                     teamOneImageURL: URL(string: m.opponents.first?.opponent?.imageURL ?? ""),
                     teamOneName: m.opponents.first?.opponent?.name ?? "Não definido",
