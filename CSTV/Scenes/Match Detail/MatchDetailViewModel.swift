@@ -32,6 +32,7 @@ final class MatchDetailViewModel {
     weak var coordinator: Coordinator?
     
     fileprivate var playerService: PlayerService
+    fileprivate var dateFormatHelper: DateFormatHelper
     
     fileprivate var cancellables = Set<AnyCancellable>()
     
@@ -49,8 +50,9 @@ final class MatchDetailViewModel {
     ///Bind to update interface according to loaded content
     @Published var playerPairsRepresentation: [MatchPlayerPairDescriber]?
     
-    init(playerService: PlayerService = PlayerHTTPService()) {
+    init(playerService: PlayerService = PlayerHTTPService(), dateFormatHelper: DateFormatHelper = DateFormatHelper()) {
         self.playerService = playerService
+        self.dateFormatHelper = dateFormatHelper
         bind()
     }
     
@@ -90,14 +92,12 @@ final class MatchDetailViewModel {
 fileprivate extension MatchDetailViewModel {
     
     func bind() {
-        let f = DateFormatHelper()
-        
         $match.map { match in
             match.map { m in
                 let firstOpponent = m.opponents.first?.opponent
                 let secondOpponent = m.opponents.last?.opponent
                 return MatchDetailDescriber(
-                    formattedStartDate: f.format(dateString: m.beginAt) ?? "",
+                    formattedStartDate: self.dateFormatHelper.format(dateString: m.beginAt) ?? "",
                     formattedLeagueSerie: "\(m.league.name): \(m.serie.name ?? "")",
                     teamOneImageURL: URL(string: firstOpponent?.imageURL ?? ""),
                     teamOneName: firstOpponent?.name ?? "Não definido",

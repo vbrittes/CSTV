@@ -11,18 +11,10 @@ import XCTest
 final class DateFormatterHelperTests: XCTestCase {
     
     var sut: DateFormatHelper!
-    
-    lazy var baseDate: Date = {
-        let formatter = DateFormatter()
-        formatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
-        
-        let date = formatter.date(from: "2025-03-08 14:15:16")!
-        
-        return date
-    }()
+    let baseDate = DateFormatHelper.baseDate
     
     override func setUp() {
-        sut = DateFormatHelper(now: baseDate)
+        sut = DateFormatHelper(now: DateFormatHelper.baseDate)
     }
     
     func testInvalidString() {
@@ -50,5 +42,16 @@ final class DateFormatterHelperTests: XCTestCase {
         let result = sut.format(date: farFuture)
         
         XCTAssertEqual(result, "16.03, 14:15")
+    }
+}
+
+extension DateFormatHelper {
+    static var baseDate: Date {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+        
+        let date = formatter.date(from: "2025-03-08 14:15:16")!
+        
+        return date
     }
 }
